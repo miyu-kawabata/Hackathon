@@ -11,6 +11,10 @@
 |
 */
 
+
+    
+
+
 Route::get('/', 'UsersController@index');
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -21,4 +25,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController');
+    Route::resource('groups', 'GroupsController');
+
 });
