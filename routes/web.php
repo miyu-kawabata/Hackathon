@@ -14,8 +14,8 @@
 
     
 
-
-Route::get('/', 'UsersController@index');
+//UsersController@indexに直してからgit push 
+Route::get('/', 'GroupsController@index');
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
@@ -26,5 +26,11 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController');
     Route::resource('groups', 'GroupsController');
+    
+    Route::group(['prefix' => 'participation/{id}'], function () {
+        Route::post('join', 'UserJoinController@store')->name('group.join');
+        Route::delete('exit', 'UserJoinController@destroy')->name('group.exit');
+        Route::get('participants', 'UsersController@participants')->name('groups.participants');
+    });
 
 });
