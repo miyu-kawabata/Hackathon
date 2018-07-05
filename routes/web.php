@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', 'UsersController@index');
+
+    
+
+//UsersController@indexに直してからgit push 
+Route::get('/', 'GroupsController@index');
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
@@ -21,6 +25,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController');
+<<<<<<< HEAD
 
  Route::group(['prefix' => 'users/{id}'], function () {
                 Route::post('follow', 'FollowController@store')->name('user.follow');
@@ -28,4 +33,14 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('followings', 'UsersController@followings')->name('users.followings');
                 Route::get('followers', 'UsersController@followers')->name('users.followers');
                 });
+=======
+    Route::resource('groups', 'GroupsController');
+    
+    Route::group(['prefix' => 'participation/{id}'], function () {
+        Route::post('join', 'UserJoinController@store')->name('group.join');
+        Route::delete('exit', 'UserJoinController@destroy')->name('group.exit');
+        Route::get('participants', 'UsersController@participants')->name('groups.participants');
+    });
+
+>>>>>>> 54fbae0159833060a2096838548d6450b760cda1
 });
