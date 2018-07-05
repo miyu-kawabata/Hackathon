@@ -10,21 +10,28 @@ class GroupsController extends Controller
 {
     public function index()
     {
+        //テスト用
+        //category pageにつながる
         
+        $group = Group::all();
+        
+        return view('categories.category', [
+            'groups' => $group,
+            ]);
     }
     
     public function show($id)
     {
-        if (\Auth::check()) {
-        $groupname = Group::find($id);
+        //category pageからgroup pageを表示する
         
-        $data = [
-            'groupname' => $groupname,
-            'date' => $date,
-            'description' => $description
-        ];
-
-        return view('groups.group', $data);
+        if (\Auth::check()) {
+        $group = Group::find($id);
+        $user = \Auth::user();
+        
+        return view('groups.group', [
+            'group' => $group,
+            'user' => $user
+            ]);
     }
     }
     

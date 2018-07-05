@@ -32,4 +32,38 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+    
+  
+  public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'members', 'user_id', 'group_id')->withTimestamps();
+    }
+    
+    public function join($groupId)
+{
+    $exist = $this->is_joining($groupId);
+   
+    if ($exist) {
+        return false;
+    } else {
+        $this->groups()->attach($groupId);
+        return true;
+    }
+}
+
+   public function exit($groupId)
+    {
+    $exist = $this->is_joining($groupId);
+   
+    if ($exist) {
+        $this->groups()->detach($groupId);
+        return true;
+    } else {
+        return false;
+    }
+    }
+
+    public function is_joining($groupId) {
+    return $this->groups()->where('group_id', $groupId)->exists();
+    }
 }

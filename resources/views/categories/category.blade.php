@@ -5,21 +5,22 @@
         <aside class="col-xs-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ $group->groupname }}</h3>
+                    <h3 class="panel-title">カテゴリー:test</h3>
                 </div>
                 <div class="panel-body">
-                
+                 @foreach ($groups as $group)
+                    <ul>
+                        <li>{!! link_to_route('groups.show',  $group->groupname, ['id' => $group->id])!!}</li>
+                    </ul>
+                 @endforeach
+                  
                 </div>
             </div>
             
         </aside>
         <div class="col-xs-8">
             
-            <ul>
-                <li>{{ $group->date }}</li>
-                <li>{{ $group->description }}</li>
-                @include('participate_button.join_button', ['user' => $user])
-            </ul>
+            
         </div>
     </div>
 @endsection
