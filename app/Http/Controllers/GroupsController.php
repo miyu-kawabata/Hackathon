@@ -33,6 +33,7 @@ class GroupsController extends Controller
             'group' => $group,
             'user' => $user
             ]);
+            
     }
 }
     public function create()

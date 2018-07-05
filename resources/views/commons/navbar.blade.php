@@ -19,7 +19,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nickname }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('users.index') }}">My page</a></li>
-                            　　<li><a href="{{ route('users.index') }}">カテゴリー一覧</a></li>
+                            　　<li><a href="{{ route('groups.index') }}">カテゴリー一覧</a></li>
 
 
                                 <li role="separator" class="divider"></li>

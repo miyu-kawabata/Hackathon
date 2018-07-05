@@ -56,8 +56,13 @@ class User extends Authenticatable
     } else {
         // follow if not following
         $this->followings()->attach($userId);
+<<<<<<< HEAD
 }}
   
+=======
+    }
+}
+>>>>>>> d86b7c6c089e0096c5306a13488caf1ed019c4dd
   public function groups()
     {
         return $this->belongsToMany(Group::class, 'members', 'user_id', 'group_id')->withTimestamps();

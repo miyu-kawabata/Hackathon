@@ -13,14 +13,21 @@
             </div>
             
         </aside>
-        <div class="col-xs-8">
+        <div class="col-xs-4">
             
             <ul>
                 <li>{{ $group->date }}</li>
                 <li>{{ $group->description }}</li>
-                @include('participate_button.join_button', ['user' => $user])
+                @include('participate.join_button', ['user' => $user])
+            </ul>
+        </div>
+         <div class="col-xs-4">
+            <ul class="nav nav-tabs nav-justified">
+                
             </ul>
             <p> {!! link_to_route('groups.edit', '編集ページ',  ['id' => $group->id]) !!}</p>
         </div>
     </div>
 @endsection
+
+

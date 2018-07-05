@@ -14,6 +14,10 @@
 
     
 
+<<<<<<< HEAD
+=======
+//UsersController@indexに直してからgit push 
+>>>>>>> d86b7c6c089e0096c5306a13488caf1ed019c4dd
 Route::get('/', 'UsersController@index');
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -31,7 +35,10 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('followings', 'UsersController@followings')->name('users.followings');
                 Route::get('followers', 'UsersController@followers')->name('users.followers');
                 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> d86b7c6c089e0096c5306a13488caf1ed019c4dd
     Route::resource('groups', 'GroupsController');
     
     Route::group(['prefix' => 'participation/{id}'], function () {
@@ -40,5 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('participants', 'UsersController@participants')->name('groups.participants');
     });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d86b7c6c089e0096c5306a13488caf1ed019c4dd
 });
