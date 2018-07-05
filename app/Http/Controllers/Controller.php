@@ -16,6 +16,7 @@ class Controller extends BaseController
         
         $count_followings = $user->followings()->count();
         $count_followers = $user->followers()->count();
+        $count_participants = $user->groups()->count();
         
 
 
@@ -24,7 +25,7 @@ class Controller extends BaseController
            
             'count_followings' => $count_followings,
             'count_followers' => $count_followers,
-
+            'count_participants' => $count_participants,
         ];
     }
 }
