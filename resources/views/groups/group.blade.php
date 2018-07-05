@@ -20,6 +20,7 @@
                 <li>{{ $group->description }}</li>
                 @include('participate_button.join_button', ['user' => $user])
             </ul>
+            <p> {!! link_to_route('groups.edit', '編集ページ',  ['id' => $group->id]) !!}</p>
         </div>
     </div>
 @endsection

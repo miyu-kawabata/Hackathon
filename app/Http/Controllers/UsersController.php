@@ -102,8 +102,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $data = [];
-        if (\Auth::check()) {
+      if (\Auth::check()) {
             $user = \Auth::user();
             $profile=$user->profile()->getResults();
           
@@ -121,7 +120,6 @@ class UsersController extends Controller
             return view('welcome');
     
         }    
-            
     }
 
     /**
@@ -133,8 +131,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, ['comment'
-             => 'max:191',
+        $this->validate($request, [
+            'comment' => 'max:191',
         ]);
          $profile=Profile::find($id);
          $profile->comment = $request->comment;
