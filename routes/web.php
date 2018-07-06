@@ -41,5 +41,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('participants', 'UsersController@participants')->name('groups.participants');
     });
 
+<<<<<<< HEAD
+=======
+   Route::resource('chats', 'ChatsController', ['only' => ['store', 'destroy']]);
+>>>>>>> d0af8d0db2ae9d71029a94c7aa91b8d3d25a50c4
 
 });
