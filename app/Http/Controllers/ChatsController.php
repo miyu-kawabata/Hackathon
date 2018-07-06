@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Group;
+use App\Chat;
+
+class ChatsController extends Controller
+{
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'chat' => 'required|max:191',
+        ]);
+        
+        $user = \Auth::user();
+        $group = Group::find($id);
+       
+         $chat = new Chat();
+         $chat->chat = $request->chat;
+    $chat->user_id = $user->id;
+    $chat->group_id = $group->id;
+            $profile->save();
+            
+        
+
+        return redirect('/');
+    
+    }
+      public function destroy($id)
+    {
+        $chat = \App\Chat::find($id);
+
+        if (\Auth::user()->id === $chat->user_id) {
+            $chat->delete();
+        }
+
+        return redirect()->back();
+    }
+}

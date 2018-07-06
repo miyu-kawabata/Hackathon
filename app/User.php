@@ -56,16 +56,11 @@ class User extends Authenticatable
     } else {
         // follow if not following
         $this->followings()->attach($userId);
-<<<<<<< HEAD
 }}
   
-=======
-    }
-}
->>>>>>> d86b7c6c089e0096c5306a13488caf1ed019c4dd
   public function groups()
     {
-        return $this->belongsToMany(Group::class, 'members', 'user_id', 'group_id')->withTimestamps();
+        return $this->belongsToMany(Group::class, 'members', 'group_id', 'user_id')->withTimestamps();
     }
     
     public function join($groupId)
@@ -120,5 +115,10 @@ public function is_following($userId) {
 
     public function is_joining($groupId) {
     return $this->groups()->where('group_id', $groupId)->exists();
+    }
+    
+    public function chat()
+    {
+        return $this->hasMany(Chat::class);
     }
 }

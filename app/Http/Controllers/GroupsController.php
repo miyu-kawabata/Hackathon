@@ -28,10 +28,12 @@ class GroupsController extends Controller
         if (\Auth::check()) {
         $group = Group::find($id);
         $user = \Auth::user();
+        $chats = $group->chat();
         
         return view('groups.group', [
             'group' => $group,
-            'user' => $user
+            'user' => $user,
+            'chats'=>$chats
             ]);
             
     }
