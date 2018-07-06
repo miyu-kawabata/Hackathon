@@ -8,23 +8,23 @@ use App\Chat;
 
 class ChatsController extends Controller
 {
-    public function update(Request $request, $id)
+    
+    //神案件。保留
+    public function store(Request $request /*,$id*/)
     {
         $this->validate($request, [
             'chat' => 'required|max:191',
         ]);
         
         $user = \Auth::user();
-        $group = Group::find($id);
+        /*$group = Group::find($id);*/
        
          $chat = new Chat();
          $chat->chat = $request->chat;
-    $chat->user_id = $user->id;
-    $chat->group_id = $group->id;
-            $profile->save();
+         $chat->user_id = $user->id;
+        /* $chat->group_id = $group->id;*/
+         $chat->save();
             
-        
-
         return redirect('/');
     
     }
