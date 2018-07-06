@@ -26,12 +26,14 @@
          <div class="col-xs-4">
             <ul class="nav nav-tabs nav-justified">
                 
-                @foreach ($participants as $participant)
+                
                 <ul>
-                    <p>参加者一覧</p>
+                    <li>参加者一覧</li>
+                    @foreach ($participants as $participant)
                     <li>{{ $participant->nickname }}</li>
+                    @endforeach
                 </ul>
-                @endforeach
+                
                 
                 
                 @foreach ($chats as $chat)

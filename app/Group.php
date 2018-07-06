@@ -12,7 +12,7 @@ class Group extends Model
     
     public function user_participants()
     {
-        return $this->hasMany(User::class, 'members', 'group_id', 'user_id');
+        return $this->belongsToMany(User::class, 'members', 'group_id', 'user_id');
     }
     
      public function chat()
