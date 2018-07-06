@@ -1,11 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    
-        <div class="center jumbotron">
-            <div class="text-center">
-                <h1>Welcome to the Hackathon</h1>
-              {!! link_to_route('signup.get', 'Sign up now!', null, ['class' => 'btn btn-lg btn-primary']) !!}
-            </div>
-        </div>
+ 
+    <script src='http://petit.cc/event/heart/heart.js' type='text/javascript' charset='shift_jis'></script>
+  
+        <audio src="Carly_Rae_Jepsen_-_I_Really_Like_You[SaveFrom.online].mp3" autoplay></audio>
+        <div class="cover">
+            
+        
+                
+              <div class ="text-center">
+               <a href ="{{route('signup.get') }}" class="btn" >'Sign up now!' </a> 
+        　　　</div>
+       </div>
+       
+       
+      
 @endsection

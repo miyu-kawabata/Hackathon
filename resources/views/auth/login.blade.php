@@ -9,14 +9,11 @@
         <div class="col-md-6 col-md-offset-3">
 
             {!! Form::open(['route' => 'login.post']) !!}
-<<<<<<< HEAD
 
-=======
                 <div class="form-group">
                     {!! Form::label('nickname', 'nickname') !!}
                     {!! Form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}
                 </div>
->>>>>>> d86b7c6c089e0096c5306a13488caf1ed019c4dd
 
                 <div class="form-group">
                     {!! Form::label('password', 'Password') !!}
