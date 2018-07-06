@@ -19,23 +19,34 @@
                 <li>{{ $group->date }}</li>
                 <li>{{ $group->description }}</li>
                 @include('participate.join_button', ['user' => $user])
+                
+            
             </ul>
         </div>
          <div class="col-xs-4">
             <ul class="nav nav-tabs nav-justified">
+                
+                @foreach ($participants as $participant)
+                <ul>
+                    <p>参加者一覧</p>
+                    <li>{{ $participant->nickname }}</li>
+                </ul>
+                @endforeach
+                
+                
                 @foreach ($chats as $chat)
-    <?php $user = $chat->user; ?>
-    <li class="media">
-        <div class="media-body">
-            <div>
-                {!! link_to_route('users.show', $user->nickname, ['id' => $user->id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span>
-            </div>
-            <div>
-                <p>{!! nl2br(e($chat->chat)) !!}</p>
-            </div>
-        </div>
-    </li>
-@endforeach
+                <?php $user = $chat->user; ?>
+                <li class="media">
+                    <div class="media-body">
+                        <div>
+                            {!! link_to_route('users.show', $user->nickname, ['id' => $user->id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span>
+                        </div>
+                        <div>
+                            <p>{!! nl2br(e($chat->chat)) !!}</p>
+                        </div>
+                    </div>
+                </li>
+                @endforeach
                 
             </ul>
             <p> {!! link_to_route('groups.edit', '編集ページ',  ['id' => $group->id]) !!}</p>
@@ -54,5 +65,3 @@
         </div>
     </div>
 @endsection
-
-

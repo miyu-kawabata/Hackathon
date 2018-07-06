@@ -29,11 +29,13 @@ class GroupsController extends Controller
         $group = Group::find($id);
         $user = \Auth::user();
         $chats = $group->chat();
-        
+        $participants = $group->user_participants()->paginate(10);
+        dd($participants);
         return view('groups.group', [
             'group' => $group,
             'user' => $user,
-            'chats'=>$chats
+            'chats'=>$chats,
+            'participants'=>$participants,
             ]);
             
     }

@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
 
-  public function profile()
+    public function profile()
     {
         return $this->hasOne(Profile::class);
     }
@@ -44,7 +44,7 @@ class User extends Authenticatable
     }
     
     public function follow($userId)
-{
+    {
     // confirm if already following
     $exist = $this->is_following($userId);
     // confirming that it is not you
@@ -56,27 +56,11 @@ class User extends Authenticatable
     } else {
         // follow if not following
         $this->followings()->attach($userId);
-}}
-  
-  public function groups()
-    {
-        return $this->belongsToMany(Group::class, 'members', 'group_id', 'user_id')->withTimestamps();
     }
-    
-    public function join($groupId)
-{
-    $exist = $this->is_joining($groupId);
-   
-    if ($exist) {
-        return false;
-    } else {
-        $this->groups()->attach($groupId);
-        return true;
     }
-}
 
-public function unfollow($userId)
-{
+    public function unfollow($userId)
+    {
     // confirming if already following
     $exist = $this->is_following($userId);
     // confirming that it is not you
@@ -91,14 +75,29 @@ public function unfollow($userId)
         // do nothing if not following
         return false;
     }
-}
+    }
 
 
-public function is_following($userId) {
+    public function is_following($userId) {
     return $this->followings()->where('follow_id', $userId)->exists();
-}
+    }
 
-
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'members', 'user_id', 'group_id');
+    }
+    
+    public function join($groupId)
+    {
+    $exist = $this->is_joining($groupId);
+   
+    if ($exist) {
+        return false;
+    } else {
+        $this->groups()->attach($groupId);
+        return true;
+    }
+    }
 
 
    public function exit($groupId)
