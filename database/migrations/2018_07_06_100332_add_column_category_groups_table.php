@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddGroupId extends Migration
+class AddColumnCategoryGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class AddGroupId extends Migration
      */
     public function up()
     {
-        Schema::table('chats', function (Blueprint $table) {
-            $table->integer('group_id')->unsigned()->index();
-            
-            $table->foreign('group_id')->references('id')->on('groups');
+        Schema::table('groups', function (Blueprint $table) {
+            $table->string('category');
         });
     }
 
@@ -27,8 +25,8 @@ class AddGroupId extends Migration
      */
     public function down()
     {
-        Schema::table('chats', function (Blueprint $table) {
-            $table->dropColumn('group_id');
+        Schema::table('groups', function (Blueprint $table) {
+            $table->dropColumn('category');
         });
     }
 }

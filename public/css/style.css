@@ -7,7 +7,7 @@
 }
 
 h1{
-    font-family:'Segoe Script',cursive;;
+    font-family:'Segoe Script',cursive;
 }
 
 .btn{
@@ -192,4 +192,16 @@ section .inner div {
         transform: translateY(100px);
         opacity: 0.3;
     }
+}
+
+
+h3 {
+    
+    color:#5a4498; 
+    font-weight:bold;
+    font-family: "Comic Sans MS";
+    text-shadow: 5px 5px 3px #ea5549;
+    
+    
+    
 }

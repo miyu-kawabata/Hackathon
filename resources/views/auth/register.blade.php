@@ -10,18 +10,11 @@
 
             {!! Form::open(['route' => 'signup.post']) !!}
                 <div class="form-group">
-<<<<<<< HEAD
                     {!! Form::label('nickname', 'Nickname') !!}
                     {!! Form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}
                 </div>
 
 
-=======
-                    {!! Form::label('nickname', 'NickName') !!}
-                    {!! Form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}
-                </div>
-
->>>>>>> d0af8d0db2ae9d71029a94c7aa91b8d3d25a50c4
                 <div class="form-group">
                     {!! Form::label('password', 'Password') !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
