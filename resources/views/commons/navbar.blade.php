@@ -11,8 +11,10 @@
                 <a class="navbar-brand" href="/">Hackathon</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
+                      <li>{!! link_to_route('groups.create', 'グループ作成') !!}</li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nickname }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">

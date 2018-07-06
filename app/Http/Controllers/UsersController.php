@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Profile;
 
 class UsersController extends Controller
 {
@@ -24,6 +26,7 @@ class UsersController extends Controller
                 
                 
             ];
+            $data += $this->counts($user);
             return view('users.show', $data);
         }else {
             return view('welcome');
@@ -37,7 +40,10 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        $this->validate($request, [
+            'content' => 'required|max:191',
+        ]);
+        
     }
 
     /**
@@ -48,7 +54,33 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         
+        $data=[];
+       if (\Auth::check()) {
+            $user = \Auth::user();  
+            $profile = new profile;
+            $user->profile()->create([
+            
+         
+            $profile->comment = $request->comment
+        
+        ]);
+        
+        $profile=$user->profile();
+    
+            $data = [
+                'user' => $user,/*name,e-mail,password*/
+                'profile' =>$profile,
+                
+            
+            
+            ];
+             $data += $this->counts($user);
+                 
+            
+            return view('users.show', $data);
+            }
+    
     }
 
     /**
@@ -70,7 +102,24 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+      if (\Auth::check()) {
+            $user = \Auth::user();
+            $profile=$user->profile()->getResults();
+          
+            $data = [
+                'user' => $user,
+                'profile' =>$profile,
+            ];
+            
+            
+            return view('users.edit', $data);
+            
+            
+           
+        }else {
+            return view('welcome');
+    
+        }    
     }
 
     /**
@@ -82,7 +131,15 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'comment' => 'max:191',
+        ]);
+         $profile=Profile::find($id);
+         $profile->comment = $request->comment;
+    
+            $profile->save();
+            
+       return redirect('/');
     }
 
     /**
@@ -93,6 +150,45 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $profile = \App\Profile::find($id);
+
+        if (\Auth::user()->id === $profile->user_id) {
+            $profile->delete();
+        }
+
+        return redirect()->back();
     }
+    
+      
+    public function followings($id)
+    {
+        $user = User::find($id);
+        $followings = $user->followings()->paginate(10);
+
+        $data = [
+            'user' => $user,
+            'users' => $followings,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.followings', $data);
+    }
+
+    public function followers($id)
+    {
+        $user = User::find($id);
+        $followers = $user->followers()->paginate(10);
+
+        $data = [
+            'user' => $user,
+            'users' => $followers,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.followers', $data);
+    }
+
+
 }

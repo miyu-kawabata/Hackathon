@@ -9,6 +9,7 @@
         <div class="col-md-6 col-md-offset-3">
 
             {!! Form::open(['route' => 'login.post']) !!}
+
                 <div class="form-group">
                     {!! Form::label('nickname', 'nickname') !!}
                     {!! Form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}

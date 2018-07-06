@@ -10,11 +10,15 @@ class Group extends Model
         'groupname', 'description','date'
     ];
     
-    public function users()
+    public function user_participants()
     {
-        return $this->hasMany(User::class, 'members', 'user_id', 'group_id')->withTimestamps();
+        return $this->hasMany(User::class, 'members', 'group_id', 'user_id');
     }
     
+     public function chat()
+    {
+        return $this->hasMany(Chat::class);
+    }
     
 
 
