@@ -150,7 +150,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-         $micropost = \App\Profile::find($id);
+         $profile = \App\Profile::find($id);
 
         if (\Auth::user()->id === $profile->user_id) {
             $profile->delete();
