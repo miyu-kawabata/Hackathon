@@ -19,6 +19,10 @@
                 <li>{{ $group->date }}</li>
                 <li>{{ $group->description }}</li>
                 @include('participate_button.join_button', ['user' => $user])
+                
+                @foreach($participants as participant)
+                   <li>{{ $participant->user()->nickname}}}</li>
+                @endforeach 
             </ul>
         </div>
     </div>

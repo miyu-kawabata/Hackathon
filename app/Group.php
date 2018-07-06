@@ -12,7 +12,7 @@ class Group extends Model
     
     public function users()
     {
-        return $this->hasMany(User::class, 'members', 'group_id', 'user_id')->withTimestamps();
+        return $this->hasMany(User::class, 'members', 'user_id', 'group_id')->withTimestamps();
     }
     
     
