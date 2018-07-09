@@ -39,11 +39,7 @@ class LoginController extends Controller
     
      public function username()
     {
-<<<<<<< HEAD
-        return 'email';
-=======
         return 'nickname';
->>>>>>> 5556033782267805f5b953ff498a49a4f1fb5653
 		//'email'を任意のカラム名に変えてください。
     }
 }

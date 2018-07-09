@@ -9,7 +9,7 @@ class UserJoinController extends Controller
      public function store(Request $request, $id)
     {
         \Auth::user()->join($id);
-        return redirect()->back();
+        return redirect()->route('groups.show',[$id]);
     }
 
     public function destroy($id)

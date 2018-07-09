@@ -38,7 +38,7 @@ class GroupsController extends Controller
         if (\Auth::check()) {
         $group = Group::find($id);
         $user = \Auth::user();
-        $chats = $group->chat();
+        $chats = $group->chat()->getResults();
         $participants = $group->user_participants()->paginate(10);
         
         return view('groups.group', [
@@ -76,11 +76,14 @@ class GroupsController extends Controller
         $group->description = $request->description;
         $group->date = $request->date;
         $group->save();
+        
+        $participants = $group->user_participants() -> paginate(10);
 
         $user = \Auth::user();
         return view('groups.group',[
             'group' => $group,
             'user' => $user,
+            'participants' =>$participants,
             ]);
         
     }
@@ -109,15 +112,25 @@ class GroupsController extends Controller
         $group->description = $request->description;
         $group->save();
         
+         $participants = $group->user_participants() -> paginate(10);
         
         $user = \Auth::user();
         return view('groups.group',[
             'group' => $group,
             'user' => $user,
+            'participants' =>$participants,
             ]);
         
         
     }
+  
+   public function destroy($id)
+    {
+        $group = \App\Group::find($id);
+            $group->delete();
+        
 
+        return redirect('/groups');
+    }
 
 }

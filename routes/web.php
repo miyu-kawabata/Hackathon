@@ -42,7 +42,9 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
 
-   Route::resource('chats', 'ChatsController', ['only' => ['store', 'destroy']]);
+   Route::post('chats/{id}','ChatsController@store')->name('chats.store');
+   Route::delete('chats/{id}','ChatsController@destroy')->name('chats.destroy');
+   
 
 
 });

@@ -21,6 +21,21 @@
             </div>
             
             <div class="form-group">
+                 
+                  {!! Form::label('category', 'カテゴリー:') !!}
+                    {!! Form::label('category', 'スポーツ:') !!}
+                    {!! Form::radio('category', 'スポーツ') !!}
+                    {!! Form::label('category', 'グルメ:') !!}
+                    {!! Form::radio('category', 'グルメ') !!}
+                    {!! Form::label('category', '音楽:') !!}
+                    {!! Form::radio('category', '音楽') !!}
+                    {!! Form::label('category', '美容:') !!}
+                    {!! Form::radio('category', '美容') !!}
+                    {!! Form::label('category', 'ファッション:') !!}
+                    {!! Form::radio('category', 'ファッション') !!}
+            </div>
+            
+            <div class="form-group">
                  {!! Form::label ('date','開催日') !!}
                  {!! Form::text ('date',null,['class' => 'form-control']) !!}
             </div>
@@ -30,7 +45,9 @@
             </div>
             
                {!! Form::submit ('投稿',['class' =>'btn btn-primary']) !!}
-
+                   {!! Form::close() !!}
+                {!! Form::open(['route' => ['groups.destroy', $group->id], 'method' => 'delete']) !!}
+                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
             {!! Form::close() !!}
 
         </div>

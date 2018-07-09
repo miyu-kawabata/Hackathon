@@ -55,31 +55,14 @@ class UsersController extends Controller
     public function store(Request $request)
     {
          
-        $data=[];
-       if (\Auth::check()) {
-            $user = \Auth::user();  
-            $profile = new profile;
-            $user->profile()->create([
-            
-         
-            $profile->comment = $request->comment
-        
+       $this->validate($request, [
+            'comment' => 'required|max:191',
         ]);
         
-        $profile=$user->profile();
-    
-            $data = [
-                'user' => $user,/*name,e-mail,password*/
-                'profile' =>$profile,
-                
-            
-            
-            ];
-             $data += $this->counts($user);
-                 
-            
-            return view('users.show', $data);
-            }
+        $request->user()->profile()->create([
+            'comment' => $request->comment,
+        ]);
+            return redirect('/');
     
     }
 

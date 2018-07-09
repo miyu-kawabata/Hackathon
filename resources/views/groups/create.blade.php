@@ -27,7 +27,7 @@
             <div class="form-group">
                  
                   {!! Form::label('category', 'カテゴリー:') !!}
-                    {!! Form::label('', 'スポーツ:') !!}
+                    {!! Form::label('category', 'スポーツ:') !!}
                     {!! Form::radio('category', 'スポーツ') !!}
                     {!! Form::label('category', 'グルメ:') !!}
                     {!! Form::radio('category', 'グルメ') !!}
