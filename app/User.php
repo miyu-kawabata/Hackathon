@@ -102,4 +102,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Chat::class);
     }
+    
+    public function organizer_group()
+    {
+        return $this->hasMany(Group::class);
+    }
 }

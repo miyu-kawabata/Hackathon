@@ -21,7 +21,8 @@
                 <li>{{ $group->description }}</li>
                 @include('participate.join_button', ['user' => $user])
                 
-            
+                オーガナイザー
+                <p>{!! link_to_route('tanins.show',$organizer->nickname, ['id' => $organizer->id]) !!}</p>
             </ul>
         </div>
 
@@ -37,8 +38,10 @@
                 </ul>
                 
             </ul>
+            @if(Auth::user()->id == $organizer->id)
             <p> {!! link_to_route('groups.edit', '編集ページ',  ['id' => $group->id]) !!}</p>
                   {!! Form::open(['route' => ['chats.store', $group->id],'method' => 'post'])!!}
+            @endif
                       <div class="form-group">
                           {!! Form::textarea('chat', old('chat'), ['class' => 'form-control', 'rows' => '2']) !!}
                           {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
