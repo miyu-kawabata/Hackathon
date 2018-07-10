@@ -1,9 +1,6 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Group extends Model
 {
     protected $fillable = [
@@ -20,6 +17,4 @@ class Group extends Model
         return $this->hasMany(Chat::class);
     }
     
-
-
 }

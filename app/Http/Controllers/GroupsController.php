@@ -1,12 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Group;
-
 class GroupsController extends Controller
 {
     public function index()
@@ -78,12 +74,13 @@ class GroupsController extends Controller
         $group->save();
         
         $participants = $group->user_participants() -> paginate(10);
-
+        $chats = $group->chat()->getResults();
         $user = \Auth::user();
         return view('groups.group',[
             'group' => $group,
             'user' => $user,
             'participants' =>$participants,
+            'chats'=>$chats,
             ]);
         
     }
@@ -105,7 +102,6 @@ class GroupsController extends Controller
             'date' => 'required|max:191',
             'description' => 'required|max:191',
         ]);
-
         $group->groupname = $request->groupname;
         $group->category = $request->category;
         $group->date = $request->date;
@@ -118,6 +114,7 @@ class GroupsController extends Controller
         return view('groups.group',[
             'group' => $group,
             'user' => $user,
+            'chats'=>$chats,
             'participants' =>$participants,
             ]);
         
@@ -129,8 +126,6 @@ class GroupsController extends Controller
         $group = \App\Group::find($id);
             $group->delete();
         
-
         return redirect('/groups');
     }
-
 }

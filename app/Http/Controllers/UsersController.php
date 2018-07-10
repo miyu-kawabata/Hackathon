@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
-
 class UsersController extends Controller
 {
     /**
@@ -19,7 +16,6 @@ class UsersController extends Controller
         if (\Auth::check()) {
             $user = \Auth::user();
             $profile=$user->profile()->getResults();
-
             $data = [
                 'user' => $user,
                 'profile' =>$profile,
@@ -32,7 +28,6 @@ class UsersController extends Controller
             return view('welcome');
         }
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -45,7 +40,6 @@ class UsersController extends Controller
         ]);
         
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -65,7 +59,6 @@ class UsersController extends Controller
             return redirect('/');
     
     }
-
     /**
      * Display the specified resource.
      *
@@ -76,7 +69,6 @@ class UsersController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -104,7 +96,6 @@ class UsersController extends Controller
     
         }    
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -124,7 +115,6 @@ class UsersController extends Controller
             
        return redirect('/');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -134,11 +124,9 @@ class UsersController extends Controller
     public function destroy($id)
     {
          $profile = \App\Profile::find($id);
-
         if (\Auth::user()->id === $profile->user_id) {
             $profile->delete();
         }
-
         return redirect()->back();
     }
     
@@ -147,31 +135,22 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $followings = $user->followings()->paginate(10);
-
         $data = [
             'user' => $user,
             'users' => $followings,
         ];
-
         $data += $this->counts($user);
-
         return view('users.followings', $data);
     }
-
     public function followers($id)
     {
         $user = User::find($id);
         $followers = $user->followers()->paginate(10);
-
         $data = [
             'user' => $user,
             'users' => $followers,
         ];
-
         $data += $this->counts($user);
-
         return view('users.followers', $data);
     }
-
-
 }

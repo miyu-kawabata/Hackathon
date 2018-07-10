@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Group;
 use App\Chat;
-
 class ChatsController extends Controller
 {
     
@@ -31,11 +28,9 @@ class ChatsController extends Controller
       public function destroy($id)
     {
         $chat = \App\Chat::find($id);
-
         if (\Auth::user()->id === $chat->user_id) {
             $chat->delete();
         }
-
         return redirect()->back();
     }
 }
