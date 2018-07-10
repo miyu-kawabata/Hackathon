@@ -17,20 +17,14 @@ class Group extends Model
         return $this->hasMany(Chat::class);
     }
     
-<<<<<<< HEAD
      public function favorites()
     {
         return $this->belongsToMany(Group::class, 'favorites_table', 'favorite_id', 'user_id')->withTimestamps();
     }
     
-
-
-}
-=======
      public function organizer()
     {
         return $this->belongsTo(User::class);
     }
     
 }
->>>>>>> e3122446fdeda022946c2ce4b884683c956b3547
