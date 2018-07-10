@@ -50,7 +50,7 @@
             @foreach ($chats as $chat)
              <div class="media-body">
             <div>
-                {!! link_to_route('tanins.show', $chat, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span>
+                {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span>
             </div>
             <div>
                 <p>{!! nl2br(e($chat->chat)) !!}</p>
