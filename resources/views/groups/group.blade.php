@@ -22,7 +22,8 @@
                 @include('participate.join_button', ['user' => $user])
                  @include('groups.favorite_button', ['groups' => $group])
                 
-            
+                オーガナイザー
+                <p>{!! link_to_route('tanins.show',$organizer->nickname, ['id' => $organizer->id]) !!}</p>
             </ul>
         </div>
 
@@ -33,13 +34,15 @@
                 <ul>
                     <li>参加者一覧</li>
                     @foreach ($participants as $participant)
-                    <li>{{ $participant->nickname }}</li>
+                   <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p>
                     @endforeach
                 </ul>
                 
             </ul>
+            @if(Auth::user()->id == $organizer->id)
             <p> {!! link_to_route('groups.edit', '編集ページ',  ['id' => $group->id]) !!}</p>
-                  {!! Form::open(['route' => ['chats.store', $group->id],'method' => 'post'])!!}
+            @endif
+            {!! Form::open(['route' => ['chats.store', $group->id],'method' => 'post'])!!}
                       <div class="form-group">
                           {!! Form::textarea('chat', old('chat'), ['class' => 'form-control', 'rows' => '2']) !!}
                           {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
@@ -48,7 +51,11 @@
             @foreach ($chats as $chat)
              <div class="media-body">
             <div>
+<<<<<<< HEAD
                 {!! link_to_route('users.index', $user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span>
+=======
+                {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span>
+>>>>>>> e3122446fdeda022946c2ce4b884683c956b3547
             </div>
             
             <div>

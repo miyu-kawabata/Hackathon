@@ -18,6 +18,25 @@
                 <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favorites }}</span></a></li>
 
             </ul>
+            
+            @if (count($users) > 0)
+<ul class="media-list">
+@foreach ($users as $user)
+    <li class="media">
+        <div class="media-left">
+        <div class="media-body">
+            <div>
+                {{ $user->nickname }}
+            </div>
+            <div>
+                <p>{!! link_to_route('tanins.show', 'View profile', ['id' => $user->id]) !!}</p>
+            </div>
+        </div>
+    </li>
+@endforeach
+</ul>
+{!! $users->render() !!}
+@endif
           
         </div>
     </div>

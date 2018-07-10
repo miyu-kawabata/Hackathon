@@ -35,10 +35,10 @@
     </ul>
         </div>
         <div>
-            
+        @if(Auth::user()->id == $user->id)
          <p> {!! link_to_route('users.edit', '編集ページ',  ['id' => $user->id]) !!}</p>
+         @endif
         </div>
         <!--/編集ボタン作った/-->
     </div>
 @endsection
-

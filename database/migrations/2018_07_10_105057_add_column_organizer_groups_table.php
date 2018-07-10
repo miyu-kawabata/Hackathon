@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddGroupId extends Migration
+class AddColumnOrganizerGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AddGroupId extends Migration
      */
     public function up()
     {
-        Schema::table('chats', function (Blueprint $table) {
-            $table->integer('group_id')->unsigned()->index();
+        Schema::table('groups', function (Blueprint $table) {
+            $table->integer('organizer_id')->unsigned()->index();
             
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
+            $table->foreign('organizer_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -27,8 +27,8 @@ class AddGroupId extends Migration
      */
     public function down()
     {
-        Schema::table('chats', function (Blueprint $table) {
-            $table->dropColumn('group_id');
+        Schema::table('groups', function (Blueprint $table) {
+            $table->dropColumn('organizer_id');
         });
     }
 }
