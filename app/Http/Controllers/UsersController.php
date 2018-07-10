@@ -3,11 +3,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
-<<<<<<< HEAD
-use App\Group;
-
-=======
->>>>>>> e3122446fdeda022946c2ce4b884683c956b3547
 class UsersController extends Controller
 {
     /**
@@ -158,20 +153,17 @@ class UsersController extends Controller
         $data += $this->counts($user);
         return view('users.followers', $data);
     }
-<<<<<<< HEAD
+    public function favorites($id) 
+     { 
+         $user = User::find($id); 
+         $favorites = $user->favorites()->paginate(10); 
+         $data = [ 
+             'user' => $user, 
+             'groups' => $favorites, 
+         ]; 
+  
+         $data += $this->counts($user); 
+         return view('users.favoriting', $data); 
+     } 
 
-    public function favorites($id)
-    {
-        $user = User::find($id);
-        $favorites = $user->favorites()->paginate(10);
-        $data = [
-            'user' => $user,
-            'groups' => $favorites,
-        ];
-
-        $data += $this->counts($user);
-        return view('users.favoriting', $data);
-    }
-=======
->>>>>>> e3122446fdeda022946c2ce4b884683c956b3547
 }

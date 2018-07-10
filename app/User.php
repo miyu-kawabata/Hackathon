@@ -67,12 +67,10 @@ class User extends Authenticatable
     public function is_following($userId) {
     return $this->followings()->where('follow_id', $userId)->exists();
     }
-<<<<<<< HEAD
     
     
 
-=======
->>>>>>> e3122446fdeda022946c2ce4b884683c956b3547
+
     public function groups()
     {
         return $this->belongsToMany(Group::class, 'members', 'user_id', 'group_id');
@@ -89,12 +87,9 @@ class User extends Authenticatable
         return true;
     }
     }
-<<<<<<< HEAD
 
-    public function exit($groupId)
-=======
+
    public function exit($groupId)
->>>>>>> e3122446fdeda022946c2ce4b884683c956b3547
     {
     $exist = $this->is_joining($groupId);
    
@@ -114,7 +109,6 @@ class User extends Authenticatable
         return $this->hasMany(Chat::class);
     }
     
-<<<<<<< HEAD
     
     
     public function favorites()
@@ -153,16 +147,9 @@ class User extends Authenticatable
         
     return $this->favorites()->where('favorite_id', $groupsId)->exists();
     }
-
-
-
-}
-        
-
-=======
+    
     public function organizer_group()
     {
         return $this->hasMany(Group::class);
     }
 }
->>>>>>> e3122446fdeda022946c2ce4b884683c956b3547
