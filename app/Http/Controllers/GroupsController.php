@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Group;
+use App\User;
 class GroupsController extends Controller
 {
     public function index()
@@ -37,11 +38,14 @@ class GroupsController extends Controller
         $chats = $group->chat()->getResults();
         $participants = $group->user_participants()->paginate(10);
         
+        $idd = $group->organizer_id;
+        $organizer = User::find($idd);
         return view('groups.group', [
             'group' => $group,
             'user' => $user,
             'chats'=>$chats,
             'participants'=>$participants,
+            'organizer'=>$organizer,
             ]);
             
     }
@@ -66,21 +70,25 @@ class GroupsController extends Controller
           'date'=> 'required|max:50',
            ]);
            
+        $user = \Auth::user();
         $group = new Group;
         $group->groupname = $request->groupname;  
         $group->category = $request->category;
         $group->description = $request->description;
         $group->date = $request->date;
+        $group->organizer_id = $user->id;
         $group->save();
         
         $participants = $group->user_participants() -> paginate(10);
         $chats = $group->chat()->getResults();
-        $user = \Auth::user();
+        $idd = $group->organizer_id;
+        $organizer = User::find($idd);
         return view('groups.group',[
             'group' => $group,
             'user' => $user,
             'participants' =>$participants,
             'chats'=>$chats,
+            'organizer'=>$organizer,
             ]);
         
     }
@@ -108,7 +116,7 @@ class GroupsController extends Controller
         $group->description = $request->description;
         $group->save();
         
-         $participants = $group->user_participants() -> paginate(10);
+        $participants = $group->user_participants() -> paginate(10);
         
         $user = \Auth::user();
         return view('groups.group',[
