@@ -59,6 +59,11 @@
               
              <div> 
                  <p>{!! nl2br(e($chat->chat)) !!}</p> 
+                  @if (Auth::user()->id == $chat->user_id)
+                    {!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
+                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                    {!! Form::close() !!}
+                @endif
              </div> 
              @endforeach 
              
