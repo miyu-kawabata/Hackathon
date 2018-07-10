@@ -34,4 +34,6 @@ Route::group(['middleware' => 'auth'], function () {
    Route::post('chats/{id}','ChatsController@store')->name('chats.store');
    Route::delete('chats/{id}','ChatsController@destroy')->name('chats.destroy');
    
+   Route::resource('tanins', 'TaninsController');
+   
 });
