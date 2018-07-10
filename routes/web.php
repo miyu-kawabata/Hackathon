@@ -34,6 +34,15 @@ Route::group(['middleware' => 'auth'], function () {
    Route::post('chats/{id}','ChatsController@store')->name('chats.store');
    Route::delete('chats/{id}','ChatsController@destroy')->name('chats.destroy');
    
+   Route::group(['prefix' => 'favorites/{id}'], function () {   
+        Route::post('favorite', 'FavoriteController@store')->name('groups.favorite');
+        Route::delete('unfavorite', 'FavoriteController@destroy')->name('groups.unfavorite');
+        Route::get('favoritings', 'UsersController@favorites')->name('groups.favoritings');
+    });
+    
+   
+
+
    Route::resource('tanins', 'TaninsController');
    
 });

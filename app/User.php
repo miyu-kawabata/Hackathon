@@ -67,6 +67,10 @@ class User extends Authenticatable
     public function is_following($userId) {
     return $this->followings()->where('follow_id', $userId)->exists();
     }
+    
+    
+
+
     public function groups()
     {
         return $this->belongsToMany(Group::class, 'members', 'user_id', 'group_id');
@@ -83,6 +87,8 @@ class User extends Authenticatable
         return true;
     }
     }
+
+
    public function exit($groupId)
     {
     $exist = $this->is_joining($groupId);
@@ -101,6 +107,45 @@ class User extends Authenticatable
     public function chat()
     {
         return $this->hasMany(Chat::class);
+    }
+    
+    
+    
+    public function favorites()
+    {
+        return $this->belongsToMany(Group::class, 'favorites_table', 'user_id', 'favorite_id')->withTimestamps();
+    }
+    
+    public function favorite($groupsId) 
+ {
+
+    $exist = $this->is_favoriting($groupsId);
+    
+    if ($exist) {
+        return false;
+    } else {
+        $this->favorites()->attach($groupsId);
+        return true;
+    }
+ }
+ 
+    public function unfavorite($groupsId) 
+    {
+    
+    $exist = $this->is_favoriting($groupsId);
+
+    if ($exist) {
+    
+        $this->favorites()->detach($groupsId);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+    public function is_favoriting($groupsId) {
+        
+    return $this->favorites()->where('favorite_id', $groupsId)->exists();
     }
     
     public function organizer_group()
