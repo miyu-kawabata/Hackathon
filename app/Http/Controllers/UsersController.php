@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
+use App\Group;
 
 class UsersController extends Controller
 {
@@ -173,5 +174,16 @@ class UsersController extends Controller
         return view('users.followers', $data);
     }
 
+    public function favorites($id)
+    {
+        $user = User::find($id);
+        $favorites = $user->favorites()->paginate(10);
+        $data = [
+            'user' => $user,
+            'groups' => $favorites,
+        ];
 
+        $data += $this->counts($user);
+        return view('users.favoriting', $data);
+    }
 }

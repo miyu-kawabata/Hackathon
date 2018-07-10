@@ -20,6 +20,7 @@
                 <li>{{ $group->date }}</li>
                 <li>{{ $group->description }}</li>
                 @include('participate.join_button', ['user' => $user])
+                 @include('groups.favorite_button', ['groups' => $group])
                 
             
             </ul>
@@ -47,8 +48,9 @@
             @foreach ($chats as $chat)
              <div class="media-body">
             <div>
-                {!! link_to_route('users.index', $user->nickname) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span>
+                {!! link_to_route('users.index', $user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span>
             </div>
+            
             <div>
                 <p>{!! nl2br(e($chat->chat)) !!}</p>
             </div>
