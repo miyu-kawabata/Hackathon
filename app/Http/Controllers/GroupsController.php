@@ -12,19 +12,25 @@ class GroupsController extends Controller
         //category pageにつながる
         
         $group = Group::all();
-        $sports = $group->where('category','スポーツ')->sortByDesc('created_at');
-        $foods = $group->where('category','グルメ')->sortByDesc('created_at');
-        $musics = $group->where('category','音楽')->sortByDesc('created_at');
-        $cosmes = $group->where('category','美容')->sortByDesc('created_at');
-        $fashions = $group->where('category','ファッション')->sortByDesc('created_at');
+        $nomikai = $group->where('category','nomikai')->sortByDesc('created_at');
+        $food = $group->where('category','food')->sortByDesc('created_at');
+        $sports = $group->where('category','sports')->sortByDesc('created_at');
+        $career = $group->where('category','career')->sortByDesc('created_at');
+        $shopping = $group->where('category','shopping')->sortByDesc('created_at');
+        $movie = $group->where('category','movie')->sortByDesc('created_at');
+        $outdoor = $group->where('category','outdoor')->sortByDesc('created_at');
+        $others = $group->where('category','others')->sortByDesc('created_at');
         
         return view('categories.category', [
             'groups' => $group,
+            'nomikais' => $nomikai,
+            'foods' => $food,
             'sports' => $sports,
-            'foods' => $foods,
-            'musics' => $musics,
-            'cosmes' => $cosmes,
-            'fashions' =>$fashions,
+            'careers' => $career,
+            'shoppings' => $shopping,
+            'movies' => $movie,
+            'outdoors' => $outdoor,
+            'others' => $others,
             ]);
     }
     
