@@ -8,18 +8,17 @@ class GroupsController extends Controller
 {
     public function index()
     {
-        //テスト用
         //category pageにつながる
-        
         $group = Group::all();
-        $nomikai = $group->where('category','nomikai')->sortByDesc('created_at');
-        $food = $group->where('category','food')->sortByDesc('created_at');
-        $sports = $group->where('category','sports')->sortByDesc('created_at');
-        $career = $group->where('category','career')->sortByDesc('created_at');
-        $shopping = $group->where('category','shopping')->sortByDesc('created_at');
-        $movie = $group->where('category','movie')->sortByDesc('created_at');
-        $outdoor = $group->where('category','outdoor')->sortByDesc('created_at');
-        $others = $group->where('category','others')->sortByDesc('created_at');
+        
+        $nomikai = Group::find_by_group('nomikai')->paginate(4);
+        $food = Group::find_by_group('food')->paginate(4);
+        $sports = Group::find_by_group('sports')->paginate(4);
+        $career = Group::find_by_group('career')->paginate(4);
+        $shopping = Group::find_by_group('shopping')->paginate(4);
+        $movie = Group::find_by_group('movie')->paginate(4);
+        $outdoor = Group::find_by_group('outdoor')->paginate(4);
+        $others = Group::find_by_group('others')->paginate(4);
         
         return view('categories.category', [
             'groups' => $group,
@@ -123,7 +122,7 @@ class GroupsController extends Controller
         $group->save();
         
         $participants = $group->user_participants() -> paginate(10);
-        
+        $chats = $group->chat()->getResults();
         $user = \Auth::user();
         return view('groups.group',[
             'group' => $group,
