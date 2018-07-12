@@ -16,7 +16,7 @@
         <div class="col-xs-8">
             
             
-        {!! Form::model($group, ['route' => 'groups.store']) !!}
+        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
         
              
             <div class="form-group">
@@ -47,6 +47,10 @@
             <div class="form-group">
                  {!! Form::label ('description','詳細') !!}
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+            {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+            {!! Form::file('file') !!}
             </div>
             
                {!! Form::submit ('投稿',['class' =>'btn btn-primary']) !!}

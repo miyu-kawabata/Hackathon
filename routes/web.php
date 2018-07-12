@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('followers', 'UsersController@followers')->name('users.followers');
                 });
     Route::resource('groups', 'GroupsController');
+    Route::get('groups/{id}/chat', 'GroupsController@chat')->name('groups.chat');
     
     Route::group(['prefix' => 'participation/{id}'], function () {
         Route::post('join', 'UserJoinController@store')->name('group.join');
