@@ -14,6 +14,13 @@ Copyright (c) 2015 Daniel Eden
   animation-fill-mode: both;
 }
 
+.animated-fast {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
 .animated.infinite {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -90,7 +97,8 @@ Copyright (c) 2015 Daniel Eden
     -webkit-transform: translate3d(0,-4px,0);
     transform: translate3d(0,-4px,0);
   }
-}
+ }
+
 
 .bounce {
   -webkit-animation-name: bounce;
@@ -281,6 +289,7 @@ Copyright (c) 2015 Daniel Eden
 .shake {
   -webkit-animation-name: shake;
   animation-name: shake;
+ animation-name: shake;
 }
 
 @-webkit-keyframes swing {
@@ -541,6 +550,7 @@ Copyright (c) 2015 Daniel Eden
     -webkit-transform: skewX(6.25deg) skewY(6.25deg);
     transform: skewX(6.25deg) skewY(6.25deg);
   }
+ 
 
   44.4% {
     -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
@@ -1154,16 +1164,34 @@ Copyright (c) 2015 Daniel Eden
 
   to {
     opacity: 1;
+    -ms-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+  
+  to {
+    opacity: 1;
+    -ms-transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
   }
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+
+    -ms-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
   }
 
   to {
     opacity: 1;
+
+    -ms-transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
   }
 }
 
@@ -1320,13 +1348,14 @@ Copyright (c) 2015 Daniel Eden
     -webkit-transform: translate3d(50px, 0, 0);
     transform: translate3d(50px, 0, 0);
   }
+ }
 
   to {
     opacity: 1;
     -webkit-transform: none;
     transform: none;
   }
-}
+
 
 @keyframes fadeInRight {
   from {
@@ -1385,6 +1414,8 @@ Copyright (c) 2015 Daniel Eden
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
+
+    visibility: hidden;
     /*-webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);*/
     -webkit-transform: translate3d(0, 40px, 0);
@@ -1401,6 +1432,8 @@ Copyright (c) 2015 Daniel Eden
 @keyframes fadeInUp {
   from {
     opacity: 0;
+
+    visibility: hidden;
     /*-webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);*/
     -webkit-transform: translate3d(0, 40px, 0);
@@ -1409,6 +1442,8 @@ Copyright (c) 2015 Daniel Eden
 
   to {
     opacity: 1;
+
+    visibility: visible;
     -webkit-transform: none;
     transform: none;
   }
@@ -1464,6 +1499,7 @@ Copyright (c) 2015 Daniel Eden
 
 @keyframes fadeOut {
   from {
+
     opacity: 1;
   }
 
@@ -1655,13 +1691,14 @@ Copyright (c) 2015 Daniel Eden
   from {
     opacity: 1;
   }
+ }
 
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
   }
-}
+
 
 @keyframes fadeOutUp {
   from {
@@ -2120,6 +2157,7 @@ Copyright (c) 2015 Daniel Eden
   from {
     -webkit-transform-origin: center;
     transform-origin: center;
+   transform-origin: center;
     -webkit-transform: rotate3d(0, 0, 1, -200deg);
     transform: rotate3d(0, 0, 1, -200deg);
     opacity: 0;
@@ -2331,6 +2369,7 @@ Copyright (c) 2015 Daniel Eden
   to {
     -webkit-transform-origin: center;
     transform-origin: center;
+   transform-origin: center;
     -webkit-transform: rotate3d(0, 0, 1, 200deg);
     transform: rotate3d(0, 0, 1, 200deg);
     opacity: 0;
@@ -3285,4 +3324,46 @@ Copyright (c) 2015 Daniel Eden
 .slideOutUp {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
+
+}
+
+@-webkit-keyframes fadeInUpMenu {
+   from {
+     opacity: 0;
+     visibility: hidden;
+     /*-webkit-transform: translate3d(0, 100%, 0);
+     transform: translate3d(0, 100%, 0);*/
+     -webkit-transform: translate3d(0, 20px, 0);
+     transform: translate3d(0, 20px, 0);
+   }
+
+   to {
+     opacity: 1;
+     visibility: visible;
+     -webkit-transform: none;
+     transform: none;
+   }
+}
+
+ @keyframes fadeInUpMenu {
+   from {
+     opacity: 0;
+     visibility: hidden;
+     /*-webkit-transform: translate3d(0, 100%, 0);
+     transform: translate3d(0, 100%, 0);*/
+     -webkit-transform: translate3d(0, 20px, 0);
+     transform: translate3d(0, 20px, 0);
+   }
+
+   to {
+     visibility: visible;
+     opacity: 1;
+   -webkit-transform: none;
+     transform: none;
+   }
+}
+
+ .fadeInUpMenu {
+   -webkit-animation-name: fadeInUpMenu;
+   animation-name: fadeInUpMenu;
 }
