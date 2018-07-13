@@ -43,18 +43,18 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../../../css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="../css/icomoon.css">
+	<link rel="stylesheet" href="../../../css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../../../css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="../css/flexslider.css">
+	<link rel="stylesheet" href="../../../css/flexslider.css">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../../../css/style.css">
 
 	<!-- Modernizr JS -->
-	<script src="../js/modernizr-2.6.2.min.js"></script>
+	<script src="../../../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -94,14 +94,7 @@
           
                 <div class="panel-body">
                     <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
-                </div>
-                  @include('user_follow.follow_button', ['user' => $user])
-                 <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
-                 <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favorites }}</span></a></li>  
-                  </ul>
-                    <img class="media-object img-rounded img-responsive" src="" alt="写真を挿入">
+                    
                     
                     <p class='d'>About me...</p>
                  
@@ -137,33 +130,14 @@
 
             </ul>
             
-             @if (count($users) > 0)
-        <ul class="media-list">
-            @foreach ($users as $user)
-                <li class="media">
-                    <div class="media-left">
-                        <div class="media-body">
-            <div>
-            <div class='e'>{{ $user->nickname }}</div>
-            </div>
-            <div>
-                <p>{!! link_to_route('tanins.show', 'View profile', ['id' => $user->id]) !!}</p>
-                        </div>
-                    </div>
-                </li>
-@endforeach
-</ul>
-{!! $users->render() !!}
-@endif
+             @include('groups.groups_joins', ['groups' => $groups])
             
             
-            
-            
-            </div>
-       
-  </div>
-    </div>   
-       <!-- jQuery -->
+        </div>
+    </div>
+    </div>
+    
+      <!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
 	<script src="js/jquery.easing.1.3.js"></script>
@@ -180,11 +154,3 @@
 
 	</body>
 </html>
-
-    </body>
-
-</html>
-
-
-
-

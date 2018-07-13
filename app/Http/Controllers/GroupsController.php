@@ -46,6 +46,7 @@ class GroupsController extends Controller
             'chats'=>$chats,
             'participants'=>$participants,
             'organizer'=>$organizer,
+            
             ]);
             
     }
