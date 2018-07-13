@@ -68,6 +68,7 @@ class GroupsController extends Controller
           'groupname' => 'required|max:20',
           'description'=> 'required|max:191',
           'date'=> 'required|max:50',
+          'file' => 'required',
            ]);
         $filename = $request->file('file')->store('public/images');
         
@@ -111,6 +112,7 @@ class GroupsController extends Controller
             'groupname' => 'required|max:10',   // add
             'date' => 'required|max:191',
             'description' => 'required|max:191',
+            'file' => 'required',
         ]);
         
         $filename = $request->file('file')->store('public/images');

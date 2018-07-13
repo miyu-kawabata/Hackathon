@@ -53,7 +53,7 @@
 	<link rel="stylesheet" href="../css/flexslider.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../css/style.css">
-
+	<link href="../../../css/modal.css" rel="stylesheet">
 	<!-- Modernizr JS -->
 	<script src="../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -63,6 +63,7 @@
 
 	</head>
 	<body>
+		
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
@@ -72,7 +73,7 @@
 				<ul>
 					<li><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY</a></li>
-					<li><a href="/groups/create">CREATE GROUP</a></li>
+					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -88,9 +89,7 @@
                  	<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
                  </div>
                  <div class="group_profile">
-                 
-                 
-                 <ul style="list-style:none">
+	        	 	<ul style="list-style:none">
                 	<li>＜カテゴリー名＞</li>
                 	<li>{{ $group->category }}</li>
                 	<li>＜開催日＞</li>
@@ -99,26 +98,72 @@
                 	<li>{{ $group->description }}</li>
                 	<li>＜オーガナイザー＞</li> 
                 	<li>{!! link_to_route('tanins.show',$organizer->nickname, ['id' => $organizer->id]) !!}</li>
-                	</ul>
-                
+                </ul>
+    		     		<div class="edit">
+            				@if(Auth::user()->id == $organizer->id)
+                				<p style="float:right"><a href="/groups/{{$group->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
+            		 		@endif
+            			</div>
                  </div>
+                 
+             </div>
+                <div class="col-xs-6">
+            @include('participate.join_button', ['user' => $user])
+            </div>
+            	<div class="col-xs-6">
+        	@include('groups.favorite_button', ['groups' => $group]) 
+             </div>
                   
-             </div> 
-             @if(Auth::user()->id == $organizer->id) 
-                 <p style="float:right"><a href="/groups/{{$group->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p> 
-                 @endif
-             
+
          </aside>
-         
-          <div class="col-xs-8"> 
-          @include('participate.join_button', ['user' => $user])
-          @include('groups.favorite_button', ['groups' => $group]) 
-          </div>
           
           <div class="col-xs-8">
+          	<div id="modal-content">
+
+            
+            
+        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+        
+             
+            <div class="form-group">
+                 {!! Form::label ('groupname','グループ名') !!}
+                 {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                 
+                  {!! Form::label('category', 'カテゴリー:') !!}
+                    {!! Form::label('category', 'スポーツ:') !!}
+                    {!! Form::radio('category', 'スポーツ') !!}
+                    {!! Form::label('category', 'グルメ:') !!}
+                    {!! Form::radio('category', 'グルメ') !!}
+                    {!! Form::label('category', '音楽:') !!}
+                    {!! Form::radio('category', '音楽') !!}
+                    {!! Form::label('category', '美容:') !!}
+                    {!! Form::radio('category', '美容') !!}
+                    {!! Form::label('category', 'ファッション:') !!}
+                    {!! Form::radio('category', 'ファッション') !!}
+            </div>
+            <div class="form-group">
+                 {!! Form::label ('date','開催日') !!}
+                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                 {!! Form::label ('description','詳細') !!}
+                 {!! Form::text ('description',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+            {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+            {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
+            </div>
+            
+        {!! Form::submit ('投稿',['class' =>'btn btn-primary']) !!}
+
+            {!! Form::close() !!}
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+</div>
              <ul class="nav nav-tabs nav-justified"> 
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $user->id]) }}">参加者</a></li>
-                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $user->id]) }}">CHAT</a></li>     
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者</a></li>
+                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>     
                   
                  <ul> 
                      @foreach ($participants as $participant) 
@@ -134,122 +179,6 @@
                   
          </div>
 			
-			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Services</h2>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-settings"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Strategy</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-search4"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Explore</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-paperplane"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Direction</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-params"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Expertise</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Recent Blog</h2>
-				<div class="row row-bottom-padded-md">
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="#" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3><a href="#">Inspirational Website</a></h3>
-								<span><small>by Admin </small> / <small> Web Design </small> / <small> <i class="icon-comment"></i> 14</small></span>
-								<p>Design must be functional and functionality must be translated into visual aesthetics</p>
-								<a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="#" class="blog-img"><img src="images/img-2.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3><a href="#">Inspirational Website</a></h3>
-								<span><small>by Admin </small> / <small> Web Design </small> / <small> <i class="icon-comment"></i> 14</small></span>
-								<p>Design must be functional and functionality must be translated into visual aesthetics</p>
-								<a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="#" class="blog-img"><img src="images/img-3.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3><a href="#">Inspirational Website</a></h3>
-								<span><small>by Admin </small> / <small> Web Design </small> / <small> <i class="icon-comment"></i> 14</small></span>
-								<p>Design must be functional and functionality must be translated into visual aesthetics</p>
-								<a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="#" class="blog-img"><img src="images/img-4.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3><a href="#">Inspirational Website</a></h3>
-								<span><small>by Admin </small> / <small> Web Design </small> / <small> <i class="icon-comment"></i> 14</small></span>
-								<p>Design must be functional and functionality must be translated into visual aesthetics</p>
-								<a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div id="get-in-touch">
-				<div class="fh5co-narrow-content">
-					<div class="row">
-						<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-							<h1 class="fh5co-heading-colored">Get in touch</h1>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							<p><a href="#" class="btn btn-primary">Learn More</a></p>
-						</div>
-						
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 
@@ -263,7 +192,8 @@
 	<script src="../js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
 	<script src="../js/jquery.flexslider-min.js"></script>
-	
+	<!-- JavaScriptの読み込み -->
+<script src="../../../js/modal.js"></script>
 	
 	<!-- MAIN JS -->
 	<script src="../js/main.js"></script>

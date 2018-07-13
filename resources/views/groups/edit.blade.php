@@ -45,7 +45,7 @@
             </div>
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
-            {!! Form::file('file') !!}
+            {!! Form::file('file',old('file')) !!}
             </div>
             
                {!! Form::submit ('投稿',['class' =>'btn btn-primary']) !!}

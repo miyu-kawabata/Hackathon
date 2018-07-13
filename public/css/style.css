@@ -868,6 +868,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 .btnn {
   margin-right: 0px;
   margin-bottom: 4px;
+  margin-top:30px;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -1200,7 +1201,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 .js .animate-box {
   opacity: 0;
 }
-.panel-heading .panel-title {
+.heading .panel-title {
   text-align: left;
   font-family: 'Century Gothic';
   font-weight: 700;
@@ -1211,6 +1212,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 .edit img{
   width: 50%;
   height: 50%;
+}
+.joymiyu img{
+  width: inherit;
+  height: inherit;
 }
 
 

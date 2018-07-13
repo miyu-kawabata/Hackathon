@@ -9,7 +9,7 @@
                     <h3 class="panel-title">{{ $user->nickname }}</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="media-object img-rounded img-responsive" src="" alt="写真を挿入">
+                    <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
                 </div>
                   @include('user_follow.follow_button', ['user' => $user])
                  <ul class="nav nav-tabs nav-justified">

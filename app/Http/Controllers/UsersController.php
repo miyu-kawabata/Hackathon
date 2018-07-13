@@ -53,12 +53,14 @@ class UsersController extends Controller
             'comment' => 'required|max:191',
         ]);
         
+        $filename = $request->file('file')->store('public/images');
         $request->user()->profile()->create([
             'comment' => $request->comment,
+            'avatar_filename' => basename($filename),
         ]);
             return redirect('/');
-    
     }
+    
     /**
      * Display the specified resource.
      *
@@ -108,10 +110,12 @@ class UsersController extends Controller
         $this->validate($request, [
             'comment' => 'max:191',
         ]);
-         $profile=Profile::find($id);
-         $profile->comment = $request->comment;
+        $filename = $request->file('file')->store('public/images');
+        $profile=Profile::find($id);
+        $profile->comment = $request->comment;
+        $profile->avatar_filename = basename($filename);
     
-            $profile->save();
+        $profile->save();
             
        return redirect('/');
     }

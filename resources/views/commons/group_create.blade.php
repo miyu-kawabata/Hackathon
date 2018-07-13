@@ -1,7 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
-    <div class="row">
+<div id="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+<div class="row">
         <aside class="col-xs-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -50,7 +49,7 @@
             </div>
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
-            {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
+            {!! Form::file('file') !!}
             </div>
             
                {!! Form::submit ('投稿',['class' =>'btn btn-primary']) !!}
@@ -62,4 +61,5 @@
         <div>
         </div>
     </div>
-@endsection
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->

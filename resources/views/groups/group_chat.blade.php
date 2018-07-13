@@ -53,7 +53,8 @@
 	<link rel="stylesheet" href="../../../css/flexslider.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../../../css/style.css">
-
+	<link href="../../../css/modal.css" rel="stylesheet">
+	
 	<!-- Modernizr JS -->
 	<script src="../../../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -72,7 +73,7 @@
 				<ul>
 					<li><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY</a></li>
-					<li><a href="/groups/create">CREATE GROUP</a></li>
+					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -87,7 +88,7 @@
                  <div class="panel-body"> 
                  	<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
                 </div> 
-                
+                 <div class="group_profile">
                 <ul style="list-style:none">
                 	<li>＜カテゴリー名＞</li>
                 	<li>{{ $group->category }}</li>
@@ -97,13 +98,14 @@
                 	<li>{{ $group->description }}</li>
                 	<li>＜オーガナイザー＞</li> 
                 	<li>{!! link_to_route('tanins.show',$organizer->nickname, ['id' => $organizer->id]) !!}</li>
-                	<div class="edit">
-            		 @if(Auth::user()->id == $organizer->id)
-                	<li style="float:right"><a href="/groups/{{$group->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></li>
-            		 @endif
-            		</div>
+                	
                 </ul>
-                
+                <div class="edit">
+            		 @if(Auth::user()->id == $organizer->id)
+                	<p style="float:right"><a href="/groups/{{$group->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
+            		 @endif
+            	</div>
+                </div>
                  
                 	
              </div> 
@@ -117,13 +119,60 @@
              
              
          </aside>
-          <div class="col-xs-8"> 
-          </div>
+
           
           <div class="col-xs-8">
+          	<div id="modal-content">
+        <div class="col-xs-8">
+            
+            
+        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+        
+             
+            <div class="form-group">
+                 {!! Form::label ('groupname','グループ名') !!}
+                 {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                 
+                  {!! Form::label('category', 'カテゴリー:') !!}
+                    {!! Form::label('category', 'スポーツ:') !!}
+                    {!! Form::radio('category', 'スポーツ') !!}
+                    {!! Form::label('category', 'グルメ:') !!}
+                    {!! Form::radio('category', 'グルメ') !!}
+                    {!! Form::label('category', '音楽:') !!}
+                    {!! Form::radio('category', '音楽') !!}
+                    {!! Form::label('category', '美容:') !!}
+                    {!! Form::radio('category', '美容') !!}
+                    {!! Form::label('category', 'ファッション:') !!}
+                    {!! Form::radio('category', 'ファッション') !!}
+            </div>
+            
+            
+            <div class="form-group">
+                 {!! Form::label ('date','開催日') !!}
+                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                 {!! Form::label ('description','詳細') !!}
+                 {!! Form::text ('description',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+            {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+            {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
+            </div>
+            
+               {!! Form::submit ('投稿',['class' =>'btn btn-primary']) !!}
+
+            {!! Form::close() !!}
+
+        </div>
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+</div>
              <ul class="nav nav-tabs nav-justified"> 
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $user->id]) }}">参加者</a></li>
-                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $user->id]) }}">CHAT</a></li>
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者</a></li>
+                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>
              </ul>
            
            	<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
@@ -149,23 +198,24 @@
              
              @foreach ($chats as $chat) 
              <div class="media-body"> 
-             	<div> 
+             	<div class ="joymiyu col-xs-4">
+                	<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
+                </div>
+                <div class ="col-xs-8">
                 	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 
-               	</div> 
-              
-             	<div> 
-                	 <p>{!! nl2br(e($chat->chat)) !!}</p> 
+               		 <p>{!! nl2br(e($chat->chat)) !!}</p> 
                   	@if (Auth::user()->id == $chat->user_id)
                     	{!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
                         	{!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}
                     	{!! Form::close() !!}
                 	@endif
-             	</div> 
+               	</div> 
+              
              @endforeach 
          	</div> 
          </div>
 	</div>
-
+	</div>
 	<!-- jQuery -->
 	<script src="../../../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -176,7 +226,8 @@
 	<script src="../../../js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
 	<script src="../../../js/jquery.flexslider-min.js"></script>
-	
+	<!-- JavaScriptの読み込み -->
+<script src="../../../js/modal.js"></script>
 	
 	<!-- MAIN JS -->
 	<script src="../../../js/main.js"></script>
