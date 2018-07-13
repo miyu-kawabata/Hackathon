@@ -49,10 +49,13 @@ class TaninsController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = User::find($id);
+             $followings = $user->followings()->paginate(10);
             $profile = $user->profile()->getResults();
+            
             $data = [
                 'user' => $user,
                 'profile' =>$profile,
+                'users' =>$followings,
             ];
             $data += $this->counts($user);
 

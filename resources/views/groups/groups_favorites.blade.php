@@ -8,7 +8,7 @@
         </div>
         <div class="media-body">
             <div>
-                {{ $group->groupname }}
+                <div class='e'> {{ $group->groupname }}</div>
             </div>
             <div>
                 <p>{!! link_to_route('groups.show', 'View this group', ['id' => $group->id]) !!}</p>
