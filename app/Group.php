@@ -27,8 +27,5 @@ class Group extends Model
         return $this->belongsTo(User::class);
     }
 
-    static function find_by_group($group)
-    {
-        return self::where('category', $group);
-    }
+   
 }

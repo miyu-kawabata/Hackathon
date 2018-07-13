@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -54,6 +53,12 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../css/style.css">
 	
+	<link rel="stylesheet" href="../css/themify-icons.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="../css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+	
 	<!-- Modernizr JS -->
 	<script src="../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -62,9 +67,12 @@
 	<![endif]-->
 
 	</head>
+	
+	
 	<body>
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+		
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
 			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
@@ -78,175 +86,218 @@
 			</nav>
 		</aside>
 		
-		<div id="fh5co-main">
-			<div class="fh5co-narrow-content">
+	<div id="fh5co-main">
+   		<div class="fh5co-narrow-content">
 			    <h1>Category</h1>
     
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">nomikai</h2>
-				<div class="render">
-				<div class="row row-bottom-padded-md">
-			    	@foreach ($nomikais as $nomikai)
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="/groups/{{$nomikai->id}}" class="blog-img"><img src="images/mike.jpg" class="img-responsive" alt="mike"></a>
-							<div class="desc">
-								<h3>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h3>
-								<span><i class="icon-comment"><small>{{ $nomikai->date }}</small></i></span>
-								<p>{{ $nomikai->description }}</p>
-                                <h2 class="lead"> {!! link_to_route('groups.show',  'see more', ['id' => $nomikai->id])!!}<i class="icon-arrow-right3"></i></h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">nomikai</h2>
+			<div class="gtco-section">
+				<div class="gtco-container">
+					<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($nomikais as $nomikai)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="mike"></a>
+									<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>
+									<p class="role">{{ $nomikai->date }}</p>
+									<p>{{ $nomikai->description }}</p>
+								</div>
 							</div>
+							@endforeach
+
 						</div>
 					</div>
-				   @endforeach
-				  </div>
-				  {!! $nomikais->render() !!}
-				  </div>
-				
-				
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">food</h2>
-				<div class="render">
-				<div class="row row-bottom-padded-md">
-				@foreach ($foods as $food)
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="/groups/{{$food->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3> {!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h3>
-								<span><i class="icon-comment"><small>{{ $food->date }}</small></i></span>
-								<p>{{ $food->description }}</p>
-                                <h2 class="lead"> {!! link_to_route('groups.show',  'see more', ['id' => $food->id])!!}<i class="icon-arrow-right3"></i></h2>
-							</div>
-						</div>
 					</div>
-				 @endforeach
 				</div>
-				{!! $foods->render() !!}
-				</div>
-				
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">sports</h2>
-				<div class="render">
-				<div class="row row-bottom-padded-md">
-				@foreach ($sports as $sport)
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="/groups/{{$sport->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h3>
-								<span><i class="icon-comment"><small>{{ $sport->date }}</small></i></span>
-								<p>{{ $sport->description }}</p>
-                                <h2 class="lead">{!! link_to_route('groups.show', 'see more', ['id' => $sport->id])!!}<i class="icon-arrow-right3"></i></h2>
-							</div>
-						</div>
-					</div>
-				 @endforeach
-				</div>
-				{!! $sports->render() !!}
-				</div>
-				
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">career</h2>
-				<div class="render">
-				<div class="row row-bottom-padded-md">
-				@foreach ($careers as $career)
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="/groups/{{$career->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3>{!! link_to_route('groups.show',  $career->groupname, ['id' => $career->id])!!}</h3>
-								<span><i class="icon-comment"><small>{{ $career->date }}</small></i></span>
-								<p>{{ $career->description }}</p>
-                                <h2 class="lead">{!! link_to_route('groups.show',  'see more', ['id' => $career->id])!!}<i class="icon-arrow-right3"></i></h2>
-							</div>
-						</div>
-					</div>
-				 @endforeach
-				</div>
-				{!! $careers->render() !!}
-				</div>
-				
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">shopping</h2>
-				<div class="render">
-				<div class="row row-bottom-padded-md">
-				@foreach ($shoppings as $shopping)
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="/groups/{{$shopping->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3>{!! link_to_route('groups.show',  $shopping->groupname, ['id' => $shopping->id])!!}</h3>
-								<span><i class="icon-comment"><small>{{ $shopping->date }}</small></i></span>
-								<p>{{ $shopping->description }}</p>
-                                <h2 class="lead">{!! link_to_route('groups.show', 'see more', ['id' => $shopping->id])!!}<i class="icon-arrow-right3"></i></h2>
-							</div>
-						</div>
-					</div>
-				 @endforeach
-				</div>
-				{!! $shoppings->render() !!}
-				</div>
-				
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">movie</h2>
-				<div class="render">
-				<div class="row row-bottom-padded-md">
-				@foreach ($movies as $movie)
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="/groups/{{$movie->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h3>
-								<span><i class="icon-comment"><small>{{ $movie->date }}</small></i></span>
-								<p>{{ $movie->description }}</p>
-                                <h2 class="lead">{!! link_to_route('groups.show',  'see more', ['id' => $movie->id])!!}<i class="icon-arrow-right3"></i></h2>
-							</div>
-						</div>
-					</div>
-				 @endforeach
-				</div>
-				{!! $movies->render() !!}
-				</div>
-				
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">outdoor</h2>
-				<div class="render">
-				<div class="row row-bottom-padded-md">
-				@foreach ($outdoors as $outdoor)
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="/groups/{{$outdoor->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h3>
-								<span><i class="icon-comment"><small>{{ $outdoor->date }}</small></i></span>
-								<p>{{ $outdoor->description }}</p>
-                                <h2 class="lead">{!! link_to_route('groups.show', 'see more', ['id' => $outdoor->id])!!}<i class="icon-arrow-right3"></i></h2>
-							</div>
-						</div>
-					</div>
-				 @endforeach
-				</div>
-				{!! $outdoors->render() !!}
-				</div>
-				
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">others</h2>
-				<div class="render">
-				<div class="row row-bottom-padded-md">
-				@foreach ($others as $other)
-					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-						<div class="blog-entry">
-							<a href="/groups/{{$other->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h3>
-								<span><i class="icon-comment"><small>{{ $other->date }}</small></i></span>
-								<p>{{ $other->description }}</p>
-								<h2 class="lead">{!! link_to_route('groups.show', 'See More', ['id' => $other->id])!!}<i class="icon-arrow-right3"></i></h2>
-							</div>
-						</div>
-					</div>
-				 @endforeach
-				</div>
-				{!! $others->render() !!}
-				</div>
-				
 			</div>
+		
+		
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">food</h2>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($foods as $food)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="mike"></a>
+									<h2>{!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h2>
+									<p class="role">{{ $food->date }}</p>
+									<p>{{ $food->description }}</p>
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+							
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">sports</h2>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($sports as $sport)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="mike"></a>
+									<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
+									<p class="role">{{ $sport->date }}</p>
+									<p>{{ $sport->description }}</p>
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">career</h2>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($careers as $career)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="mike"></a>
+									<h2>{!! link_to_route('groups.show',  $career->groupname, ['id' => $career->id])!!}</h2>
+									<p class="role">{{ $career->date }}</p>
+									<p>{{ $career->description }}</p>
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">shopping</h2>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($shoppings as $shopping)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="mike"></a>
+									<h2>{!! link_to_route('groups.show',  $shopping->groupname, ['id' => $shopping->id])!!}</h2>
+									<p class="role">{{ $shopping->date }}</p>
+									<p>{{ $shopping->description }}</p>
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">movie</h2>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($movies as $movie)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="mike"></a>
+									<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
+									<p class="role">{{ $movie->date }}</p>
+									<p>{{ $movie->description }}</p>
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">outdoor</h2>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($outdoors as $outdoor)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="mike"></a>
+									<h2>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h2>
+									<p class="role">{{ $outdoor->date }}</p>
+									<p>{{ $outdoor->description }}</p>
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">others</h2>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($others as $other)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="mike"></a>
+									<h2>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h2>
+									<p class="role">{{ $other->date }}</p>
+									<p>{{ $other->description }}</p>
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+		
+							
+							
+							
+					
+	</div>
+	</div>
+	</div>
+	
+
 				
-		 </div>
-    </div>
+		
+    
     
     <!-- jQuery -->
 	<script src="../js/jquery.min.js"></script>
@@ -258,6 +309,9 @@
 	<script src="../js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
 	<script src="../js/jquery.flexslider-min.js"></script>
+	
+	<!-- Carousel -->
+	<script src="../js/owl.carousel.min.js"></script>
 	
 	
 	<!-- MAIN JS -->
