@@ -88,7 +88,7 @@
                <div class="panel-title"><div class='a'>{{ $user->nickname }}</div>
                
         @if(Auth::user()->id == $user->id)
-          <p class='tomo'>{!! link_to_route('users.edit', '編集ページ',  ['id' => $user->id]) !!}</p>
+         {!! link_to_route('users.edit', '編集ページ',  ['id' => $user->id]) !!}
          @endif
        </div>
           
