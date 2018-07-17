@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
+use App\Group;
 class UsersController extends Controller
 {
     /**
@@ -17,13 +18,15 @@ class UsersController extends Controller
             $user = \Auth::user();
             $followings = $user->followings()->paginate(10);
             $profile=$user->profile()->getResults();
-            $groups = $user->groups()->paginate(10); 
+            $groups = $user->groups()->paginate(10);
+            $group = new Group;
+            
             $data = [
                 'user' => $user,
                 'profile' =>$profile,
                 'users' => $followings,
                 'groups' => $groups, 
-                
+                'group' => $group,
                 
                 
             ];
@@ -97,10 +100,12 @@ class UsersController extends Controller
       if (\Auth::check()) {
             $user = \Auth::user();
             $profile=$user->profile()->getResults();
-          
+            $group = new Group;
+            
             $data = [
                 'user' => $user,
                 'profile' =>$profile,
+                'group' => $group,
             ];
             
             
@@ -211,11 +216,13 @@ class UsersController extends Controller
         $user = User::find($id);
         $followings = $user->followings()->paginate(10);
         $profile=$user->profile()->getResults();
+        $group = new Group;
+        
         $data = [
             'user' => $user,
             'users' => $followings,
             'profile' =>$profile,
-            
+            'group' => $group,
         ];
         
         $data += $this->counts($user);
@@ -226,10 +233,12 @@ class UsersController extends Controller
         $user = User::find($id);
         $profile=$user->profile()->getResults();
         $followers = $user->followers()->paginate(10);
+        $group = new Group;
         $data = [
             'user' => $user,
             'users' => $followers,
              'profile' =>$profile,
+             'group' => $group,
         ];
         $data += $this->counts($user);
         return view('users.followers', $data);
@@ -239,10 +248,13 @@ class UsersController extends Controller
          $user = User::find($id); 
          $favorites = $user->favorites()->paginate(10); 
          $profile=$user->profile()->getResults();
+         $group = new Group;
+         
          $data = [ 
              'user' => $user, 
              'groups' => $favorites, 
              'profile' =>$profile,
+             'group' => $group,
          ]; 
   
          $data += $this->counts($user); 
@@ -254,11 +266,12 @@ class UsersController extends Controller
          $user = User::find($id); 
          $groups = $user->groups()->paginate(10); 
           $profile=$user->profile()->getResults();
+          $group = new Group;
          $data = [ 
              'user' => $user, 
              'groups' => $groups,
              'profile' =>$profile, 
-             
+             'group' => $group,
               
          ]; 
   

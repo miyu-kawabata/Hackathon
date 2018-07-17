@@ -18,6 +18,7 @@ class GroupsController extends Controller
         $movie = $group->where('category','movie')->sortByDesc('created_at');
         $outdoor = $group->where('category','outdoor')->sortByDesc('created_at');
         $others = $group->where('category','others')->sortByDesc('created_at');
+        $group = new Group;
         
         return view('categories.category', [
             'groups' => $group,
@@ -29,6 +30,7 @@ class GroupsController extends Controller
             'movies' => $movie,
             'outdoors' => $outdoor,
             'others' => $others,
+            'group' => $group,
             ]);
     }
     

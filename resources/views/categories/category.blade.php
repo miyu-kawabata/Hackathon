@@ -54,6 +54,8 @@
 	<link rel="stylesheet" href="../css/style.css">
 	
 	<link rel="stylesheet" href="../css/themify-icons.css">
+	
+	<link href="../css/modal.css" rel="stylesheet">
 
 	<!-- Owl Carousel  -->
 	<link rel="stylesheet" href="../css/owl.carousel.min.css">
@@ -80,7 +82,7 @@
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY</a></li>
-					<li><a href="/groups/create">CREATE GROUP</a></li>
+					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -285,7 +287,77 @@
 					</div>
 				</div>
 			</div>
-		</div>		
+		</div>	
+		
+		<div class="col-xs-8">
+          	<div id="modal-content">
+        <div class="col-xs-6">
+            
+            
+        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+           {!! Form::model($group, ['route' => 'groups.store']) !!}
+        
+             
+            <div class="form-group">
+                 {!! Form::label ('groupname','GROUP NAME') !!}
+                 {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                
+                   {!! Form::label('category', 'CATEGORY') !!} 
+            </div>       
+                   
+                   <div class="form-group">
+                  
+                  　{!! Form::radio('category', 'nomikai') !!}
+                    {!! Form::label('category', 'nomikai') !!}
+                    
+                    {!! Form::radio('category', 'food') !!}
+                    {!! Form::label('category', 'food') !!}
+                    
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'sports') !!}
+                    
+                    {!! Form::radio('category', 'career') !!}
+                    {!! Form::label('category', 'career') !!}
+                    
+                    {!! Form::radio('category', 'shopping') !!}
+                    {!! Form::label('category', 'shopping') !!}
+                    
+                    {!! Form::radio('category', 'movie') !!}
+                    {!! Form::label('category', 'movie') !!}
+                    
+                    {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::label('category', 'outdoor') !!}
+                    
+                    {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'others') !!}
+                    
+            </div>
+            
+            
+            <div class="form-group">
+                 {!! Form::label ('date','DATE') !!}
+                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                 {!! Form::label ('description','DESCRIPTION') !!}
+                 {!! Form::text ('description',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+            {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+            {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
+            </div>
+            
+               {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
+
+            {!! Form::close() !!}
+
+        </div>
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+</div>
+		
 		
 							
 							
@@ -314,6 +386,8 @@
 	<!-- Carousel -->
 	<script src="../js/owl.carousel.min.js"></script>
 	
+	<!-- Modal -->
+	<script src="../js/modal.js"></script>
 	
 	<!-- MAIN JS -->
 	<script src="../js/main.js"></script>
