@@ -79,54 +79,51 @@
 		</aside>
    
    
-		<div id="fh5co-main">
+	<div id="fh5co-main">
          <aside class="col-xs-4">
          	<div class='sample1'>
-        
-            
-                <div class="panel-heading">
-               <div class="panel-title"><div class='a'>{{ $user->nickname }}</div>
-               
-        @if(Auth::user()->id == $user->id)
-         {!! link_to_route('users.edit', '編集ページ',  ['id' => $user->id]) !!}
-         @endif
-       </div>
-          
-                <div class="panel-body">
-                    <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
-                </div>
-                  @include('user_follow.follow_button', ['user' => $user])
-                 <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
-                 <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favorites }}</span></a></li>  
-                  </ul>
-                    <img class="media-object img-rounded img-responsive" src="" alt="写真を挿入">
-                    
-                    <p class='d'>About me...</p>
+   
+               <div class="panel-heading">
+              	 		<div class="panel-title">
+              	 			<div class='a'>{{ $user->nickname }}</div>
+        					@if(Auth::user()->id == $user->id)
+         					{!! link_to_route('users.edit', '編集ページ',  ['id' => $user->id]) !!}
+         					@endif
+      			 		</div>
+ 　　　	　　             
+                		<div class="panel-body">
+                   			<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                		</div>
                  
-               @if (isset($profile->sex))
-               <p class='e'>性別：{{ $profile->sex }}</p>
-                @endif
+                 		@include('user_follow.follow_button', ['user' => $user])
+                      
+                      <div class="panel-body">
+               			 <ul class='d'>About me...</ul>
+                 
+              			 @if (isset($profile->sex))
+               		    <li class='e'>性別：{{ $profile->sex }}</li>
+               			 @endif
                 
-                 @if (isset($profile->hometown))
-                 <p class='e'>出身：{{ $profile->hometown }}</p>
-                @endif
+                 		@if (isset($profile->hometown))
+                		<li class='e'>出身：{{ $profile->hometown }}</li>
+               		　 	@endif
                 
-                @if (isset($profile->hobbies))
-                 <p class='e'>趣味：{{ $profile->hobbies }}</p>
-                @endif
+               			@if (isset($profile->hobbies))
+                 		<li class='e'>趣味：{{ $profile->hobbies }}</li>
+                		@endif
                 
-                @if (isset($profile->comment))
-                 <p class='e'>何か一言：{{ $profile->comment }}</p>
-                @endif
+                		@if (isset($profile->comment))
+                 		<li class='e'>何か一言：{{ $profile->comment }}</li>
+                		@endif
+                	</div>
+                
               
-              
-            </div>
+            　
        
-         </div>
-         </div>
-        </aside>
+         　	</div>
+         </aside>
+        
+        
         <div class="col-xs-8">
         	<div class='sample'>
             <ul class="nav nav-tabs nav-justified">
@@ -137,33 +134,29 @@
 
             </ul>
             
-             @if (count($users) > 0)
-        <ul class="media-list">
+            @if (count($users) > 0)
+            <ul class="media-list">
             @foreach ($users as $user)
                 <li class="media">
                     <div class="media-left">
                         <div class="media-body">
-            <div>
-            <div class='e'>{{ $user->nickname }}</div>
-            </div>
-            <div>
-                <p>{!! link_to_route('tanins.show', 'View profile', ['id' => $user->id]) !!}</p>
-                        </div>
+            				<div class='e'>{{ $user->nickname }}</div>
+           
+                			<p>{!! link_to_route('tanins.show', 'View profile', ['id' => $user->id]) !!}</p>
+                        
+                    	</div>
                     </div>
                 </li>
-@endforeach
-</ul>
-{!! $users->render() !!}
-@endif
-            
-            
-            
-            
+			@endforeach
+			</ul>
+			{!! $users->render() !!}
+			@endif
+         
             </div>
        
-  </div>
+ 		 </div>
     </div>   
-       <!-- jQuery -->
+    <!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
 	<script src="js/jquery.easing.1.3.js"></script>
@@ -180,11 +173,4 @@
 
 	</body>
 </html>
-
-    </body>
-
-</html>
-
-
-
 
