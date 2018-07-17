@@ -1,7 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
-    <div class="row">
+<div id="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+<div class="row">
         <aside class="col-xs-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -14,8 +13,12 @@
             
         </aside>
         <div class="col-xs-8">
-            {!! Form::model($group, ['route' => ['groups.update', $group->id], 'method' => 'put', 'files' => true]) !!}
-             <div class="form-group">
+            
+            
+        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+        
+             
+            <div class="form-group">
                  {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
@@ -35,6 +38,7 @@
                     {!! Form::radio('category', 'ファッション') !!}
             </div>
             
+            
             <div class="form-group">
                  {!! Form::label ('date','開催日') !!}
                  {!! Form::text ('date',null,['class' => 'form-control']) !!}
@@ -45,15 +49,17 @@
             </div>
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
-            {!! Form::file('file',old('file')) !!}
+            {!! Form::file('file') !!}
             </div>
             
                {!! Form::submit ('投稿',['class' =>'btn btn-primary']) !!}
-                   {!! Form::close() !!}
-                {!! Form::open(['route' => ['groups.destroy', $group->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+
             {!! Form::close() !!}
 
         </div>
+        
+        <div>
+        </div>
     </div>
-@endsection
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->

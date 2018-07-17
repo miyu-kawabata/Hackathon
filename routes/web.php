@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    
+   //デザイン用にカテゴリー一覧へつなぐ 
 Route::get('/', 'UsersController@index');
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('followers', 'UsersController@followers')->name('users.followers');
                 });
     Route::resource('groups', 'GroupsController');
+    Route::get('groups/{id}/chat', 'GroupsController@chat')->name('groups.chat');
     
     Route::group(['prefix' => 'participation/{id}'], function () {
         Route::post('join', 'UserJoinController@store')->name('group.join');

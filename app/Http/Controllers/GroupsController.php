@@ -8,23 +8,29 @@ class GroupsController extends Controller
 {
     public function index()
     {
-        //テスト用
         //category pageにつながる
-        
         $group = Group::all();
-        $sports = $group->where('category','スポーツ')->sortByDesc('created_at');
-        $foods = $group->where('category','グルメ')->sortByDesc('created_at');
-        $musics = $group->where('category','音楽')->sortByDesc('created_at');
-        $cosmes = $group->where('category','美容')->sortByDesc('created_at');
-        $fashions = $group->where('category','ファッション')->sortByDesc('created_at');
+        $nomikai = $group->where('category','nomikai')->sortByDesc('created_at');
+        $food = $group->where('category','food')->sortByDesc('created_at');
+        $sports = $group->where('category','sports')->sortByDesc('created_at');
+        $career = $group->where('category','career')->sortByDesc('created_at');
+        $shopping = $group->where('category','shopping')->sortByDesc('created_at');
+        $movie = $group->where('category','movie')->sortByDesc('created_at');
+        $outdoor = $group->where('category','outdoor')->sortByDesc('created_at');
+        $others = $group->where('category','others')->sortByDesc('created_at');
+        $group = new Group;
         
         return view('categories.category', [
             'groups' => $group,
+            'nomikais' => $nomikai,
+            'foods' => $food,
             'sports' => $sports,
-            'foods' => $foods,
-            'musics' => $musics,
-            'cosmes' => $cosmes,
-            'fashions' =>$fashions,
+            'careers' => $career,
+            'shoppings' => $shopping,
+            'movies' => $movie,
+            'outdoors' => $outdoor,
+            'others' => $others,
+            'group' => $group,
             ]);
     }
     
@@ -40,7 +46,7 @@ class GroupsController extends Controller
         
         $idd = $group->organizer_id;
         $organizer = User::find($idd);
-        return view('groups.group', [
+        return view('groups.group_participant', [
             'group' => $group,
             'user' => $user,
             'chats'=>$chats,
@@ -69,8 +75,10 @@ class GroupsController extends Controller
           'groupname' => 'required|max:20',
           'description'=> 'required|max:191',
           'date'=> 'required|max:50',
+          'file' => 'required',
            ]);
-           
+        $filename = $request->file('file')->store('public/images');
+        
         $user = \Auth::user();
         $group = new Group;
         $group->groupname = $request->groupname;  
@@ -78,13 +86,14 @@ class GroupsController extends Controller
         $group->description = $request->description;
         $group->date = $request->date;
         $group->organizer_id = $user->id;
+        $group->group_picture = basename($filename);
         $group->save();
         
         $participants = $group->user_participants() -> paginate(10);
         $chats = $group->chat()->getResults();
         $idd = $group->organizer_id;
         $organizer = User::find($idd);
-        return view('groups.group',[
+        return view('groups.group_participant',[
             'group' => $group,
             'user' => $user,
             'participants' =>$participants,
@@ -110,21 +119,32 @@ class GroupsController extends Controller
             'groupname' => 'required|max:10',   // add
             'date' => 'required|max:191',
             'description' => 'required|max:191',
+            'file' => 'required',
         ]);
+        
+        $filename = $request->file('file')->store('public/images');
+        
+        $user = \Auth::user();
         $group->groupname = $request->groupname;
         $group->category = $request->category;
         $group->date = $request->date;
         $group->description = $request->description;
+        $group->organizer_id = $user->id;
+        $group->group_picture = basename($filename);
         $group->save();
         
         $participants = $group->user_participants() -> paginate(10);
+        $chats = $group->chat()->getResults();
+        $idd = $group->organizer_id;
+        $organizer = User::find($idd);
         
-        $user = \Auth::user();
-        return view('groups.group',[
+        return view('groups.group_participant',[
+
             'group' => $group,
             'user' => $user,
             'chats'=>$chats,
             'participants' =>$participants,
+            'organizer'=> $organizer,
             ]);
         
         
@@ -136,5 +156,27 @@ class GroupsController extends Controller
             $group->delete();
         
         return redirect('/groups');
+    }
+    
+    public function chat($id)
+    {
+        
+        if (\Auth::check()) {
+        $group = Group::find($id);
+        $user = \Auth::user();
+        $chats = $group->chat()->getResults();
+        $participants = $group->user_participants()->paginate(10);
+        
+        $idd = $group->organizer_id;
+        $organizer = User::find($idd);
+        return view('groups.group_chat', [
+            'group' => $group,
+            'user' => $user,
+            'chats'=>$chats,
+            'participants'=>$participants,
+            'organizer'=>$organizer,
+            ]);
+            
+    }
     }
 }

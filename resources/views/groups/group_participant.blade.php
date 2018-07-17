@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -43,105 +44,81 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="../../../css/animate.css">
+	<link rel="stylesheet" href="../css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="../../../css/icomoon.css">
+	<link rel="stylesheet" href="../css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../../../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="../../../css/flexslider.css">
+	<link rel="stylesheet" href="../css/flexslider.css">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="../../../css/style.css">
-	<!-- Modal  -->
+	<link rel="stylesheet" href="../css/style.css">
 	<link href="../../../css/modal.css" rel="stylesheet">
-
 	<!-- Modernizr JS -->
-	<script src="../../../js/modernizr-2.6.2.min.js"></script>
+	<script src="../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
 	</head>
-	
 	<body>
+		
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<div id="fh5co-logo"><a href="/"><div class='b'>Hackathon</div></a></div>
+			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/"><div class='a'>MY PAGE</div></a></li>
-					<li><a href="/groups"><div class='a'>CATEGORY</div></a></li>
-					<li><a id="modal-open" class="button-link"><div class='a'>CREATE GROUP</div></a></li>
-					<li><a href="/logout"><div class='a'>LOG OUT</div></a></li>
+					<li><a href="/">MY PAGE</a></li>
+					<li><a href="/groups">CATEGORY</a></li>
+					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
+					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
 		</aside>
-   
-   
-		<div id="fh5co-main">
-         <aside class="col-xs-4">
-         	<div class='sample1'>
-        
-            
-                <div class="panel-heading">
-               <div class="panel-title"><div class='a'>{{ $user->nickname }}</div>
-               
-        @if(Auth::user()->id == $user->id)
-          <p class='tomo'>{!! link_to_route('users.edit', '編集ページ',  ['id' => $user->id]) !!}</p>
-         @endif
-       </div>
-          
-                <div class="panel-body">
-                    <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
-                    
-                    
-                    <p class='d'>About me...</p>
-                 
-               @if (isset($profile->sex))
-               <p class='e'>性別：{{ $profile->sex }}</p>
-                @endif
-                
-                 @if (isset($profile->hometown))
-                 <p class='e'>出身：{{ $profile->hometown }}</p>
-                @endif
-                
-                @if (isset($profile->hobbies))
-                 <p class='e'>趣味：{{ $profile->hobbies }}</p>
-                @endif
-                
-                @if (isset($profile->comment))
-                 <p class='e'>何か一言：{{ $profile->comment }}</p>
-                @endif
-              
-              
-            </div>
-       
-         </div>
-         </div>
-        </aside>
-        <div class="col-xs-8">
-        	<div class='sample'>
-            <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}"><div class='c'>Followings <span class="badge">{{ $count_followings }}</span></div></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}"><div class='c'>Followers <span class="badge">{{ $count_followers }}</span></div></a></li>
-                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}"><div class='c'>Favorites <span class="badge">{{ $count_favorites }}</span></div></a></li>
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}"><div class='c'>Joins <span class="badge">{{ $count_groups }}</span></div></a></li>
 
-            </ul>
-            
-             @include('groups.groups_joins', ['groups' => $groups])
-            
-            
-        </div>
-    </div>
-		<div class="col-xs-8">
+		<div id="fh5co-main">
+			<aside class="col-xs-4 js-fullheight"> 
+             <div class="panel panel-default"> 
+                 <div class="panel-heading"> 
+                     <h3 class="panel-title">{{ $group->groupname }}</h3> 
+                 </div> 
+                 <div class="panel-body"> 
+                 	<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
+                 </div>
+                 <div class="group_profile">
+	        	 	<ul style="list-style:none">
+                	<li>＜カテゴリー名＞</li>
+                	<li>{{ $group->category }}</li>
+                	<li>＜開催日＞</li>
+                	<li>{{ $group->date }}</li> 
+                	<li>＜説明＞</li>
+                	<li>{{ $group->description }}</li>
+                	<li>＜オーガナイザー＞</li> 
+                	<li>{!! link_to_route('tanins.show',$organizer->nickname, ['id' => $organizer->id]) !!}</li>
+                </ul>
+    		     		<div class="edit">
+            				@if(Auth::user()->id == $organizer->id)
+                				<p style="float:right"><a href="/groups/{{$group->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
+            		 		@endif
+            			</div>
+                 </div>
+                 
+             </div>
+                <div class="col-xs-6">
+            @include('participate.join_button', ['user' => $user])
+            </div>
+            	<div class="col-xs-6">
+        	@include('groups.favorite_button', ['groups' => $group]) 
+             </div>
+                  
+
+         </aside>
+          
+          <div class="col-xs-8">
           	<div id="modal-content">
-        <div class="col-xs-6">
-            
-            
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
            {!! Form::model($group, ['route' => 'groups.store']) !!}
         
@@ -201,26 +178,45 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
-
-        </div>
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
-    </div>   
-       <!-- jQuery -->
-	<script src="../../../js/jquery.min.js"></script>
+</div>
+             <ul class="nav nav-tabs nav-justified"> 
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者</a></li>
+                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>     
+                  
+                 <ul> 
+                     @foreach ($participants as $participant) 
+                     <div>
+                      <img class="media-object img-rounded img-responsive" src="" alt="写真を挿入">
+                      <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p> 
+                      @include('user_follow.follow_button', ['user' => $user])
+                     </div>
+                     @endforeach 
+                 </ul> 
+                  
+             </ul> 
+                  
+         </div>
+			
+		</div>
+	</div>
+
+	<!-- jQuery -->
+	<script src="../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="../../../js/jquery.easing.1.3.js"></script>
+	<script src="../js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="../../../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="../../../js/jquery.waypoints.min.js"></script>
+	<script src="../js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
-	<script src="../../../js/jquery.flexslider-min.js"></script>
-	<!-- Modal -->
-	<script src="../../../js/modal.js"></script>
-	
+	<script src="../js/jquery.flexslider-min.js"></script>
+	<!-- JavaScriptの読み込み -->
+<script src="../../../js/modal.js"></script>
 	
 	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+	<script src="../js/main.js"></script>
 
 	</body>
 </html>
+

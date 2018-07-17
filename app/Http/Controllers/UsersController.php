@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
+use App\Group;
 class UsersController extends Controller
 {
     /**
@@ -17,20 +18,22 @@ class UsersController extends Controller
             $user = \Auth::user();
             $followings = $user->followings()->paginate(10);
             $profile=$user->profile()->getResults();
-            $groups = $user->groups()->paginate(10); 
+            $groups = $user->groups()->paginate(10);
+            $group = new Group;
+            
             $data = [
                 'user' => $user,
                 'profile' =>$profile,
                 'users' => $followings,
                 'groups' => $groups, 
-                
+                'group' => $group,
                 
                 
             ];
             $data += $this->counts($user);
-            return view('users.show', $data);
+            return view('users.followings', $data);
         }else {
-            return view('index');
+            return view('welcome');
         }
     }
     /**
@@ -61,19 +64,21 @@ class UsersController extends Controller
             'comment' => 'required|max:191',
         ]);
         
+        $filename = $request->file('file')->store('public/images');
         $request->user()->profile()->create([
         
             'sex'=>$request->sex,
             'hometown'=>$request->hometown,
             'hobbies'=>$request->hobbies,
             'comment' => $request->comment,
+            'avatar_filename' => basename($filename),
             
 
 
         ]);
             return redirect('/');
-    
     }
+    
     /**
      * Display the specified resource.
      *
@@ -95,10 +100,12 @@ class UsersController extends Controller
       if (\Auth::check()) {
             $user = \Auth::user();
             $profile=$user->profile()->getResults();
-          
+            $group = new Group;
+            
             $data = [
                 'user' => $user,
                 'profile' =>$profile,
+                'group' => $group,
             ];
             
             
@@ -123,7 +130,11 @@ class UsersController extends Controller
         $this->validate($request, ['sex','hometown','hobbies','comment'
         => 'max:191',
         ]);
-         $profile=Profile::find($id);
+        $filename = $request->file('file')->store('public/images');
+        $profile=Profile::find($id);
+        $profile->comment = $request->comment;
+        $profile->avatar_filename = basename($filename);
+
           $hometown=[
   '' =>  '都道府県を選択して下さい',
   '1' => '北海道', 
@@ -179,7 +190,6 @@ class UsersController extends Controller
  $profile->sex = $request->sex;
  $profile->hometown = $hometown[$request->hometown];
   $profile->hobbies = $request->hobbies;
- $profile->comment = $request->comment;
     
  $profile->save();
             
@@ -206,11 +216,13 @@ class UsersController extends Controller
         $user = User::find($id);
         $followings = $user->followings()->paginate(10);
         $profile=$user->profile()->getResults();
+        $group = new Group;
+        
         $data = [
             'user' => $user,
             'users' => $followings,
             'profile' =>$profile,
-            
+            'group' => $group,
         ];
         
         $data += $this->counts($user);
@@ -221,10 +233,12 @@ class UsersController extends Controller
         $user = User::find($id);
         $profile=$user->profile()->getResults();
         $followers = $user->followers()->paginate(10);
+        $group = new Group;
         $data = [
             'user' => $user,
             'users' => $followers,
              'profile' =>$profile,
+             'group' => $group,
         ];
         $data += $this->counts($user);
         return view('users.followers', $data);
@@ -234,10 +248,13 @@ class UsersController extends Controller
          $user = User::find($id); 
          $favorites = $user->favorites()->paginate(10); 
          $profile=$user->profile()->getResults();
+         $group = new Group;
+         
          $data = [ 
              'user' => $user, 
              'groups' => $favorites, 
              'profile' =>$profile,
+             'group' => $group,
          ]; 
   
          $data += $this->counts($user); 
@@ -249,11 +266,12 @@ class UsersController extends Controller
          $user = User::find($id); 
          $groups = $user->groups()->paginate(10); 
           $profile=$user->profile()->getResults();
+          $group = new Group;
          $data = [ 
              'user' => $user, 
              'groups' => $groups,
              'profile' =>$profile, 
-             
+             'group' => $group,
               
          ]; 
   

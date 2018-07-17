@@ -145,6 +145,55 @@
 
 	};
 
+	
+	var owlCarousel = function(){
+		
+		var owl = $('.owl-carousel-carousel');
+		owl.owlCarousel({
+			items: 3,
+			loop: true,
+			margin: 40,
+			navigation: true,
+			dots: true,
+			navigationText: [
+		      "prev",
+		      "next"
+	     	],
+	     	responsive:{
+	        0:{
+	            items:1
+	        },
+	        600:{
+	            items:2
+	        },
+	        1000:{
+	            items:4
+	        }
+	    	}
+		});
+
+
+		var owl2 = $('.owl-carousel-fullwidth');
+		owl2.owlCarousel({
+			items: 1,
+			loop: true,
+			margin: 20,
+			navigation: true,
+			dots: true,
+			autoplay: true,
+			autoplayTimeout: 5000,
+			autoplayHoverPause: false,
+			navigationText: [
+		      "prev",
+		      "next"
+	     	]
+		});
+
+
+		
+
+	};
+
 	// Document on load.
 	$(function(){
 		fullHeight();
@@ -152,6 +201,19 @@
 		burgerMenu();
 		mobileMenuOutsideClick();
 		sliderMain();
+
+		owlCarousel();
+		
+		offcanvasMenu();
+		burgerMenu();
+		
+		dropdown();
+		
+		tabs();
+		goToTop();
+		loaderPage();
+		counterWayPoint();
+		changeWayPoint();
 	});
 
 

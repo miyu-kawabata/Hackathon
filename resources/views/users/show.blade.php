@@ -93,6 +93,14 @@
        </div>
           
                 <div class="panel-body">
+                    <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                </div>
+                  @include('user_follow.follow_button', ['user' => $user])
+                 <ul class="nav nav-tabs nav-justified">
+                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
+                 <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favorites }}</span></a></li>  
+                  </ul>
                     <img class="media-object img-rounded img-responsive" src="" alt="写真を挿入">
                     
                     <p class='d'>About me...</p>
