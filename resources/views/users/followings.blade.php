@@ -70,13 +70,13 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<div id="fh5co-logo"><a href="/"><div class='b'>Hackathon</div></a></div>
+			<div id="fh5co-logo"><a href="/">Hackathon</a></div>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/"><div class='a'>MY PAGE</div></a></li>
-					<li><a href="/groups"><div class='a'>CATEGORY</div></a></li>
-					<li><a id="modal-open" class="button-link"><div class='a'>CREATE GROUP</div></a></li>
-					<li><a href="/logout"><div class='a'>LOG OUT</div></a></li>
+					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
+					<li><a href="/groups">CATEGORY</a></li>
+					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
+					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
 		</aside>
@@ -90,8 +90,6 @@
     @endforeach
 @endif
          <aside class="col-xs-4">
-         	<div class='sample1'>
-        
             
                 <div class="panel-heading">
                <div class="panel-title"><div class='a'>{{ $user->nickname }}</div>
@@ -129,10 +127,8 @@
             </div>
        
          </div>
-         </div>
         </aside>
         <div class="col-xs-8">
-        	<div class='sample'>
             <ul class="nav nav-tabs nav-justified">
                 <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}"><div class='c'>Followings <span class="badge">{{ $count_followings }}</span></div></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}"><div class='c'>Followers <span class="badge">{{ $count_followers }}</span></div></a></li>
@@ -142,34 +138,26 @@
             </ul>
             
              @if (count($users) > 0)
-        <ul class="media-list">
-            @foreach ($users as $user)
-                <li class="media">
-                    <div class="media-left">
-                        <div class="media-body">
-            <div>
-            <div class ="joymiyu col-xs-4">    
-            <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
-            </div>
-            <div class='e'>{{ $user->nickname }}</div>
-            </div>
-            <div>
-                <p>{!! link_to_route('tanins.show', 'View profile', ['id' => $user->id]) !!}</p>
+            <ul class="media-list">
+                @foreach ($users as $user)
+                    <li class="media">
+                        <div class="media-left">
+                            <div class="media-body">
+                                <div class ="joymiyu col-xs-4">    
+                                    <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                                </div>
+                            <div>{{ $user->nickname }}</div>
+                                <p>{!! link_to_route('tanins.show', 'View profile', ['id' => $user->id]) !!}</p>
+                            </div>
                         </div>
-                    </div>
-                </li>
-@endforeach
-</ul>
-{!! $users->render() !!}
-@endif
-            
-            
-            
-            
-            </div>
-       
-  </div>
-  <div class="col-xs-8">
+                    </li>
+                @endforeach
+            </ul>
+            {!! $users->render() !!}
+            @endif
+        </div>
+    </div>
+    <div class="col-xs-8">
           	<div id="modal-content">
         <div class="col-xs-6">
             

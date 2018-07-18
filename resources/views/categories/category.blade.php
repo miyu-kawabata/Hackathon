@@ -107,7 +107,7 @@
 						<div class="owl-carousel owl-carousel-carousel">
 						  
 							@foreach($nomikais as $nomikai)
-							<div class="item">
+							<div class="item">`
 								<div class="gtco-item">
 									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $nomikai->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>

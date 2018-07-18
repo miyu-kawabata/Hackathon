@@ -89,6 +89,8 @@ class GroupsController extends Controller
         $group->group_picture = basename($filename);
         $group->save();
         
+        \Auth::user()->join($group->id);
+        
         $participants = $group->user_participants() -> paginate(10);
         $chats = $group->chat()->getResults();
         $idd = $group->organizer_id;

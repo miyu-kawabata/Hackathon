@@ -86,7 +86,7 @@
         <div class="alert alert-warning">{{ $error }}</div>
     @endforeach
 @endif
-			<aside class="col-xs-4 js-fullheight"> 
+			<aside class="col-xs-5 js-fullheight"> 
              <div class="panel panel-default"> 
                  <div class="panel-heading"> 
                      <h3 class="panel-title">{{ $group->groupname }}</h3> 
@@ -127,7 +127,7 @@
          </aside>
 
           
-          <div class="col-xs-8">
+          <div class="col-xs-7">
           	
           	<div id="modal-content">
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
@@ -204,7 +204,7 @@
 					<div class="row">
 						<div>
 							<div class="row">
-								<div class="col-md-12">
+								<div class="col-sm-9">
 									<div class="form-group1">
 										{!! Form::textarea('chat', old('chat'), ['class' => 'form-control', 'rows' => '4', 'placeholder'=>"Say something"]) !!} 
 									</div>
@@ -220,13 +220,14 @@
            
              
              @foreach ($chats as $chat) 
+             <div style="clear:both">
              <div class="media-body"> 
-             	<div class ="joymiyu col-xs-4">
-                	<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
+             	<div class ="joymiyu col-xs-3">
+                	<img class="joymiyu" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
                 </div>
                 <div class ="col-xs-8">
                 	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 
-               		 <p>{!! nl2br(e($chat->chat)) !!}</p> 
+               		 	<p class="chat2">{!! nl2br(e($chat->chat)) !!}</p>
                   	@if (Auth::user()->id == $chat->user_id)
                     	{!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
                         	{!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}
@@ -235,7 +236,8 @@
                	</div> 
               
              @endforeach 
-         	</div> 
+         	</div>
+         	</div>
          </div>
 	</div>
 	</div>

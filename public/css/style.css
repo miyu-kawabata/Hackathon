@@ -1026,6 +1026,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   box-shadow: none;
 }
 
+.btnc{
+  width: 130%;
+}
+
 .form-control {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2340,8 +2344,9 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   height: 50%;
 }
 .joymiyu img{
-  width: inherit;
-  height: inherit;
+  height:100px;
+  width:150px;
+  margin-bottom: 10px;
 }
 
 
@@ -2367,7 +2372,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 
 
 .sample {
-width:850px; height:800px;
+
 
 
  margin:2em 0;
@@ -2720,6 +2725,27 @@ width:500px; height:800px;
 }
 .gtco-staff .fh5co-social li a:hover, .gtco-item .fh5co-social li a:hover {
   color: #000;
+}
+.participant{
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Century Gothic';
+  font-weight: 700;
+}
+.chat{
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Century Gothic';
+  font-weight: 700;
+}
+
+.media-object.img-rounded.img-responsive{
+  height:200px;
+  width:400px;
+}
+.chat2{
+  word-wrap: break-word;
+  width: inherit;
 }
 
 
