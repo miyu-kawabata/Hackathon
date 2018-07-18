@@ -65,14 +65,15 @@
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
-
-			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
+	
+	
+	<div id="fh5co-logo"><a href="/"><div class='b'>Hackathon</div></a></div>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/">Home</a></li>
-					<li><a href="/signup">signup</a></li>
-					<li><a href="/login">login</a></li>
-					<li><a href="#about">About</a></li>
+					<li class="fh5co-active"><a href="/"><div class='a'>Home</div></a></li>
+					<li><a href="/signup"><div class='a'>signup</div></a></li>
+					<li><a href="/login"><div class='a'>login</div></a></li>
+					<li><a href="#about"><div class='a'>About</div></a></li>
 				</ul>
 			</nav>
 

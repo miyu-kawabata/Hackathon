@@ -84,6 +84,8 @@ class GroupsController extends Controller
         $group->groupname = $request->groupname;  
         $group->category = $request->category;
         $group->description = $request->description;
+        $group->year = $request->year;
+        $group->month = $request->month;
         $group->date = $request->date;
         $group->organizer_id = $user->id;
         $group->group_picture = basename($filename);
@@ -116,7 +118,9 @@ class GroupsController extends Controller
                 $group = Group::find($id);
                 
                 $this->validate($request, [
-            'groupname' => 'required|max:10',   // add
+            'groupname' => 'required|max:10',
+            'year' => 'required|max:191',
+            'month' => 'required|max:191',
             'date' => 'required|max:191',
             'description' => 'required|max:191',
             'file' => 'required',
@@ -127,6 +131,8 @@ class GroupsController extends Controller
         $user = \Auth::user();
         $group->groupname = $request->groupname;
         $group->category = $request->category;
+        $group->year = $request->year;
+        $group->month = $request->month;
         $group->date = $request->date;
         $group->description = $request->description;
         $group->organizer_id = $user->id;

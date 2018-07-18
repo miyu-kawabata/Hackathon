@@ -2723,5 +2723,21 @@ width:500px; height:800px;
 }
 
 
+.f{
+  font-size:25px;
+  font-family:Italic;
+  text-align:left;
+  color:black;
+  font-weight:bold;
+  
+}
 
 /*# sourceMappingURL=style.css.map */
+
+
+.item{
+  font-size:20px;
+  color:black;
+  
+  
+}

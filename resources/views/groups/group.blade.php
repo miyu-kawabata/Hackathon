@@ -34,7 +34,7 @@
                   
                   
                  <ul> 
-                     <li>参加者一覧</li> 
+                     <li class='f'>参加者一覧</li> 
                      @foreach ($participants as $participant) 
                     <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p> 
                  @endforeach 

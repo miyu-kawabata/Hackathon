@@ -87,7 +87,7 @@
               	 		<div class="panel-title">
               	 			<div class='a'>{{ $user->nickname }}</div>
         					@if(Auth::user()->id == $user->id)
-         					{!! link_to_route('users.edit', '編集ページ',  ['id' => $user->id]) !!}
+         					<p style="float:right"><a href="/users/{{$user->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
          					@endif
       			 		</div>
  　　　	　　             
