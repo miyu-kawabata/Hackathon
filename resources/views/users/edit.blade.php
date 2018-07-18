@@ -302,6 +302,11 @@
                 {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
         
             {!! Form::close() !!}
+            @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
   @endif          
         </div>
         </div>
@@ -369,6 +374,11 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+            @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
 
         </div>
 	<p><a id="modal-close" class="button-link">閉じる</a></p>

@@ -82,6 +82,12 @@
    
    
 		<div id="fh5co-main">
+		    @if (count($errors) > 0)
+		<h2>グループの作成に失敗しました( *´艸｀)</h2>
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
          <aside class="col-xs-4">
          	<div class='sample1'>
         
@@ -139,7 +145,6 @@
     </div>
 		<div class="col-xs-8">
           	<div id="modal-content">
-        <div class="col-xs-6">
             
             
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
@@ -202,7 +207,6 @@
 
             {!! Form::close() !!}
 
-        </div>
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
     </div>   
        <!-- jQuery -->

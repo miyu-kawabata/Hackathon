@@ -82,6 +82,12 @@
    
    
 		<div id="fh5co-main">
+		    @if (count($errors) > 0)
+		<h2>グループの作成に失敗しました( *´艸｀)</h2>
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
          <aside class="col-xs-4">
          	<div class='sample1'>
         
@@ -139,6 +145,9 @@
                     <div class="media-left">
                         <div class="media-body">
             <div>
+            <div class ="joymiyu col-xs-4">
+            <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+            </div>
             <div class='e'>{{ $user->nickname }}</div>
             </div>
             <div>
@@ -221,6 +230,11 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+            @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
 
         </div>
 	<p><a id="modal-close" class="button-link">閉じる</a></p>

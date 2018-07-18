@@ -2327,7 +2327,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 .js .animate-box {
   opacity: 0;
 }
-.heading .panel-title {
+.panel-heading .panel-title {
   text-align: left;
   font-family: 'Century Gothic';
   font-weight: 700;

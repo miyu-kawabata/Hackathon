@@ -71,7 +71,7 @@ class GroupsController extends Controller
     public function store(Request $request)
     {
        $this->validate($request,[
-           
+          
           'groupname' => 'required|max:20',
           'description'=> 'required|max:191',
           'date'=> 'required|max:50',

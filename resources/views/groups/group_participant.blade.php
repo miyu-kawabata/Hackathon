@@ -80,6 +80,12 @@
 		</aside>
 
 		<div id="fh5co-main">
+			@if (count($errors) > 0)
+		<h2>グループの作成/編集に失敗しました( *´艸｀)</h2>
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
 			<aside class="col-xs-4 js-fullheight"> 
              <div class="panel panel-default"> 
                  <div class="panel-heading"> 
@@ -118,6 +124,7 @@
          </aside>
           
           <div class="col-xs-8">
+          	
           	<div id="modal-content">
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
            {!! Form::model($group, ['route' => 'groups.store']) !!}
@@ -178,26 +185,33 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+            @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 </div>
              <ul class="nav nav-tabs nav-justified"> 
                 <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者</a></li>
                 <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>     
                   
+             </ul>                  
                  <ul> 
                      @foreach ($participants as $participant) 
                      <div>
-                      <img class="media-object img-rounded img-responsive" src="" alt="写真を挿入">
+                      	<div class ="joymiyu col-xs-4">
+                	<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
+                </div>
+                <div class ="col-xs-8">
                       <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p> 
                       @include('user_follow.follow_button', ['user' => $user])
                      </div>
                      @endforeach 
                  </ul> 
+ 
                   
-             </ul> 
-                  
-         </div>
-			
+
 		</div>
 	</div>
 

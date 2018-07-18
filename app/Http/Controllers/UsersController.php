@@ -62,6 +62,9 @@ class UsersController extends Controller
     
        $this->validate($request, [
             'comment' => 'required|max:191',
+            'file' =>'required',
+            'hometown'=>'required',
+             'sex'=>'required'
         ]);
         
         $filename = $request->file('file')->store('public/images');
@@ -127,8 +130,11 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, ['sex','hometown','hobbies','comment'
-        => 'max:191',
+         $this->validate($request, [
+            'comment' => 'required|max:191',
+            'file' =>'required',
+            'hometown'=>'required',
+             'sex'=>'required'
         ]);
         $filename = $request->file('file')->store('public/images');
         $profile=Profile::find($id);

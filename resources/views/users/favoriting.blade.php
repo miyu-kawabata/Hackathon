@@ -82,6 +82,12 @@
    
    
 		<div id="fh5co-main">
+		    @if (count($errors) > 0)
+		<h2>グループの作成に失敗しました( *´艸｀)</h2>
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
          <aside class="col-xs-4">
          	<div class='sample1'>
         
@@ -133,6 +139,7 @@
             </ul>
             
             @include('groups.groups_favorites', ['groups' => $groups])
+        
         </div>
     </div>
 <div class="col-xs-8">

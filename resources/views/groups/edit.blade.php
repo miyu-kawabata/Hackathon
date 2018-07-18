@@ -22,17 +22,33 @@
             
             <div class="form-group">
                  
-                  {!! Form::label('category', 'カテゴリー:') !!}
-                    {!! Form::label('category', 'スポーツ:') !!}
-                    {!! Form::radio('category', 'スポーツ') !!}
-                    {!! Form::label('category', 'グルメ:') !!}
-                    {!! Form::radio('category', 'グルメ') !!}
-                    {!! Form::label('category', '音楽:') !!}
-                    {!! Form::radio('category', '音楽') !!}
-                    {!! Form::label('category', '美容:') !!}
-                    {!! Form::radio('category', '美容') !!}
-                    {!! Form::label('category', 'ファッション:') !!}
-                    {!! Form::radio('category', 'ファッション') !!}
+                   
+                 {!! Form::label ('groupname','カテゴリー') !!} 
+                  　{!! Form::radio('category', 'nomikai') !!}
+                    {!! Form::label('category', 'nomikai') !!}
+                    
+                    {!! Form::radio('category', 'food') !!}
+                    {!! Form::label('category', 'food') !!}
+                    
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'sports') !!}
+                    
+                    {!! Form::radio('category', 'career') !!}
+                    {!! Form::label('category', 'career') !!}
+                    
+                    {!! Form::radio('category', 'shopping') !!}
+                    {!! Form::label('category', 'shopping') !!}
+                    
+                    {!! Form::radio('category', 'movie') !!}
+                    {!! Form::label('category', 'movie') !!}
+                    
+                    {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::label('category', 'outdoor') !!}
+                    
+                    {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'others') !!}
+                    
+            
             </div>
             
             <div class="form-group">
