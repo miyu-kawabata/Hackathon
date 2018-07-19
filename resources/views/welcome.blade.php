@@ -66,20 +66,23 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<div id="fh5co-logo"><a href="/">Hackathon</a></div>
+			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
-					<li><a href="/groups">CATEGORY LIST</a></li>
-					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
-					<li><a href="/logout">LOG OUT</a></li>
+					<li class="fh5co-active"><a href="/">Home</a></li>
+					<li><a href="/signup">signup</a></li>
+					<li><a href="/login">login</a></li>
+					<li><a href="#learnmore">About</a></li>
 				</ul>
 			</nav>
+
+			
+
 		</aside>
 
 		<div id="fh5co-main">
-			<aside id="fh5co-hero" class="js-fullheight">
-				<div class="flexslider js-fullheight">
+			<aside id="fh5co-hero">
+				<div class="flexslider">
 					<ul class="slides">
 				   	<li style="background-image: url(images/blue.jpg);">
 				   		<div class="overlay"></div>
@@ -89,11 +92,11 @@
 					   				<div class="slider-text-inner">
 					   					<h1><strong>Welcome to Hackathon!</strong> </h1>
 					   					
-											<p><a class="btn btn-primary btn-demo popup-vimeo" href="/signup"> <i class="icon-user"></i>Sign up!</a> <a class="btn btn-primary btn-learn"  href="/login">Login<i class="icon-arrow-right3"></i></a></p>
+										   <p><a class="btn btn-primary btn-demo popup-vimeo" href="/signup"> <i class="icon-user"></i>Sign up!</a> <a class="btn btn-primary btn-learn"  href="/login">Login<i class="icon-arrow-right3"></i></a></p>
 					   			           <h2>よっ友から、楽友へ。</h2>
 					   			           
-					   			            <p><a href="#learnmore"><icon class="icon-arrow-down"></icon><br>
-					   			            <pp>Learn More</pp></a>
+					   			            <a button type="button" class="btn btn-danger btn-lg btn-block" href="#learnmore"> <i class="icon-arrow-down"></i>ここをCHECK!</button></a> 
+					   			            
 					   				</div>
 					   			</div>
 					   		</div>
@@ -109,8 +112,7 @@
 					   					<h1>好きなことは何？</h1>
                                            	<h2> 面白い同期たちとの新しい出会いが<br>きっと近くに。</h2>
 											<p><a class="btn btn-primary btn-demo popup-vimeo" href="/signup"> <i class="icon-user"></i>Sign up!</a> <a class="btn btn-primary btn-learn"  href="/login">Login<i class="icon-arrow-right3"></i></a></p>
-					   				        <p><a href="#learnmore"><icon class="icon-arrow-down"></icon><br>
-					   			            <pp>Learn More</pp></a>
+					   			            <a button type="button" class="btn btn-danger btn-lg btn-block" href="#learnmore"> <i class="icon-arrow-down"></i>ここをCHECK!</button> </a>
 					   				</div>
 					   			</div>
 					   		</div>

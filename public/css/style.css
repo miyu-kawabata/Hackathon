@@ -278,7 +278,7 @@ figure figcaption {
 
 #fh5co-main .prev {
   padding-top:2%;
-  padding-left: 2%;
+  padding-left: 0.5%;
 }
 
 
@@ -392,7 +392,7 @@ figure figcaption {
   font-weight: 500;
  }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner pp {
-  font-size: 25px;
+  font-size: 35px;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #fff;
@@ -1562,11 +1562,9 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   outline: none;
   box-shadow: none;
   border-color: #228896;
-<<<<<<< HEAD
+
   }
-=======
-}
->>>>>>> acfc5427ca909bb729055cebd5b2446ef335b007
+
 
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h1, #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 {
   margin: 0;
@@ -1706,10 +1704,17 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 .blog-entry .desc {
   padding: 25px;
 }
-.blog-entry .desc h3 {
+.blog-entry .desc h2 {
   font-size: 15px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  line-height: auto;
+}
+.blog-entry .desc h6 {
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
   letter-spacing: 1px;
   line-height: auto;
 }
@@ -1719,11 +1724,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .blog-entry .desc span {
   display: block;
-  margin-bottom: 20px;
-  font-size: 11px;
-  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-size: 15px;
   letter-spacing: 1px;
-  color: rgba(0, 0, 0, 0.4) !important;
+  color: #000000;
 }
 .blog-entry .desc span small i {
   color: #e6e6e6;
@@ -2474,7 +2478,6 @@ width:500px; height:800px;
 .sample1:after {right: 10px;}
 
 .a{
-  font-family:"Kokoro", cursive;
   font-size:30px;
   font-weight:bold;
   color:black;
@@ -2484,14 +2487,12 @@ width:500px; height:800px;
 
 .b{
   
-   font-family: Italic;
   font-size:40px;
   background: silver;
   color: black;
   text-shadow: -3px 0 0 white;
 }
 .c{
-  font-family:Italic;
   font-size:20px;
   text-align:center;
   color:black;
@@ -2507,7 +2508,6 @@ width:500px; height:800px;
 }
 
 .d{
-  font-family:"Kokoro", cursive;
   font-size:22px;
   background:linear-gradient(transparent 30%, #ffff66 90%);
   text-align:left;
@@ -2522,13 +2522,8 @@ width:500px; height:800px;
   font-size:18px;
   color:black;
   font-weight:bold;
-  font-family:"Roboto", Arial, sans-serif;
   letter-spacing:0px;
 　line-height:0px;
-
-  
-  
-  
 }
 
 .box23 {
