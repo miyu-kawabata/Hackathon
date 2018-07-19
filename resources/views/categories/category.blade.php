@@ -80,8 +80,8 @@
 			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
-					<li><a href="/groups">CATEGORY</a></li>
+					<li><a href="/">MY PAGE</a></li>
+					<li class="fh5co-active"><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
@@ -89,13 +89,107 @@
 		</aside>
 		
 	<div id="fh5co-main">
-		<div class="prev">
-		<h1>グループ一覧</h1>
-		</div>
+		@if (count($errors) > 0)
+		<h2>グループの作成に失敗しました( *´艸｀)</h2>
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
    		<div class="fh5co-narrow-content">
+			    <div class="prev">
+		<h1>CATEGORY LIST</h1>
+		</div>
+			    
+			    
+		    	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">カフェテリアでごはん</h2>
+		
+			<div class="gtco-section">
+				<div class="gtco-container">
+					<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+						  
+							@foreach($cafeterias as $cafeteria)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$cafeteria->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $cafeteria->group_picture) }}" alt="写真を挿入"></a>
+									<h2>{!! link_to_route('groups.show',  $cafeteria->groupname, ['id' => $cafeteria->id])!!}</h2>
+				
+									<p class="role">{{ $cafeteria->year }}/{{ $cafeteria->month }}/{{ $cafeteria->date }}</p>
+									<p>{{ $cafeteria->place }}</p>
+									<p>{{ $cafeteria->description }}</p>
+								</div>
+							</div>
+							@endforeach
+                            
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>	    
+			
+			
+			
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">休憩時間</h2>
+			<div class="gtco-section">
+				<div class="gtco-container">
+					<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+						  
+							@foreach($breaktimes as $breaktime)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$breaktime->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $breaktime->group_picture) }}" alt="写真を挿入"></a>
+									<h2>{!! link_to_route('groups.show',  $breaktime->groupname, ['id' => $breaktime->id])!!}</h2>
+				
+									<p class="role">{{ $breaktime->year }}/{{ $breaktime->month }}/{{ $breaktime->date }}</p>
+									<p>{{ $breaktime->place }}</p>
+									<p>{{ $breaktime->description }}</p>
+								</div>
+							</div>
+							@endforeach
+                            
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>	    
+			    
+			    
 			    
     
-			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">nomikai</h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">好きなモノについて語る会</h2>
+			<div class="gtco-section">
+				<div class="gtco-container">
+					<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+						  
+							@foreach($katarus as $kataru)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$kataru->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $kataru->group_picture) }}" alt="写真を挿入"></a>
+									<h2>{!! link_to_route('groups.show',  $kataru->groupname, ['id' => $kataru->id])!!}</h2>
+				
+									<p class="role">{{ $kataru->year }}/{{ $kataru->month }}/{{ $kataru->date }}</p>
+									<p>{{ $kataru->place }}</p>
+									<p>{{ $kataru->description }}</p>
+								</div>
+							</div>
+							@endforeach
+                            
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">飲み会</h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
@@ -108,7 +202,9 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $nomikai->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>
-									<h4>{{ $nomikai->date }}</h4>
+				
+									<p class="role">{{ $nomikai->year }}/{{ $nomikai->month }}/{{ $nomikai->date }}</p>
+									<p>{{ $nomikai->place }}</p>
 									<p>{{ $nomikai->description }}</p>
 								</div>
 							</div>
@@ -119,9 +215,37 @@
 					</div>
 				</div>
 			</div>
+			
+			
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">スポーツ</h2>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($sports as $sport)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$sport->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $sport->group_picture) }}" alt="写真を挿入"></a>
+									<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
+									<p class="role">{{ $sport->year }}/{{ $sport->month }}/{{ $sport->date }}</p>
+									<p>{{ $sport->place }}</p>
+									<p>{{ $sport->description }}</p>
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+			
 		
 		
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">food</h2>
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">グルメ</h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -133,7 +257,8 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$food->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $food->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h2>
-									<h4>{{ $food->date }}</h4>
+									<p class="role">{{ $food->year }}/{{ $food->month}}/{{ $food->date }}</p>
+									<p>{{ $food->place }}</p>
 									<p>{{ $food->description }}</p>
 								</div>
 							</div>
@@ -146,104 +271,8 @@
 		</div>
 
 							
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">sports</h2>
-		<div class="gtco-section">
-			<div class="gtco-container">
-				<div class="row">
 
-					<div class="col-md-12">
-						<div class="owl-carousel owl-carousel-carousel">
-							@foreach($sports as $sport)
-							<div class="item">
-								<div class="gtco-item">
-									<a href="/groups/{{$sport->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $sport->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
-									<h4>{{ $sport->date }}</h4>
-									<p>{{ $sport->description }}</p>
-								</div>
-							</div>
-							@endforeach
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">career</h2>
-		<div class="gtco-section">
-			<div class="gtco-container">
-				<div class="row">
-
-					<div class="col-md-12">
-						<div class="owl-carousel owl-carousel-carousel">
-							@foreach($careers as $career)
-							<div class="item">
-								<div class="gtco-item">
-									<a href="/groups/{{$career->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $career->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $career->groupname, ['id' => $career->id])!!}</h2>
-									<h4>{{ $career->date }}</h4>
-									<p>{{ $career->description }}</p>
-								</div>
-							</div>
-							@endforeach
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">shopping</h2>
-		<div class="gtco-section">
-			<div class="gtco-container">
-				<div class="row">
-
-					<div class="col-md-12">
-						<div class="owl-carousel owl-carousel-carousel">
-							@foreach($shoppings as $shopping)
-							<div class="item">
-								<div class="gtco-item">
-									<a href="/groups/{{$shopping->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $shopping->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $shopping->groupname, ['id' => $shopping->id])!!}</h2>
-									<h4>{{ $shopping->date }}</h4>
-									<p>{{ $shopping->description }}</p>
-								</div>
-							</div>
-							@endforeach
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">movie</h2>
-		<div class="gtco-section">
-			<div class="gtco-container">
-				<div class="row">
-
-					<div class="col-md-12">
-						<div class="owl-carousel owl-carousel-carousel">
-							@foreach($movies as $movie)
-							<div class="item">
-								<div class="gtco-item">
-									<a href="/groups/{{$movie->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $movie->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
-									<h4>{{ $movie->date }}</h4>
-									<p>{{ $movie->description }}</p>
-								</div>
-							</div>
-							@endforeach
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">outdoor</h2>
+	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">アウトドア</h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -255,7 +284,8 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$outdoor->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $outdoor->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h2>
-									<h4>{{ $outdoor->date }}</h4>
+									<p class="role">{{ $outdoor->year }}/{{ $outdoor->month }}/{{ $outdoor->date }}</p>
+									<p>{{ $outdoor->place }}</p>
 									<p>{{ $outdoor->description }}</p>
 								</div>
 							</div>
@@ -267,8 +297,33 @@
 			</div>
 		</div>
 		
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">映画鑑賞</h2>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach($movies as $movie)
+							<div class="item">
+								<div class="gtco-item">
+									<a href="/groups/{{$movie->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $movie->group_picture) }}" alt="写真を挿入"></a>
+									<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
+									<p class="role">{{ $movie->year }}/{{ $movie->month }}/{{ $movie->date }}</p>
+									<p>{{ $movie->place }}</p>
+									<p>{{ $movie->description }}</p>
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">others</h2>
+		
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">その他</h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -280,7 +335,8 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$other->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $other->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h2>
-									<h4>{{ $other->date }}</h4>
+									<p class="role">{{ $other->year }}/{{ $other->month }}/{{ $other->date }}</p>
+									<p>{{ $other->place }}</p>
 									<p>{{ $other->description }}</p>
 								</div>
 							</div>
@@ -293,74 +349,97 @@
 		</div>	
 		
 		<div class="col-xs-8">
-          <div id="modal-content">
-        	<div class="col-xs-6">
-            
+          	<div id="modal-content">
             
         	{!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
             {!! Form::model($group, ['route' => 'groups.store']) !!}
         
              
             <div class="form-group">
-                 {!! Form::label ('groupname','GROUP NAME') !!}
+                 {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
                 
-                   {!! Form::label('category', 'CATEGORY') !!} 
+                   {!! Form::label('category', 'カテゴリー：') !!} 
             </div>       
                    
                    <div class="form-group">
                   
-                  　{!! Form::radio('category', 'nomikai') !!}
-                    {!! Form::label('category', 'nomikai') !!}
+                  　{!! Form::label('category', 'カフェテリア') !!} 
+                  　{!! Form::radio('category', 'cafeteria') !!}
                     
+                    {!! Form::label('category', '休憩時間') !!}
+                    {!! Form::radio('category', 'breaktime') !!}
+                  	
+                  	{!! Form::label('category', 'おしゃべり') !!}
+                  　{!! Form::radio('category', 'kataru') !!}
+                    
+                    {!! Form::label('category', '飲み会') !!}                    
+                    {!! Form::radio('category', 'nomikai') !!}
+ 
+                    {!! Form::label('category', 'スポーツ') !!}                  　　
+                　　{!! Form::radio('category', 'sports') !!}
+                    
+                    {!! Form::label('category', 'グルメ') !!}
                     {!! Form::radio('category', 'food') !!}
-                    {!! Form::label('category', 'food') !!}
                     
-                    {!! Form::radio('category', 'sports') !!}
-                    {!! Form::label('category', 'sports') !!}
-                    
-                    {!! Form::radio('category', 'career') !!}
-                    {!! Form::label('category', 'career') !!}
-                    
-                    {!! Form::radio('category', 'shopping') !!}
-                    {!! Form::label('category', 'shopping') !!}
-                    
-                    {!! Form::radio('category', 'movie') !!}
-                    {!! Form::label('category', 'movie') !!}
-                    
+                    {!! Form::label('category', 'アウトドア') !!}                    
                     {!! Form::radio('category', 'outdoor') !!}
-                    {!! Form::label('category', 'outdoor') !!}
                     
+                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    {!! Form::radio('category', 'movie') !!}
+                    
+                    {!! Form::label('category', 'その他') !!}                    
                     {!! Form::radio('category', 'others') !!}
-                    {!! Form::label('category', 'others') !!}
                     
             </div>
             
             
+            
             <div class="form-group">
-                 {!! Form::label ('date','DATE') !!}
-                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+                 {!! Form::label ('year','年') !!}
+                {!! Form::selectRange('year', 2018, 2030) !!}
             </div>
+            
             <div class="form-group">
-                 {!! Form::label ('description','DESCRIPTION') !!}
+                 {!! Form::label ('month','月') !!}
+                 {!! Form::selectRange('month', 1, 12) !!}
+            </div>
+            
+            
+            <div class="form-group">
+                 {!! Form::label ('date','日') !!}
+                 {!! Form::selectRange('date', 1, 31) !!} 
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('description','詳細') !!}
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}
             </div>
+            
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
             {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
             </div>
             
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
-			<p><a id="modal-close" class="button-link">閉じる</a></p>
 
             {!! Form::close() !!}
+            
 
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+</div>
+=======
         </div>
 	</div>
-		
+
 		
 							
 							
@@ -368,10 +447,6 @@
 					
 	</div>
 	</div>
-	</div>
-	</div>
-	
-
 				
 		
     

@@ -66,18 +66,15 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
+			<div id="fh5co-logo"><a href="/">Hackathon</a></div>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/">Home</a></li>
-					<li><a href="/signup">signup</a></li>
-					<li><a href="/login">login</a></li>
-					<li><a href="#learnmore">About</a></li>
+					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
+					<li><a href="/groups">CATEGORY LIST</a></li>
+					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
+					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
-
-			
-
 		</aside>
 
 		<div id="fh5co-main">
@@ -148,7 +145,7 @@
 					 <div id="about">
 					 	<h1 class="fh5co-heading-colored"><strong>ABOUT THIS SERVICE</strong></h1>
 								<div class="row">
-									<div class="col-md-9 animate-box" data-animate-effect="fadeInLeft">
+									<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
 										<p><strong>このサービスで、イベント開催・グループチャットができます！</strong></p>
 									</div>
 								</div>

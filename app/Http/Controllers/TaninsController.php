@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Group;
 
 class TaninsController extends Controller
 {
@@ -49,17 +50,19 @@ class TaninsController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = User::find($id);
-             $followings = $user->followings()->paginate(10);
+            $followings = $user->followings()->paginate(10);
             $profile = $user->profile()->getResults();
+            $group = new Group;
             
             $data = [
                 'user' => $user,
                 'profile' =>$profile,
                 'users' =>$followings,
+                'group' => $group,
             ];
             $data += $this->counts($user);
 
-            return view('users.show', $data);
+            return view('users.followings', $data);
         }else {
             return view('welcome');
         }

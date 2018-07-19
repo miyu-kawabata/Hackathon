@@ -3,14 +3,7 @@
 @section('content')
     <div class="row">
         <aside class="col-xs-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    
-                </div>
-                <div class="panel-body">
-                
-                </div>
-            </div>
+            
             
         </aside>
         <div class="col-xs-8">
@@ -27,45 +20,71 @@
             
             <div class="form-group">
                  
-                  　{!! Form::radio('category', 'nomikai') !!}
-                    {!! Form::label('category', 'nomikai') !!}
+                  {!! Form::label('category', 'カテゴリー:') !!}
                     
-                    {!! Form::radio('category', 'food') !!}
-                    {!! Form::label('category', 'food') !!}
+                     {!! Form::radio('category', 'カフェテリア') !!}
+                    {!! Form::label('category', 'カフェテリア') !!} 
                     
-                    {!! Form::radio('category', 'sports') !!}
-                    {!! Form::label('category', 'sports') !!}
+                    {!! Form::radio('category', '休憩時間') !!}
+                    {!! Form::label('category', '休憩時間') !!}
+                  
+                  　{!! Form::radio('category', 'おしゃべり') !!}
+                    {!! Form::label('category', 'おしゃべり') !!}
                     
-                    {!! Form::radio('category', 'career') !!}
-                    {!! Form::label('category', 'career') !!}
+                    {!! Form::radio('category', '飲み会') !!}
+                    {!! Form::label('category', '飲み会') !!}
+                  　　
+                　　{!! Form::radio('category', 'スポーツ') !!}
+                    {!! Form::label('category', 'スポーツ') !!}
                     
-                    {!! Form::radio('category', 'shopping') !!}
-                    {!! Form::label('category', 'shopping') !!}
+                    {!! Form::radio('category', 'グルメ') !!}
+                    {!! Form::label('category', 'グルメ') !!}
                     
-                    {!! Form::radio('category', 'movie') !!}
-                    {!! Form::label('category', 'movie') !!}
+                    {!! Form::radio('category', 'アウトドア') !!}
+                    {!! Form::label('category', 'アウトドア') !!}
                     
-                    {!! Form::radio('category', 'outdoor') !!}
-                    {!! Form::label('category', 'outdoor') !!}
+                    {!! Form::radio('category', '映画鑑賞') !!}
+                    {!! Form::label('category', '映画鑑賞') !!}
                     
-                    {!! Form::radio('category', 'others') !!}
-                    {!! Form::label('category', 'others') !!}
+                    
+                    {!! Form::radio('category', 'その他') !!}
+                    {!! Form::label('category', 'その他') !!}
+                    
+                    
+            </div>
+            
+                         <div class="form-group">
+                 {!! Form::label ('year','年') !!}
+                {!! Form::selectRange('year', 2018, 2030) !!}
             </div>
             
             <div class="form-group">
-                 {!! Form::label ('date','開催日') !!}
-                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+                 {!! Form::label ('month','月') !!}
+                 {!! Form::selectRange('month', 1, 12) !!}
             </div>
+            
+            
+            <div class="form-group">
+                 {!! Form::label ('date','日') !!}
+                 {!! Form::selectRange('date', 1, 31) !!} 
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
+            </div>
+            
             <div class="form-group">
                  {!! Form::label ('description','詳細') !!}
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}
             </div>
+            
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
             {!! Form::file('file',old('file')) !!}
             </div>
             
-               {!! Form::submit ('投稿',['class' =>'btn btn-primary']) !!}
+               {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
                    {!! Form::close() !!}
                 {!! Form::open(['route' => ['groups.destroy', $group->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}

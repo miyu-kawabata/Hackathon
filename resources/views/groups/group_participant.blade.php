@@ -72,7 +72,7 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="/">MY PAGE</a></li>
-					<li><a href="/groups">CATEGORY</a></li>
+					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
@@ -80,13 +80,19 @@
 		</aside>
 
 		<div id="fh5co-main">
-			<aside class="col-xs-4 js-fullheight"> 
+			@if (count($errors) > 0)
+		<h2>必要事項を記入してください。</h2>
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
+			<aside class="col-xs-5 js-fullheight"> 
              <div class="panel panel-default"> 
                  <div class="panel-heading"> 
                      <h3 class="panel-title">{{ $group->groupname }}</h3> 
                  </div> 
                  <div class="panel-body"> 
-                 	<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
+                 	<img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
                  </div>
                  <div class="group_profile">
 	        	 	<ul style="list-style:none">
@@ -117,59 +123,82 @@
 
          </aside>
           
-          <div class="col-xs-8">
+          <div class ="col-xs-7">
+          	
           	<div id="modal-content">
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
            {!! Form::model($group, ['route' => 'groups.store']) !!}
         
              
+           
             <div class="form-group">
-                 {!! Form::label ('groupname','GROUP NAME') !!}
+                 {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
                 
-                   {!! Form::label('category', 'CATEGORY') !!} 
-            </div>       
+                  {!! Form::label('category', 'カテゴリー：') !!} 
+                
                    
-                   <div class="form-group">
-                  
-                  　{!! Form::radio('category', 'nomikai') !!}
-                    {!! Form::label('category', 'nomikai') !!}
+                   
+                  	{!! Form::label('category', 'カフェテリア') !!} 
+                  　{!! Form::radio('category', 'cafeteria') !!}
                     
+                    {!! Form::label('category', '休憩時間') !!}
+                    {!! Form::radio('category', 'breaktime') !!}
+                  	
+                  	{!! Form::label('category', 'おしゃべり') !!}
+                  　{!! Form::radio('category', 'kataru') !!}
+                    
+                    {!! Form::label('category', '飲み会') !!}                    
+                    {!! Form::radio('category', 'nomikai') !!}
+ 
+                    {!! Form::label('category', 'スポーツ') !!}                  　　
+                　　{!! Form::radio('category', 'sports') !!}
+                    
+                    {!! Form::label('category', 'グルメ') !!}
                     {!! Form::radio('category', 'food') !!}
-                    {!! Form::label('category', 'food') !!}
                     
-                    {!! Form::radio('category', 'sports') !!}
-                    {!! Form::label('category', 'sports') !!}
-                    
-                    {!! Form::radio('category', 'career') !!}
-                    {!! Form::label('category', 'career') !!}
-                    
-                    {!! Form::radio('category', 'shopping') !!}
-                    {!! Form::label('category', 'shopping') !!}
-                    
-                    {!! Form::radio('category', 'movie') !!}
-                    {!! Form::label('category', 'movie') !!}
-                    
+                    {!! Form::label('category', 'アウトドア') !!}                    
                     {!! Form::radio('category', 'outdoor') !!}
-                    {!! Form::label('category', 'outdoor') !!}
                     
+                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    {!! Form::radio('category', 'movie') !!}
+                    
+                    {!! Form::label('category', 'その他') !!}                    
                     {!! Form::radio('category', 'others') !!}
-                    {!! Form::label('category', 'others') !!}
                     
             </div>
             
             
+            
             <div class="form-group">
-                 {!! Form::label ('date','DATE') !!}
-                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+                 {!! Form::label ('year','年') !!}
+                {!! Form::selectRange('year', 2018, 2030) !!}
             </div>
+            
             <div class="form-group">
-                 {!! Form::label ('description','DESCRIPTION') !!}
+                 {!! Form::label ('month','月') !!}
+                 {!! Form::selectRange('month', 1, 12) !!}
+            </div>
+            
+            
+            <div class="form-group">
+                 {!! Form::label ('date','日') !!}
+                 {!! Form::selectRange('date', 1, 31) !!} 
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('description','詳細') !!}
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}
             </div>
+            
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
             {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
@@ -178,29 +207,43 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+            @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 </div>
-             <ul class="nav nav-tabs nav-justified"> 
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者</a></li>
-                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>     
-                  
+              <ul class="nav nav-tabs nav-justified"> 
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者<span class="badge">{{ $participants_count }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>
+             </ul>
                  <ul> 
                      @foreach ($participants as $participant) 
-                     <div>
-                      <img class="media-object img-rounded img-responsive" src="" alt="写真を挿入">
+                     <div style="clear:both">
+                     <div class="media-body">
+                     <div class ="joymiyu col-xs-3">
+                	<img class="joymiyu" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
+                	</div>
+               	 	<div class ="col-xs-offset-1 col-xs-8">
                       <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p> 
+                      <p>{{ $participant->profile->comment }}</p>
                       @include('user_follow.follow_button', ['user' => $user])
                      </div>
+                     </div>
+                     </div>
                      @endforeach 
-                 </ul> 
+                 </ul>
+             </ul>                  
+                 
+              
+            
+ 
                   
-             </ul> 
-                  
-         </div>
-			
+
 		</div>
 	</div>
-
+    </div>
 	<!-- jQuery -->
 	<script src="../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

@@ -64,6 +64,7 @@
 
 	</head>
 	<body>
+		
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
@@ -72,7 +73,7 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="/">MY PAGE</a></li>
-					<li><a href="/groups">CATEGORY</a></li>
+					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
@@ -80,16 +81,22 @@
 		</aside>
 
 		<div id="fh5co-main">
-			<aside class="col-xs-4 js-fullheight"> 
+			@if (count($errors) > 0)
+		<h2>必要事項を記入してください。</h2>
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
+			<aside class="col-xs-5 js-fullheight"> 
              <div class="panel panel-default"> 
                  <div class="panel-heading"> 
                      <h3 class="panel-title">{{ $group->groupname }}</h3> 
                  </div> 
                  <div class="panel-body"> 
-                 	<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
-                </div> 
+                 	<img class="media-object img-rounded img-responsive" style="height:300px"src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
+                 </div>
                  <div class="group_profile">
-                <ul style="list-style:none">
+	        	 	<ul style="list-style:none">
                 	<li>＜カテゴリー名＞</li>
                 	<li>{{ $group->category }}</li>
                 	<li>＜開催日＞</li>
@@ -98,82 +105,101 @@
                 	<li>{{ $group->description }}</li>
                 	<li>＜オーガナイザー＞</li> 
                 	<li>{!! link_to_route('tanins.show',$organizer->nickname, ['id' => $organizer->id]) !!}</li>
-                	
                 </ul>
-                <div class="edit">
-            		 @if(Auth::user()->id == $organizer->id)
-                	<p style="float:right"><a href="/groups/{{$group->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
-            		 @endif
-            	</div>
-                </div>
+    		     		<div class="edit">
+            				@if(Auth::user()->id == $organizer->id)
+                				<p style="float:right"><a href="/groups/{{$group->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
+            		 		@endif
+            			</div>
+                 </div>
                  
-                	
-             </div> 
-             <div class="col-xs-6">
+             </div>
+                <div class="col-xs-6">
             @include('participate.join_button', ['user' => $user])
             </div>
-            <div class="col-xs-6">
+            	<div class="col-xs-6">
         	@include('groups.favorite_button', ['groups' => $group]) 
              </div>
-            
-             
-             
-         </aside>
+                  
 
+         </aside>
           
-          <div class="col-xs-8">
+          <div class ="col-xs-7">
+          	
           	<div id="modal-content">
-        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+           {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
            {!! Form::model($group, ['route' => 'groups.store']) !!}
         
              
+             
             <div class="form-group">
-                 {!! Form::label ('groupname','GROUP NAME') !!}
+                 {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
                 
-                   {!! Form::label('category', 'CATEGORY') !!} 
-            </div>       
+                   {!! Form::label('category', 'カテゴリー：') !!} 
+                
                    
-                   <div class="form-group">
-                  
-                  　{!! Form::radio('category', 'nomikai') !!}
-                    {!! Form::label('category', 'nomikai') !!}
+                   
+                  	{!! Form::label('category', 'カフェテリア') !!} 
+                  　{!! Form::radio('category', 'cafeteria') !!}
                     
+                    {!! Form::label('category', '休憩時間') !!}
+                    {!! Form::radio('category', 'breaktime') !!}
+                  	
+                  	{!! Form::label('category', 'おしゃべり') !!}
+                  　{!! Form::radio('category', 'kataru') !!}
+                    
+                    {!! Form::label('category', '飲み会') !!}                    
+                    {!! Form::radio('category', 'nomikai') !!}
+ 
+                    {!! Form::label('category', 'スポーツ') !!}                  　　
+                　　{!! Form::radio('category', 'sports') !!}
+                    
+                    {!! Form::label('category', 'グルメ') !!}
                     {!! Form::radio('category', 'food') !!}
-                    {!! Form::label('category', 'food') !!}
                     
-                    {!! Form::radio('category', 'sports') !!}
-                    {!! Form::label('category', 'sports') !!}
-                    
-                    {!! Form::radio('category', 'career') !!}
-                    {!! Form::label('category', 'career') !!}
-                    
-                    {!! Form::radio('category', 'shopping') !!}
-                    {!! Form::label('category', 'shopping') !!}
-                    
-                    {!! Form::radio('category', 'movie') !!}
-                    {!! Form::label('category', 'movie') !!}
-                    
+                    {!! Form::label('category', 'アウトドア') !!}                    
                     {!! Form::radio('category', 'outdoor') !!}
-                    {!! Form::label('category', 'outdoor') !!}
                     
+                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    {!! Form::radio('category', 'movie') !!}
+                    
+                    {!! Form::label('category', 'その他') !!}                    
                     {!! Form::radio('category', 'others') !!}
-                    {!! Form::label('category', 'others') !!}
                     
             </div>
             
             
+            
             <div class="form-group">
-                 {!! Form::label ('date','DATE') !!}
-                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+                 {!! Form::label ('year','年') !!}
+                {!! Form::selectRange('year', 2018, 2030) !!}
             </div>
+            
             <div class="form-group">
-                 {!! Form::label ('description','DESCRIPTION') !!}
+                 {!! Form::label ('month','月') !!}
+                 {!! Form::selectRange('month', 1, 12) !!}
+            </div>
+            
+            
+            <div class="form-group">
+                 {!! Form::label ('date','日') !!}
+                 {!! Form::selectRange('date', 1, 31) !!} 
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('description','詳細') !!}
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}
             </div>
+            
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
             {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
@@ -182,11 +208,17 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+            
 
+      
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
-</div>
+	</div>
+
+		
+		
+		
              <ul class="nav nav-tabs nav-justified"> 
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者</a></li>
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者<span class="badge">{{ $participants_count }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>
              </ul>
            
@@ -194,31 +226,28 @@
 					
 					{!! Form::open(['route' => ['chats.store', $group->id],'method' => 'post'])!!}
 					<div class="row">
-						<div>
-							<div class="row">
-								<div class="col-md-12">
+								<div class="col-offset-sm-2 col-sm-8">
 									<div class="form-group1">
-										{!! Form::textarea('chat', old('chat'), ['class' => 'form-control', 'rows' => '4', 'placeholder'=>"Say something"]) !!} 
+										{!! Form::textarea('chat', old('chat'), ['class' => 'form-control', 'rows' => '2', 'placeholder'=>"Say something"]) !!} 
 									</div>
 									<div class="form-group2">
 										{!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!} 
 									</div>
 								</div>
-							</div>
-						</div>
 					</div>
 				 {!! Form::close() !!}
 			</div>
            
              
              @foreach ($chats as $chat) 
+             <div style="clear:both">
              <div class="media-body"> 
-             	<div class ="joymiyu col-xs-4">
-                	<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
+             	<div class ="joymiyu col-xs-3">
+                	<img class="joymiyu" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
                 </div>
                 <div class ="col-xs-8">
                 	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 
-               		 <p>{!! nl2br(e($chat->chat)) !!}</p> 
+               		 	<p class="chat2">{!! nl2br(e($chat->chat)) !!}</p>
                   	@if (Auth::user()->id == $chat->user_id)
                     	{!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
                         	{!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}
@@ -227,7 +256,8 @@
                	</div> 
               
              @endforeach 
-         	</div> 
+         	</div>
+         	</div>
          </div>
 	</div>
 	</div>

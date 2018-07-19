@@ -72,7 +72,7 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
-					<li><a href="/groups">CATEGORY</a></li>
+					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
@@ -109,7 +109,8 @@
           
         </aside>
         <div class="col-xs-8">
-     @if(is_null($profile)) {!! Form::model($profile, ['route' => 'users.store', 'method' => 'post', 'files' => true]) !!}
+     @if(is_null($profile))
+     {!! Form::model($profile, ['route' => 'users.store', 'method' => 'post', 'files' => true]) !!}
           
 
                 <div class="form-group">
@@ -206,7 +207,10 @@
         
             {!! Form::close() !!}
             
-            @else {!! Form::model($profile, ['route' => ['users.update', $profile->id], 'method' => 'put', 'files' => true]) !!}
+            
+            
+            @else
+            {!! Form::model($profile, ['route' => ['users.update', $profile->id], 'method' => 'put', 'files' => true]) !!}
             
                 <div class="form-group">
                     {!! Form::label('sex', '性別:') !!}
@@ -302,6 +306,11 @@
                 {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
         
             {!! Form::close() !!}
+            @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
   @endif          
         </div>
         </div>
@@ -314,51 +323,71 @@
            {!! Form::model($group, ['route' => 'groups.store']) !!}
         
              
-            <div class="form-group">
-                 {!! Form::label ('groupname','GROUP NAME') !!}
+             <div class="form-group">
+                 {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
                 
-                   {!! Form::label('category', 'CATEGORY') !!} 
+                   {!! Form::label('category', 'カテゴリー：') !!} 
             </div>       
                    
                    <div class="form-group">
                   
-                  　{!! Form::radio('category', 'nomikai') !!}
-                    {!! Form::label('category', 'nomikai') !!}
+                  　{!! Form::label('category', 'カフェテリア') !!} 
+                  　{!! Form::radio('category', 'cafeteria') !!}
                     
+                    {!! Form::label('category', '休憩時間') !!}
+                    {!! Form::radio('category', 'breaktime') !!}
+                  	
+                  	{!! Form::label('category', 'おしゃべり') !!}
+                  　{!! Form::radio('category', 'kataru') !!}
+                    
+                    {!! Form::label('category', '飲み会') !!}                    
+                    {!! Form::radio('category', 'nomikai') !!}
+ 
+                    {!! Form::label('category', 'スポーツ') !!}                  　　
+                　　{!! Form::radio('category', 'sports') !!}
+                    
+                    {!! Form::label('category', 'グルメ') !!}
                     {!! Form::radio('category', 'food') !!}
-                    {!! Form::label('category', 'food') !!}
                     
-                    {!! Form::radio('category', 'sports') !!}
-                    {!! Form::label('category', 'sports') !!}
-                    
-                    {!! Form::radio('category', 'career') !!}
-                    {!! Form::label('category', 'career') !!}
-                    
-                    {!! Form::radio('category', 'shopping') !!}
-                    {!! Form::label('category', 'shopping') !!}
-                    
-                    {!! Form::radio('category', 'movie') !!}
-                    {!! Form::label('category', 'movie') !!}
-                    
+                    {!! Form::label('category', 'アウトドア') !!}                    
                     {!! Form::radio('category', 'outdoor') !!}
-                    {!! Form::label('category', 'outdoor') !!}
                     
+                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    {!! Form::radio('category', 'movie') !!}
+                    
+                    {!! Form::label('category', 'その他') !!}                    
                     {!! Form::radio('category', 'others') !!}
-                    {!! Form::label('category', 'others') !!}
                     
             </div>
             
             
-            <div class="form-group">
-                 {!! Form::label ('date','DATE') !!}
-                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+             <div class="form-group">
+                 {!! Form::label ('year','年') !!}
+                {!! Form::selectRange('year', 2018, 2030) !!}
             </div>
+            
             <div class="form-group">
-                 {!! Form::label ('description','DESCRIPTION') !!}
+                 {!! Form::label ('month','月') !!}
+                 {!! Form::selectRange('month', 1, 12) !!}
+            </div>
+            
+            
+            <div class="form-group">
+                 {!! Form::label ('date','日') !!}
+                 {!! Form::selectRange('date', 1, 31) !!} 
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('description','詳細') !!}
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
@@ -369,6 +398,11 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+            @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
 
         </div>
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
