@@ -70,7 +70,7 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
-					<li><a href="/groups">CATEGORY</a></li>
+					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
@@ -145,7 +145,7 @@
 					 <div id="about">
 					 	<h1 class="fh5co-heading-colored"><strong>ABOUT THIS SERVICE</strong></h1>
 								<div class="row">
-									<div class="col-md-9 animate-box" data-animate-effect="fadeInLeft">
+									<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
 										<p><strong>このサービスで、イベント開催・グループチャットができます！</strong></p>
 									</div>
 								</div>

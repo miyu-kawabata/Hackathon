@@ -3,14 +3,7 @@
 @section('content')
     <div class="row">
         <aside class="col-xs-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    
-                </div>
-                <div class="panel-body">
-                
-                </div>
-            </div>
+            
             
         </aside>
         <div class="col-xs-8">
