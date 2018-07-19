@@ -21,6 +21,11 @@
             </div>
             
             <div class="form-group">
+                
+                   {!! Form::label('category', 'CATEGORY') !!} 
+            </div>   
+            
+            <div class="form-group">
                  
                    
                  {!! Form::label ('groupname','カテゴリー') !!} 
@@ -49,6 +54,7 @@
                     {!! Form::label('category', 'others') !!}
                     
             
+
             </div>
             
             <div class="form-group">

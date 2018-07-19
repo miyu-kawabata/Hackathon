@@ -96,7 +96,7 @@
     @endforeach
 @endif
    		<div class="fh5co-narrow-content">
-			    <h1>Category</h1>
+			    <h1>グループ一覧</h1>
     
 			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">nomikai</h2>
 			<div class="gtco-section">
@@ -111,7 +111,7 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $nomikai->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>
-									<p class="role">{{ $nomikai->date }}</p>
+									<h4>{{ $nomikai->date }}</h4>
 									<p>{{ $nomikai->description }}</p>
 								</div>
 							</div>
@@ -136,7 +136,7 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$food->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $food->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h2>
-									<p class="role">{{ $food->date }}</p>
+									<h4>{{ $food->date }}</h4>
 									<p>{{ $food->description }}</p>
 								</div>
 							</div>
@@ -161,7 +161,7 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$sport->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $sport->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
-									<p class="role">{{ $sport->date }}</p>
+									<h4>{{ $sport->date }}</h4>
 									<p>{{ $sport->description }}</p>
 								</div>
 							</div>
@@ -186,7 +186,7 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$career->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $career->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $career->groupname, ['id' => $career->id])!!}</h2>
-									<p class="role">{{ $career->date }}</p>
+									<h4>{{ $career->date }}</h4>
 									<p>{{ $career->description }}</p>
 								</div>
 							</div>
@@ -210,7 +210,7 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$shopping->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $shopping->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $shopping->groupname, ['id' => $shopping->id])!!}</h2>
-									<p class="role">{{ $shopping->date }}</p>
+									<h4>{{ $shopping->date }}</h4>
 									<p>{{ $shopping->description }}</p>
 								</div>
 							</div>
@@ -234,7 +234,7 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$movie->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $movie->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
-									<p class="role">{{ $movie->date }}</p>
+									<h4>{{ $movie->date }}</h4>
 									<p>{{ $movie->description }}</p>
 								</div>
 							</div>
@@ -258,7 +258,7 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$outdoor->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $outdoor->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h2>
-									<p class="role">{{ $outdoor->date }}</p>
+									<h4>{{ $outdoor->date }}</h4>
 									<p>{{ $outdoor->description }}</p>
 								</div>
 							</div>
@@ -283,7 +283,7 @@
 								<div class="gtco-item">
 									<a href="/groups/{{$other->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $other->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h2>
-									<p class="role">{{ $other->date }}</p>
+									<h4>{{ $other->date }}</h4>
 									<p>{{ $other->description }}</p>
 								</div>
 							</div>
@@ -356,6 +356,7 @@
             </div>
             
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
 
             {!! Form::close() !!}
             

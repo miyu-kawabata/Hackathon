@@ -48,6 +48,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 30px 0;
 }
 
+h1 .fh5co-heading animate-box{
+  font-size: 40px;
+  
+}
+
 figure {
   margin-bottom: 2.5em;
   float: left;
@@ -271,7 +276,7 @@ figure figcaption {
   position: relative;
   width: 93%;
   margin: 0 auto;
-  padding: 1em 0;
+  padding: 5em 0;
   padding: 4em 0;
   padding: 4em 0;
   clear: both;
@@ -364,6 +369,27 @@ figure figcaption {
     text-align: center;
   }
 }
+
+ #fh5co-hero .flexslider .slider-text > .slider-text-inner icon {
+  font-size: 45px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-top: 0;
+  padding: 50px 50px !important;
+  border: none;
+  font-weight: 500;
+ }
+#fh5co-hero .flexslider .slider-text > .slider-text-inner pp {
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  padding: 50px 50px;
+  border: none;
+  font-weight: 500;
+}
+ 
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h1, #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 {
   margin: 0;
   padding: 0;
@@ -1525,11 +1551,11 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   outline: none;
   box-shadow: none;
   border-color: #228896;
-}
+
 
     text-align: center;
   }
-}
+
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h1, #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 {
   margin: 0;
   padding: 0;
@@ -1538,7 +1564,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h1 {
   margin-bottom: 20px;
-  font-size: 45px;
+  font-size: 60px;
   line-height: 1.3;
   font-weight: 100;
   font-family: "Roboto", Arial, sans-serif;
@@ -1549,9 +1575,9 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   }
 }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 30px;
+  font-size: 40px;
+  line-height: 1.0;
+  margin-bottom: 10px;
   font-weight: 300;
 }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 a {
@@ -2330,8 +2356,18 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 
 .js .animate-box {
   opacity: 0;
+  margin-top: 50px;
+ 
 }
-.panel-heading .panel-title {
+
+
+.js .animate-box {
+  opacity: 0;
+  margin-top: 50px;
+  font-size: 25px;
+}
+
+.heading .panel-title {
   text-align: left;
   font-family: 'Century Gothic';
   font-weight: 700;
