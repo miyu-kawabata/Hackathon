@@ -3,12 +3,13 @@
 @foreach ($groups as $group)
   
     <li class="media">
-        <div class="media-left">
-            <p>画像</p>
-        </div>
+            <div class ="joymiyu col-xs-4">
+            <img class="joymiyu" src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
+            </div>
+        
         <div class="media-body">
             <div>
-                {{ $group->groupname }}
+                <div class='e'> {{ $group->groupname }}</div>
             </div>
             <div>
                 <p>{!! link_to_route('groups.show', 'View this group', ['id' => $group->id]) !!}</p>

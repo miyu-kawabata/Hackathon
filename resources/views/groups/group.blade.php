@@ -18,7 +18,10 @@
               
          <ul> 
                  <li>{{ $group->category }}</li> 
+                  <li>{{ $group->year }}</li>
+                   <li>{{ $group->month }}</li> 
                  <li>{{ $group->date }}</li> 
+                 <li>{{ $group->place }}</li> 
                  <li>{{ $group->description }}</li> 
                  @include('participate.join_button', ['user' => $user]) 
                   @include('groups.favorite_button', ['groups' => $group]) 
@@ -34,10 +37,12 @@
                   
                   
                  <ul> 
-                     <li>参加者一覧</li> 
+                     <li class='f'>参加者一覧</li>
+                     @if (count($participant_count)>0)
                      @foreach ($participants as $participant) 
                     <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p> 
                  @endforeach 
+                 @endif
                  </ul> 
                   
              </ul> 
@@ -59,6 +64,11 @@
               
              <div> 
                  <p>{!! nl2br(e($chat->chat)) !!}</p> 
+                  @if (Auth::user()->id == $chat->user_id)
+                    {!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
+                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                    {!! Form::close() !!}
+                @endif
              </div> 
              @endforeach 
              

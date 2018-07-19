@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     protected $fillable = [
-        'groupname', 'description','date','category','organizer_id'
+        'groupname', 'description','year','month','date','place','category','organizer_id'
     ];
     
     public function user_participants()
@@ -26,5 +26,6 @@ class Group extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
+   
 }
