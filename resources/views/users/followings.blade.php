@@ -90,50 +90,52 @@
     @endforeach
 @endif
          <aside class="col-xs-4">
-            
+            <div class="panel panel-default"> 
                 <div class="panel-heading">
-               <div class="panel-title"><div class='a'>{{ $user->nickname }}</div>
+                  <div class="panel-title">{{ $user->nickname }}</div>
+                </div>
         
-        <p class='tomo'>
-         @include('user_follow.follow_button', ['user' => $user])       
-        @if(Auth::user()->id == $user->id)
-         {!! link_to_route('users.edit', '編集ページ',  ['id' => $user->id]) !!}</p>
-         @endif
-       </div>
+         
           
                 <div class="panel-body">
                 @if(isset($profile->avatar_filename))
-                    <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                    <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
                 @endif
                     <p class='d'>About me...</p>
                  
                @if (isset($profile->sex))
-               <p class='e'>性別：{{ $profile->sex }}</p>
+               <p class="e">性別：{{ $profile->sex }}</p>
                 @endif
                 
-                 @if (isset($profile->hometown))
-                 <p class='e'>出身：{{ $profile->hometown }}</p>
+                @if (isset($profile->hometown))
+                 <p class="e">出身：{{ $profile->hometown }}</p>
                 @endif
                 
                 @if (isset($profile->hobbies))
-                 <p class='e'>趣味：{{ $profile->hobbies }}</p>
+                 <p class="e">趣味：{{ $profile->hobbies }}</p>
                 @endif
                 
                 @if (isset($profile->comment))
-                 <p class='e'>何か一言：{{ $profile->comment }}</p>
+                 <p class="e">何か一言：{{ $profile->comment }}</p>
                 @endif
+                
+                @include('user_follow.follow_button', ['user' => $user])  
+                <div class="edit">
+                    @if(Auth::user()->id == $user->id)
+                    <p style="float:right"><a href="/users/{{$user->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
+                    @endif
               
-              
+                </div>
+            
+             </div>
             </div>
-       
-         </div>
         </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}"><div class='c'>Followings <span class="badge">{{ $count_followings }}</span></div></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}"><div class='c'>Followers <span class="badge">{{ $count_followers }}</span></div></a></li>
-                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}"><div class='c'>Favorites <span class="badge">{{ $count_favorites }}</span></div></a></li>
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}"><div class='c'>Joins <span class="badge">{{ $count_groups }}</span></div></a></li>
+                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favorites }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}">Joins <span class="badge">{{ $count_groups }}</span></a></li>
 
             </ul>
             
@@ -144,9 +146,10 @@
                         <div class="media-left">
                             <div class="media-body">
                                 <div class ="joymiyu col-xs-4">    
-                                    <img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                                    <img class="joymiyu" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
                                 </div>
-                            <div>{{ $user->nickname }}</div>
+                            <div class="e">{{ $user->nickname }}</div>
+                            {{ $user->profile->comment }}
                                 <p>{!! link_to_route('tanins.show', 'View profile', ['id' => $user->id]) !!}</p>
                             </div>
                         </div>
