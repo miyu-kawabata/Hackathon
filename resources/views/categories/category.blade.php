@@ -89,8 +89,9 @@
 		</aside>
 		
 	<div id="fh5co-main">
+		<h1>グループ一覧</h1>
    		<div class="fh5co-narrow-content">
-			    <h1>グループ一覧</h1>
+			    
     
 			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">nomikai</h2>
 			<div class="gtco-section">
@@ -290,12 +291,12 @@
 		</div>	
 		
 		<div class="col-xs-8">
-          	<div id="modal-content">
-        <div class="col-xs-6">
+          <div id="modal-content">
+        	<div class="col-xs-6">
             
             
-        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
-           {!! Form::model($group, ['route' => 'groups.store']) !!}
+        	{!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+            {!! Form::model($group, ['route' => 'groups.store']) !!}
         
              
             <div class="form-group">
@@ -351,18 +352,19 @@
             </div>
             
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
-	<p><a id="modal-close" class="button-link">閉じる</a></p>
+			<p><a id="modal-close" class="button-link">閉じる</a></p>
 
             {!! Form::close() !!}
 
         </div>
-</div>
+	</div>
 		
 		
 							
 							
 							
 					
+	</div>
 	</div>
 	</div>
 	</div>

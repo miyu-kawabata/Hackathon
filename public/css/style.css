@@ -50,6 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 .fh5co-heading animate-box{
   font-size: 40px;
+  margin-left: 0px;
   
 }
 
@@ -257,6 +258,8 @@ figure figcaption {
 
 #fh5co-main {
   width: 80%;
+  padding-top: 2%;
+  padding-left: 2%;
   float: right;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
@@ -274,17 +277,17 @@ figure figcaption {
 }
 #fh5co-main .fh5co-narrow-content {
   position: relative;
-  width: 93%;
-  margin: 0 auto;
-  padding: 5em 0;
-  padding: 4em 0;
-  padding: 4em 0;
+  width: 78%;
+  margin: 0;
+  padding: 0px;
+  padding: 0;
+  padding: 0;
   clear: both;
 }
 @media screen and (max-width: 768px) {
   #fh5co-main .fh5co-narrow-content {
-    width: 100%;
-    padding: 4em 1em;
+    width: 78%;
+    padding: 0px;
   }
 }
 
@@ -1549,9 +1552,6 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   border-color: #228896;
 }
 
-    text-align: center;
-  }
-}
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h1, #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 {
   margin: 0;
   padding: 0;
@@ -2584,16 +2584,17 @@ width:500px; height:800px;
   transition: 0.5s;
 }
 .gtco-section {
-  padding: 3em 0;
+  padding:0;
+  width:100;
   clear: both;
   position: relative;
 }
 .gtco-container {
-  max-width: 1140px;
+  max-width: 1500px;
   position: relative;
   margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 150px;
+  padding-right: 3px;
 }
 .gtco-heading {
   margin-bottom: 5em;
