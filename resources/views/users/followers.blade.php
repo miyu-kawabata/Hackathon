@@ -73,7 +73,7 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
-					<li><a href="/groups">CATEGORY</a></li>
+					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
@@ -148,12 +148,10 @@
             <div class ="joymiyu col-xs-4">
             <img class=d"joymiyu" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
             </div>
-            <div class='e'>{{ $user->nickname }}</div>
+            <div class='e'>{!! link_to_route('tanins.show',$user->nickname, ['id' => $user->id]) !!}</div>
             {{ $user->profile->comment }}
             </div>
-            <div>
-                <p>{!! link_to_route('tanins.show', 'View profile', ['id' => $user->id]) !!}</p>
-                        </div>
+
                     </div>
                 </li>
 @endforeach
@@ -170,53 +168,75 @@
            {!! Form::model($group, ['route' => 'groups.store']) !!}
         
              
-            <div class="form-group">
-                 {!! Form::label ('groupname','GROUP NAME') !!}
+             <div class="form-group">
+                 {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
                 
-                   {!! Form::label('category', 'CATEGORY') !!} 
+                   {!! Form::label('category', 'カテゴリー：') !!} 
             </div>       
                    
                    <div class="form-group">
                   
-                  　{!! Form::radio('category', 'nomikai') !!}
-                    {!! Form::label('category', 'nomikai') !!}
+                  　{!! Form::label('category', 'カフェテリア') !!} 
+                  　{!! Form::radio('category', 'cafeteria') !!}
                     
+                    {!! Form::label('category', '休憩時間') !!}
+                    {!! Form::radio('category', 'breaktime') !!}
+                  	
+                  	{!! Form::label('category', 'おしゃべり') !!}
+                  　{!! Form::radio('category', 'kataru') !!}
+                    
+                    {!! Form::label('category', '飲み会') !!}                    
+                    {!! Form::radio('category', 'nomikai') !!}
+ 
+                    {!! Form::label('category', 'スポーツ') !!}                  　　
+                　　{!! Form::radio('category', 'sports') !!}
+                    
+                    {!! Form::label('category', 'グルメ') !!}
                     {!! Form::radio('category', 'food') !!}
-                    {!! Form::label('category', 'food') !!}
                     
-                    {!! Form::radio('category', 'sports') !!}
-                    {!! Form::label('category', 'sports') !!}
-                    
-                    {!! Form::radio('category', 'career') !!}
-                    {!! Form::label('category', 'career') !!}
-                    
-                    {!! Form::radio('category', 'shopping') !!}
-                    {!! Form::label('category', 'shopping') !!}
-                    
-                    {!! Form::radio('category', 'movie') !!}
-                    {!! Form::label('category', 'movie') !!}
-                    
+                    {!! Form::label('category', 'アウトドア') !!}                    
                     {!! Form::radio('category', 'outdoor') !!}
-                    {!! Form::label('category', 'outdoor') !!}
                     
+                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    {!! Form::radio('category', 'movie') !!}
+                    
+                    {!! Form::label('category', 'その他') !!}                    
                     {!! Form::radio('category', 'others') !!}
-                    {!! Form::label('category', 'others') !!}
                     
             </div>
             
             
+            
             <div class="form-group">
-                 {!! Form::label ('date','DATE') !!}
-                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+                 {!! Form::label ('year','年') !!}
+                {!! Form::selectRange('year', 2018, 2030) !!}
             </div>
+            
             <div class="form-group">
-                 {!! Form::label ('description','DESCRIPTION') !!}
+                 {!! Form::label ('month','月') !!}
+                 {!! Form::selectRange('month', 1, 12) !!}
+            </div>
+            
+            
+            <div class="form-group">
+                 {!! Form::label ('date','日') !!}
+                 {!! Form::selectRange('date', 1, 31) !!} 
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('description','詳細') !!}
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}
             </div>
+            
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
             {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
@@ -232,7 +252,8 @@
 @endif
 
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
-    </div>   
+</div>
+		
        <!-- jQuery -->
 	<script src="../../../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

@@ -21,52 +21,71 @@
         
              
             <div class="form-group">
-                 {!! Form::label ('groupname','GROUP NAME') !!}
+                 {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
                 
-                   {!! Form::label('category', 'CATEGORY') !!} 
-            </div>       
-                   
-                   <div class="form-group">
+                   {!! Form::label('category', 'カテゴリー:') !!} 
+              
+                    {!! Form::radio('category', 'カフェテリア') !!}
+                    {!! Form::label('category', 'カフェテリア') !!} 
+                    
+                    
+                    {!! Form::radio('category', '休憩時間') !!}
+                    {!! Form::label('category', '休憩時間') !!}
                   
-                  　{!! Form::radio('category', 'nomikai') !!}
-                    {!! Form::label('category', 'nomikai') !!}
+                  　{!! Form::radio('category', 'おしゃべり') !!}
+                    {!! Form::label('category', 'おしゃべり') !!}
                     
-                    {!! Form::radio('category', 'food') !!}
-                    {!! Form::label('category', 'food') !!}
+                    {!! Form::radio('category', '飲み会') !!}
+                    {!! Form::label('category', '飲み会') !!}
+                  　　
+                　　{!! Form::radio('category', 'スポーツ') !!}
+                    {!! Form::label('category', 'スポーツ') !!}
                     
-                    {!! Form::radio('category', 'sports') !!}
-                    {!! Form::label('category', 'sports') !!}
+                    {!! Form::radio('category', 'グルメ') !!}
+                    {!! Form::label('category', 'グルメ') !!}
                     
-                    {!! Form::radio('category', 'career') !!}
-                    {!! Form::label('category', 'career') !!}
+                    {!! Form::radio('category', 'アウトドア') !!}
+                    {!! Form::label('category', 'アウトドア') !!}
                     
-                    {!! Form::radio('category', 'shopping') !!}
-                    {!! Form::label('category', 'shopping') !!}
+                    {!! Form::radio('category', '映画鑑賞') !!}
+                    {!! Form::label('category', '映画鑑賞') !!}
                     
-                    {!! Form::radio('category', 'movie') !!}
-                    {!! Form::label('category', 'movie') !!}
                     
-                    {!! Form::radio('category', 'outdoor') !!}
-                    {!! Form::label('category', 'outdoor') !!}
+                    {!! Form::radio('category', 'その他') !!}
+                    {!! Form::label('category', 'その他') !!}
                     
-                    {!! Form::radio('category', 'others') !!}
-                    {!! Form::label('category', 'others') !!}
-                    
+            </div>
+            
+             <div class="form-group">
+                 {!! Form::label ('year','年') !!}
+                {!! Form::selectRange('year', 2018, 2030) !!}
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('month','月') !!}
+                 {!! Form::selectRange('month', 1, 12) !!}
             </div>
             
             
             <div class="form-group">
-                 {!! Form::label ('date','DATE') !!}
-                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+                 {!! Form::label ('date','日') !!}
+                 {!! Form::selectRange('date', 1, 31) !!} 
             </div>
+            
             <div class="form-group">
-                 {!! Form::label ('description','DESCRIPTION') !!}
+                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('description','詳細') !!}
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}
             </div>
+            
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
             {!! Form::file('file',old('file'),['class' => 'form-control']) !!}

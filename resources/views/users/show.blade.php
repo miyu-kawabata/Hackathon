@@ -71,7 +71,7 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="/"><div class='a'>MY PAGE</div></a></li>
-					<li><a href="/groups"><div class='a'>CATEGORY</div></a></li>
+					<li><a href="/groups"><div class='a'>CATEGORY LIST</div></a></li>
 					<li><a href="/groups/create"><div class='a'>CREATE GROUP</div></a></li>
 					<li><a href="/logout"><div class='a'>LOG OUT</div></a></li>
 				</ul>
@@ -81,18 +81,18 @@
    
 	<div id="fh5co-main">
          <aside class="col-xs-4">
-         	<div class='sample1'>
+         
    
                <div class="panel-heading">
               	 		<div class="panel-title">
               	 			<div class='a'>{{ $user->nickname }}</div>
         					@if(Auth::user()->id == $user->id)
-         					{!! link_to_route('users.edit', '編集ページ',  ['id' => $user->id]) !!}
+         					<p style="float:right"><a href="/users/{{$user->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
          					@endif
       			 		</div>
  　　　	　　             
                 		<div class="panel-body">
-                   			<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                   		<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
                 		</div>
                  
                  		@include('user_follow.follow_button', ['user' => $user])
@@ -121,11 +121,12 @@
             　
        
          　	</div>
+         　
          </aside>
         
         
         <div class="col-xs-8">
-        	<div class='sample'>
+        	
             <ul class="nav nav-tabs nav-justified">
                 <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}"><div class='c'>Followings <span class="badge">{{ $count_followings }}</span></div></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}"><div class='c'>Followers <span class="badge">{{ $count_followers }}</span></div></a></li>
@@ -152,7 +153,7 @@
 			{!! $users->render() !!}
 			@endif
          
-            </div>
+            
        
  		 </div>
     </div>   

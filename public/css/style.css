@@ -1551,9 +1551,6 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   outline: none;
   box-shadow: none;
   border-color: #228896;
-
-
-    text-align: center;
   }
 
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h1, #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 {
@@ -2386,6 +2383,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   height:100px;
   width:150px;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 
@@ -2787,6 +2785,13 @@ width:500px; height:800px;
   word-wrap: break-word;
   width: inherit;
 }
-
+.panel-heading .panel-title {
+  text-align: left;
+  font-family: 'Century Gothic';
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 35px;
+  color:#088A85;
+}
 
 /*# sourceMappingURL=style.css.map */
