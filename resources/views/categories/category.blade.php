@@ -104,7 +104,7 @@
 							@foreach($cafeterias as $cafeteria)
 							<div class="item">
 								<div class="gtco-item">
-									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $nomikai->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$cafeteria->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $cafeteria->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $cafeteria->groupname, ['id' => $cafeteria->id])!!}</h2>
 				
 									<p class="role">{{ $cafeteria->year }}{{ $cafeteria->month }}{{ $cafeteria->date }}</p>
@@ -133,7 +133,7 @@
 							@foreach($breaktimes as $breaktime)
 							<div class="item">
 								<div class="gtco-item">
-									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $nomikai->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$breaktime->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $breaktime->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $breaktime->groupname, ['id' => $breaktime->id])!!}</h2>
 				
 									<p class="role">{{ $breaktime->year }}{{ $breaktime->month }}{{ $breaktime->date }}</p>
@@ -163,7 +163,7 @@
 							@foreach($katarus as $kataru)
 							<div class="item">
 								<div class="gtco-item">
-									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $nomikai->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$kataru->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $kataru->group_picture) }}" alt="写真を挿入"></a>
 									<h2>{!! link_to_route('groups.show',  $kataru->groupname, ['id' => $kataru->id])!!}</h2>
 				
 									<p class="role">{{ $kataru->year }}{{ $kataru->month }}{{ $kataru->date }}</p>
