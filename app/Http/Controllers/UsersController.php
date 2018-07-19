@@ -17,7 +17,7 @@ class UsersController extends Controller
         if (\Auth::check()) {
             $user = \Auth::user();
             $followings = $user->followings()->paginate(10);
-            $profile=$user->profile()->getResults();
+            $profile = $user->profile()->getResults();
             $groups = $user->groups()->paginate(10);
             $group = new Group;
             

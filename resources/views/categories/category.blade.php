@@ -428,7 +428,6 @@
             </div>
             
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
-	<p><a id="modal-close" class="button-link">閉じる</a></p>
 
             {!! Form::close() !!}
             
