@@ -10,26 +10,33 @@ class GroupsController extends Controller
     {
         //category pageにつながる
         $group = Group::all();
+        $cafeteria = $group->where('category','cafeteria')->sortByDesc('created_at');
+        $breaktime = $group->where('category','breaktime')->sortByDesc('created_at');
+        $kataru = $group->where('category','kataru')->sortByDesc('created_at');
         $nomikai = $group->where('category','nomikai')->sortByDesc('created_at');
-        $food = $group->where('category','food')->sortByDesc('created_at');
         $sports = $group->where('category','sports')->sortByDesc('created_at');
+        $food = $group->where('category','food')->sortByDesc('created_at');
+        $outdoor = $group->where('category','outdoor')->sortByDesc('created_at'); 
+        $movie = $group->where('category','movie')->sortByDesc('created_at');
+        $others = $group->where('category','others')->sortByDesc('created_at');
         $career = $group->where('category','career')->sortByDesc('created_at');
         $shopping = $group->where('category','shopping')->sortByDesc('created_at');
-        $movie = $group->where('category','movie')->sortByDesc('created_at');
-        $outdoor = $group->where('category','outdoor')->sortByDesc('created_at');
-        $others = $group->where('category','others')->sortByDesc('created_at');
+       
         $group = new Group;
         
         return view('categories.category', [
             'groups' => $group,
+            'cafeterias' => $cafeteria,
+            'breaktimes' => $breaktime,
+            'katarus' => $kataru,
             'nomikais' => $nomikai,
-            'foods' => $food,
             'sports' => $sports,
+            'foods' => $food,
+            'outdoors' => $outdoor,
+            'movies' => $movie,
+            'others' => $others,
             'careers' => $career,
             'shoppings' => $shopping,
-            'movies' => $movie,
-            'outdoors' => $outdoor,
-            'others' => $others,
             'group' => $group,
             ]);
     }
@@ -43,6 +50,7 @@ class GroupsController extends Controller
         $user = \Auth::user();
         $chats = $group->chat()->getResults();
         $participants = $group->user_participants()->paginate(10);
+        $participants_count =  $participants->count();
         
         $idd = $group->organizer_id;
         $organizer = User::find($idd);
@@ -52,7 +60,7 @@ class GroupsController extends Controller
             'chats'=>$chats,
             'participants'=>$participants,
             'organizer'=>$organizer,
-            
+            'participants_count' =>$participants_count,
             ]);
             
     }
@@ -74,9 +82,14 @@ class GroupsController extends Controller
            
           'groupname' => 'required|max:20',
           'description'=> 'required|max:191',
+          'year'=> 'required|max:50',
+          'month'=> 'required|max:50',
           'date'=> 'required|max:50',
+          'place'=> 'required|max:50',
           'file' => 'required',
            ]);
+           
+           
         $filename = $request->file('file')->store('public/images');
         
         $user = \Auth::user();
@@ -86,6 +99,7 @@ class GroupsController extends Controller
         $group->description = $request->description;
         $group->year = $request->year;
         $group->month = $request->month;
+        $group->place = $request->place;
         $group->date = $request->date;
         $group->organizer_id = $user->id;
         $group->group_picture = basename($filename);
@@ -94,6 +108,7 @@ class GroupsController extends Controller
         $participants = $group->user_participants() -> paginate(10);
         $chats = $group->chat()->getResults();
         $idd = $group->organizer_id;
+        $participants_count =  $participants->count();
         $organizer = User::find($idd);
         return view('groups.group_participant',[
             'group' => $group,
@@ -101,6 +116,7 @@ class GroupsController extends Controller
             'participants' =>$participants,
             'chats'=>$chats,
             'organizer'=>$organizer,
+            'participants_count' =>$participants_count,
             ]);
         
     }
@@ -122,6 +138,7 @@ class GroupsController extends Controller
             'year' => 'required|max:191',
             'month' => 'required|max:191',
             'date' => 'required|max:191',
+            'place' => 'required|max:191',
             'description' => 'required|max:191',
             'file' => 'required',
         ]);
@@ -134,6 +151,7 @@ class GroupsController extends Controller
         $group->year = $request->year;
         $group->month = $request->month;
         $group->date = $request->date;
+        $group->place = $request->place;
         $group->description = $request->description;
         $group->organizer_id = $user->id;
         $group->group_picture = basename($filename);
@@ -143,6 +161,7 @@ class GroupsController extends Controller
         $chats = $group->chat()->getResults();
         $idd = $group->organizer_id;
         $organizer = User::find($idd);
+        $participants_count =  $participants->count();
         
         return view('groups.group_participant',[
 
@@ -151,6 +170,8 @@ class GroupsController extends Controller
             'chats'=>$chats,
             'participants' =>$participants,
             'organizer'=> $organizer,
+            'participants_count' =>$participants_count,
+            
             ]);
         
         

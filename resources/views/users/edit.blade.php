@@ -353,10 +353,27 @@
             </div>
             
             
+             <div class  <div class="form-group">
+                 {!! Form::label ('year','YEAR') !!}
+                {!! Form::selectRange('year', 2018, 2030) !!}
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('month','MONTH') !!}
+                 {!! Form::selectRange('month', 1, 12) !!}
+            </div>
+            
+            
             <div class="form-group">
                  {!! Form::label ('date','DATE') !!}
-                 {!! Form::text ('date',null,['class' => 'form-control']) !!}
+                 {!! Form::selectRange('date', 1, 31) !!} 
+                 
+            <div class="form-group">
+                 {!! Form::label ('place','PLACE') !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
             </div>
+            
+            
             <div class="form-group">
                  {!! Form::label ('description','DESCRIPTION') !!}
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}

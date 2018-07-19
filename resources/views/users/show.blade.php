@@ -81,7 +81,7 @@
    
 	<div id="fh5co-main">
          <aside class="col-xs-4">
-         	<div class='sample1'>
+         
    
                <div class="panel-heading">
               	 		<div class="panel-title">
@@ -92,7 +92,7 @@
       			 		</div>
  　　　	　　             
                 		<div class="panel-body">
-                   			<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                   		<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
                 		</div>
                  
                  		@include('user_follow.follow_button', ['user' => $user])
@@ -121,11 +121,12 @@
             　
        
          　	</div>
+         　
          </aside>
         
         
         <div class="col-xs-8">
-        	<div class='sample'>
+        	
             <ul class="nav nav-tabs nav-justified">
                 <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}"><div class='c'>Followings <span class="badge">{{ $count_followings }}</span></div></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}"><div class='c'>Followers <span class="badge">{{ $count_followers }}</span></div></a></li>
@@ -152,7 +153,7 @@
 			{!! $users->render() !!}
 			@endif
          
-            </div>
+            
        
  		 </div>
     </div>   

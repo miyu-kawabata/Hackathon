@@ -2375,7 +2375,7 @@ width:850px; height:800px;
     padding: 0.5em 1.5em;
     border-top: solid 2px black;
     border-bottom: solid 2px black;
-    background-color:#fffffff;
+    background-color:#ffffff;
 }
 
 .sample:before, .sample:after{
@@ -2393,7 +2393,7 @@ width:850px; height:800px;
 
 
 .sample1 {
-width:500px; height:800px;
+width:520px; height:800px;
 
 
  margin:2em 0;
@@ -2401,7 +2401,7 @@ width:500px; height:800px;
     padding: 0.5em 1.5em;
     border-top: solid 2px black;
     border-bottom: solid 2px black;
-    background-color:#fffffff;
+    background-color:#ffffff;
 }
 
 .sample1:before, .sample:after{
@@ -2740,4 +2740,9 @@ width:500px; height:800px;
   color:black;
   
   
+}
+
+.media-object.img-rounded.img-responsive{
+  height:300px;
+  width:auto;
 }

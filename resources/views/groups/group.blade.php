@@ -18,7 +18,10 @@
               
          <ul> 
                  <li>{{ $group->category }}</li> 
+                  <li>{{ $group->year }}</li>
+                   <li>{{ $group->month }}</li> 
                  <li>{{ $group->date }}</li> 
+                 <li>{{ $group->place }}</li> 
                  <li>{{ $group->description }}</li> 
                  @include('participate.join_button', ['user' => $user]) 
                   @include('groups.favorite_button', ['groups' => $group]) 
@@ -34,10 +37,12 @@
                   
                   
                  <ul> 
-                     <li class='f'>参加者一覧</li> 
+                     <li class='f'>参加者一覧</li>
+                     @if (count($participant_count)>0)
                      @foreach ($participants as $participant) 
                     <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p> 
                  @endforeach 
+                 @endif
                  </ul> 
                   
              </ul> 
