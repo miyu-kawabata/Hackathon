@@ -96,10 +96,13 @@
     @endforeach
 @endif
    		<div class="fh5co-narrow-content">
-			    <h1>Category</h1>
+			    <div class="prev">
+		<h1>CATEGORY LIST</h1>
+		</div>
 			    
 			    
 		    	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">カフェテリアでごはん</h2>
+		
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
@@ -347,10 +350,9 @@
 		
 		<div class="col-xs-8">
           	<div id="modal-content">
-
             
-        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
-           {!! Form::model($group, ['route' => 'groups.store']) !!}
+        	{!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+            {!! Form::model($group, ['route' => 'groups.store']) !!}
         
              
             <div class="form-group">
@@ -434,7 +436,10 @@
 
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 </div>
-		
+=======
+        </div>
+	</div>
+
 		
 							
 							
@@ -442,9 +447,6 @@
 					
 	</div>
 	</div>
-	</div>
-	
-
 				
 		
     
