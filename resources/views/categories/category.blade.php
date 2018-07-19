@@ -89,7 +89,9 @@
 		</aside>
 		
 	<div id="fh5co-main">
+		<div class="prev">
 		<h1>グループ一覧</h1>
+		</div>
    		<div class="fh5co-narrow-content">
 			    
     
