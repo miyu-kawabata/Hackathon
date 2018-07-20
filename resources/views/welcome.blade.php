@@ -91,12 +91,11 @@
 					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
 					   				<div class="slider-text-inner">
 
-					   					<h1><strong>Welcome to Hackathon!</strong> </h1>
-											<p><a class="btn btn-primary btn-demo popup-vimeo" href="/signup"> <i class="icon-user"></i>Sign up!</a> <a class="btn btn-primary btn-learn"  href="/login">Login<i class="icon-arrow-right3"></i></a></p>
-					   			    
-				   			   	            <h3>誰でもグループ作成・参加、チャットができる！<br>同期との輪を広げよう！！</h3>
-
-					   			           <a button type="button" class="btn btn-click" href="#learnmore"> <i class="icon-arrow-down"></i>CLICK HERE!</button></a> 
+					   					<h1>Welcome to Hackathon!</h1>
+					   			        <a button type="button" class="btn btn-click" href="#learnmore"> <i class="icon-arrow-down"></i>CLICK HERE!</button></a> 
+				   			   	        <h3>誰でもグループ作成・参加、チャットができる！<br>同期との輪を広げよう！！</h3>
+					   					<p><a class="btn btn-primary btn-demo popup-vimeo" href="/signup"> <i class="icon-user"></i>Sign up!</a> <a class="btn btn-primary btn-learn"  href="/login">Login<i class="icon-arrow-right3"></i></a></p>
+	
 					   				</div>
 					   			</div>
 					   		</div>
