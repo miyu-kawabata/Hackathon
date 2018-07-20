@@ -115,11 +115,13 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$cafeteria->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $cafeteria->group_picture) }}" alt="写真を挿入"></a>
 									<div class="desc">
-									<h2>{!! link_to_route('groups.show',  $cafeteria->groupname, ['id' => $cafeteria->id])!!}</h2>
-									<h6>{{ $cafeteria->year }}/{{ $cafeteria->month }}/{{ $cafeteria->date }}</h6>
-									<h6>場所:{{ $cafeteria->place }}</h6>
-									<h6>{{ $cafeteria->description }}</h6>
-									@include('groups.favorite_button', ['groups' => $group]) 
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $cafeteria->groupname, ['id' => $cafeteria->id])!!}</h2>
+											<span>{{ $cafeteria->year }}/{{ $cafeteria->month }}/{{ $cafeteria->date }}</span>
+											<span>場所:{{ $cafeteria->place }}</span>
+											<span>{{ $cafeteria->description }}</span>
+										</div>	
+										@include('groups.group_favorite_button', ['groups' => $cafeteria]) 
 									</div>
 								</div>
 							</div>
@@ -146,11 +148,13 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$breaktime->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $breaktime->group_picture) }}" alt="写真を挿入"></a>
 									<div class="desc">
-									<h2>{!! link_to_route('groups.show',  $breaktime->groupname, ['id' => $breaktime->id])!!}</h2>
-									<h6>{{ $breaktime->year }}/{{ $breaktime->month }}/{{ $breaktime->date }}</h6>
-									<h6>場所:{{ $breaktime->place }}</h6>
-									<h6>{{ $breaktime->description }}</h6>
-									@include('groups.favorite_button', ['groups' => $group]) 
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $breaktime->groupname, ['id' => $breaktime->id])!!}</h2>
+											<span>{{ $breaktime->year }}/{{ $breaktime->month }}/{{ $breaktime->date }}</span>
+											<span>場所:{{ $breaktime->place }}</span>
+											<span>{{ $breaktime->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $breaktime]) 
 									</div>
 								</div>
 							</div>
@@ -178,12 +182,13 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$kataru->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $kataru->group_picture) }}" alt="写真を挿入"></a>
 									<div class="desc">
-									<h2>{!! link_to_route('groups.show',  $kataru->groupname, ['id' => $kataru->id])!!}</h2>
-				
-									<h6>{{ $kataru->year }}/{{ $kataru->month }}/{{ $kataru->date }}</h6>
-									<h6>場所:{{ $kataru->place }}</h6>
-									<h6>{{ $kataru->description }}</h6>
-									@include('groups.favorite_button', ['groups' => $group]) 
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $kataru->groupname, ['id' => $kataru->id])!!}</h2>
+											<span>{{ $kataru->year }}/{{ $kataru->month }}/{{ $kataru->date }}</span>
+											<span>場所:{{ $kataru->place }}</span>
+											<span>{{ $kataru->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $kataru]) 
 									</div>
 								</div>
 							</div>
@@ -209,12 +214,13 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $nomikai->group_picture) }}" alt="写真を挿入"></a>
 									<div class="desc">
-									<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>
-				
-									<h6>{{ $nomikai->year }}/{{ $nomikai->month }}/{{ $nomikai->date }}</h6>
-									<h6>場所:{{ $nomikai->place }}</h6>
-									<h6>{{ $nomikai->description }}</h6>
-									@include('groups.favorite_button', ['groups' => $group]) 
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>
+											<span>{{ $nomikai->year }}/{{ $nomikai->month }}/{{ $nomikai->date }}</span>
+											<span>場所:{{ $nomikai->place }}</span>
+											<span>{{ $nomikai->description }}</span>
+										</div>
+									@include('groups.group_favorite_button', ['groups' => $nomikai]) 
 									</div>
 								</div>
 							</div>
@@ -239,11 +245,13 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$sport->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $sport->group_picture) }}" alt="写真を挿入"></a>
 									<div class="desc">
-									<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
-									<h6>{{ $sport->year }}/{{ $sport->month }}/{{ $sport->date }}</h6>
-									<h6>場所:{{ $sport->place }}</h6>
-									<h6>{{ $sport->description }}</h6>
-									@include('groups.favorite_button', ['groups' => $group]) 
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
+											<span>{{ $sport->year }}/{{ $sport->month }}/{{ $sport->date }}</span>
+											<span>場所:{{ $sport->place }}</span>
+											<span>{{ $sport->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $sport]) 
 									</div>
 								</div>
 							</div>
@@ -270,11 +278,13 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$food->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $food->group_picture) }}" alt="写真を挿入"></a>
 									<div class="desc">
-									<h2>{!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h2>
-									<h6>{{ $food->year }}/{{ $food->month}}/{{ $food->date }}</h6>
-									<h6>場所:{{ $food->place }}</h6>
-									<h6>{{ $food->description }}</h6>
-									@include('groups.favorite_button', ['groups' => $group]) 
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h2>
+											<span>{{ $food->year }}/{{ $food->month}}/{{ $food->date }}</span>
+											<span>場所:{{ $food->place }}</span>
+											<span>{{ $food->description }}</span>
+										</div>
+									@include('groups.group_favorite_button', ['groups' => $food]) 
 									</div>
 								</div>
 							</div>
@@ -300,11 +310,13 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$outdoor->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $outdoor->group_picture) }}" alt="写真を挿入"></a>
 									<div class="desc">
-									<h2>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h2>
-									<h6>{{ $outdoor->year }}/{{ $outdoor->month }}/{{ $outdoor->date }}</h6>
-									<h6>場所:{{ $outdoor->place }}</h6>
-									<h6>{{ $outdoor->description }}</h6>
-									@include('groups.favorite_button', ['groups' => $group]) 
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h2>
+											<span>{{ $outdoor->year }}/{{ $outdoor->month }}/{{ $outdoor->date }}</span>
+											<span>場所:{{ $outdoor->place }}</span>
+											<span>{{ $outdoor->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $outdoor]) 
 									</div>
 								</div>
 							</div>
@@ -328,11 +340,13 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$movie->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $movie->group_picture) }}" alt="写真を挿入"></a>
 									<div class="desc">
-									<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
-									<h6>{{ $movie->year }}/{{ $movie->month }}/{{ $movie->date }}</h6>
-									<h6>場所:{{ $movie->place }}</h6>
-									<h6>{{ $movie->description }}</h6>
-									@include('groups.favorite_button', ['groups' => $group]) 
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
+											<span>{{ $movie->year }}/{{ $movie->month }}/{{ $movie->date }}</span>
+											<span>場所:{{ $movie->place }}</span>
+											<span>{{ $movie->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $movie]) 
 									</div>
 								</div>
 							</div>
@@ -357,11 +371,13 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$other->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $other->group_picture) }}" alt="写真を挿入"></a>
 									<div class="desc">
-									<h2>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h2>
-									<h6>{{ $other->year }}/{{ $other->month }}/{{ $other->date }}</h6>
-									<h6>場所:{{ $other->place }}</h6>
-									<h6>{{ $other->description }}</h6>
-									@include('groups.favorite_button', ['groups' => $group]) 
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h2>
+											<span>{{ $other->year }}/{{ $other->month }}/{{ $other->date }}</span>
+											<span>場所:{{ $other->place }}</span>
+											<span>{{ $other->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $other]) 
 									</div>
 								</div>
 							</div>

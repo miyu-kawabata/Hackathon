@@ -94,7 +94,6 @@
 					   					
 										   <p><a class="btn btn-primary btn-demo popup-vimeo" href="/signup"> <i class="icon-user"></i>Sign up!</a> <a class="btn btn-primary btn-learn"  href="/login">Login<i class="icon-arrow-right3"></i></a></p>
 					   			           <h2>よっ友から、楽友へ。</h2>
-					   			           
 					   			            <a button type="button" class="btn btn-danger btn-lg btn-block" href="#learnmore"> <i class="icon-arrow-down"></i>ここをCHECK!</button></a> 
 					   			            
 					   				</div>
