@@ -73,7 +73,7 @@
 				<ul>
 					<li><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
-					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
+					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>

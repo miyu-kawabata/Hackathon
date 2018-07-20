@@ -2809,5 +2809,18 @@ width:500px; height:800px;
   font-size: 35px;
   color:#088A85;
 }
+.followings{
+  font-weight: bold;
+}
+.followers{
+  font-weight: bold;
+}
+.favorites{
+  font-weight: bold;
+}
+.joins{
+  font-weight: bold;
+}
+
 
 /*# sourceMappingURL=style.css.map */
