@@ -93,35 +93,31 @@
         <div class="alert alert-warning">{{ $error }}</div>
     @endforeach
 @endif
-   		<div class="fh5co-narrow-content">
-			    <div class="prev">
-		<h1>CATEGORY LIST</h1>
-	
-		   
-			<SELECT NAME="select1" onChange="if(document.form1.select1.value){location.href=document.form1.select1.value;}">
-                 <option id='title'> Category</option>
-                 <option value='#cafeteria'>カフェテリアでごはん</option>
-		         <option value='#breaktime'>休憩時間</option>
-		         <option value='#kataru'>好きなモノについて語る会</option>
-		         <option value='#nomikai'>飲み会</option>
-		         <option value='#sports'>スポーツ</option>
-		         <option value='#food'>グルメ</option>
-		         <option value='#outdoor'>アウトドア</option>
-		         <option value='#movie'>映画鑑賞</option>
-		         <option value='#other'>その他</option>
+  <div class="fh5co-narrow-content">
+　　 <div class="prev">
 		
-            </SELECT>
-          
-		 	
-		    </div>
-		    
-		  
-		    
-		    
-		    
-			    
-			    
-		    	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="cafeteria">カフェテリアでごはん</a></h2>
+		<header class="sample01">
+              <tomo>
+                    <li><a href="#">CATEGORY LIST <span>▼</span></a>
+                          <ul>
+                                <li><a href="#cafeteria">カフェテリアでご飯</a></li>
+                                <li><a href="#breaktime">休憩時間</a></li>
+                                <li><a href="#kataru">好きなモノについて語る会</a></li>
+                                <li><a href="#nomikai">飲み会</a></li>
+                                <li><a href="#sports">スポーツ</a></li>
+                                <li><a href="#food">グルメ</a></li>
+                                <li><a href="#outdoor">アウトドア</a></li>
+                                <li><a href="#movie">映画鑑賞</a></li>
+                                <li><a href="#other">その他</a></li>
+                          </ul>
+                    </li>
+             </tomo>
+      </header>
+	　	
+　　 
+　　 </div>
+		   
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="cafeteria">カフェテリアでごはん</a></h2>
 		
 			<div class="gtco-section">
 				<div class="gtco-container">
@@ -151,7 +147,7 @@
 			
 			
 			
-				<h2 class="abc" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">

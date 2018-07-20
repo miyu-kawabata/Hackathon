@@ -1563,11 +1563,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   outline: none;
   box-shadow: none;
   border-color: #228896;
-<<<<<<< HEAD
   }
-=======
-}
->>>>>>> acfc5427ca909bb729055cebd5b2446ef335b007
 
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h1, #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 {
   margin: 0;
@@ -2823,50 +2819,55 @@ width:500px; height:800px;
   margin-left:200px;
 }
 
-.nfDropDown.theme-lakira .label {
-    height: 2rem;
-    padding-left: 10px;
-    line-height: 2rem;
-    letter-spacing: 1px;
-    font-size: .9rem;
-    font-weight: 700;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: 1px solid rgba(255,255,255,.9);
-    display: inline-block;
-    color: #fff;
-    background-color: #000;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    position: relative;
-    padding-right: 50px;
-}
 
 
-.nfDropDown.theme-lakira .sub-menu .sub-menu-item a {
-    padding: 1px 20px 1px 10px;
+header{
+	margin-bottom: 13em;
+	position: relative;
+	width: 100%;
 }
-.nfDropDown.theme-lakira .sub-menu .sub-menu-link {
-    display: inline-block;
-    width: 100%;
-    padding: 1px 0;
+tomo > li{
+	display: inline-block;
 }
-.aro-gallery-header .subgenres .sub-menu .sub-menu-link {
-    white-space: nowrap;
+tomo > li > a{
+	padding: 15px 0px;
+	display: block;
+	font-size: 35px;
+	text-transform: uppercase;
+	letter-spacing: .2em;
 }
-.sub-menu.theme-lakira .sub-menu-link {
-    text-transform: none;
-    display: inline-block;
-    width: 100%;
-    color: #fff;
+tomo > li > span{
+	margin-left: 1.2em;
 }
-.sub-menu.theme-lakira a, .sub-menu.theme-lakira div, .sub-menu.theme-lakira li, .sub-menu.theme-lakira span, .sub-menu.theme-lakira ul {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+tomo > li:hover > a{
+	
+	color: #444;
+}
+ 
+/* Submenu */
+ 
+tomo li ul{
+position: absolute;
+	top: 30px;
+	left: 25%;
+}
+tomo li ul li{
+	display: block;
+}
+tomo li ul li a{
+	background-color: #efefef;
+	color: #444;
+	font-size:20px;
+	margin-left:105px;
+	
+}
+tomo li ul li a:hover{
+	background-color: #ddd;
+}
+
+.sample01 tomo li ul{
+	display: none;
+}
+.sample01 tomo li:hover ul{
+	display: block;
 }
