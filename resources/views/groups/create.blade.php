@@ -91,7 +91,7 @@
             {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
             </div>
             
-               {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
+               {!! Form::submit ('グループを作成する',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
 

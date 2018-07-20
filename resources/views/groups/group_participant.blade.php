@@ -86,23 +86,23 @@
         <div class="alert alert-warning">{{ $error }}</div>
     @endforeach
 @endif
-			<aside class="col-xs-5 js-fullheight"> 
+			<aside class="col-xs-5"> 
              <div class="panel panel-default"> 
-                 <div class="panel-heading"> 
-                     <h3 class="panel-title">{{ $group->groupname }}</h3> 
-                 </div> 
-                 <div class="panel-body"> 
+                <div class="panel-heading"> 
+                    <h3 class="panel-title">{{ $group->groupname }}</h3> 
+                </div> 
+                <div class="panel-body"> 
                  	<img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
                  </div>
                  <div class="group_profile">
-	        	 	<ul style="list-style:none">
-                	<li>＜カテゴリー名＞</li>
+	        	 	<ul class ="group-description">
+                	<li>＜CATEGORY＞</li>
                 	<li>{{ $group->category }}</li>
                 	<li>＜開催日＞</li>
                 	<li>{{ $group->date }}</li> 
-                	<li>＜説明＞</li>
+                	<li>＜このグループの説明＞</li>
                 	<li>{{ $group->description }}</li>
-                	<li>＜オーガナイザー＞</li> 
+                	<li>＜主催者＞</li> 
                 	<li>{!! link_to_route('tanins.show',$organizer->nickname, ['id' => $organizer->id]) !!}</li>
                 </ul>
     		     		<div class="edit">

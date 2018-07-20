@@ -87,7 +87,7 @@
         <div class="alert alert-warning">{{ $error }}</div>
     @endforeach
 @endif
-			<aside class="col-xs-5 js-fullheight"> 
+			<aside class="col-xs-5"> 
              <div class="panel panel-default"> 
                  <div class="panel-heading"> 
                      <h3 class="panel-title">{{ $group->groupname }}</h3> 

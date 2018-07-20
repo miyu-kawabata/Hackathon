@@ -84,11 +84,10 @@
             {!! Form::file('file',old('file')) !!}
             </div>
             
-               {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
-                   {!! Form::close() !!}
+                {!! Form::submit ('この内容でグループを編集する',['class' =>'btn btn-primary']) !!}
                 {!! Form::open(['route' => ['groups.destroy', $group->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
-            {!! Form::close() !!}
+                    {!! Form::submit('このグループを削除する', ['class' => 'btn btn-danger btn-xs']) !!}
+                {!! Form::close() !!}
 
         </div>
     </div>

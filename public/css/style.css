@@ -2821,6 +2821,13 @@ width:500px; height:800px;
 .joins{
   font-weight: bold;
 }
+.group-description li{
+   list-style:none;
+   font-size: 16px;
+   color: 	#333333;
+   font-weight:700;
+  margin-bottom: 8px
+}
 
 
 /*# sourceMappingURL=style.css.map */
