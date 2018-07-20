@@ -96,12 +96,12 @@
     @endforeach
 @endif
    		<div class="fh5co-narrow-content">
-			    <div class="prev">
-		<h1>CATEGORY LIST</h1>
-		</div>
+			<div class="prev">
+				<h1>CATEGORY LIST</h1>
+			</div>
 			    
 			    
-		    	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">カフェテリアでごはん</h2>
+		    <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">カフェテリアでごはん</h2>
 		
 			<div class="gtco-section">
 				<div class="gtco-container">
@@ -115,13 +115,17 @@
 						  
 							@foreach($cafeterias as $cafeteria)
 							<div class="item">
-								<div class="gtco-item">
+								<div class="blog-entry">
 									<a href="/groups/{{$cafeteria->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $cafeteria->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $cafeteria->groupname, ['id' => $cafeteria->id])!!}</h2>
-				
-									<p class="role">{{ $cafeteria->year }}/{{ $cafeteria->month }}/{{ $cafeteria->date }}</p>
-									<p>{{ $cafeteria->place }}</p>
-									<p>{{ $cafeteria->description }}</p>
+									<div class="desc">
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $cafeteria->groupname, ['id' => $cafeteria->id])!!}</h2>
+											<span>{{ $cafeteria->year }}/{{ $cafeteria->month }}/{{ $cafeteria->date }}</span>
+											<span>場所:{{ $cafeteria->place }}</span>
+											<span>{{ $cafeteria->description }}</span>
+										</div>	
+										@include('groups.group_favorite_button', ['groups' => $cafeteria]) 
+									</div>
 								</div>
 							</div>
 							@endforeach
@@ -132,25 +136,29 @@
 				</div>
 			</div>	    
 			
+		
 			
 			
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">休憩時間</h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">休憩時間</h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 						  
 							@foreach($breaktimes as $breaktime)
 							<div class="item">
-								<div class="gtco-item">
+								<div class="blog-entry">
 									<a href="/groups/{{$breaktime->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $breaktime->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $breaktime->groupname, ['id' => $breaktime->id])!!}</h2>
-				
-									<p class="role">{{ $breaktime->year }}/{{ $breaktime->month }}/{{ $breaktime->date }}</p>
-									<p>{{ $breaktime->place }}</p>
-									<p>{{ $breaktime->description }}</p>
+									<div class="desc">
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $breaktime->groupname, ['id' => $breaktime->id])!!}</h2>
+											<span>{{ $breaktime->year }}/{{ $breaktime->month }}/{{ $breaktime->date }}</span>
+											<span>場所:{{ $breaktime->place }}</span>
+											<span>{{ $breaktime->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $breaktime]) 
+									</div>
 								</div>
 							</div>
 							@endforeach
@@ -174,13 +182,17 @@
 						  
 							@foreach($katarus as $kataru)
 							<div class="item">
-								<div class="gtco-item">
+								<div class="blog-entry">
 									<a href="/groups/{{$kataru->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $kataru->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $kataru->groupname, ['id' => $kataru->id])!!}</h2>
-				
-									<p class="role">{{ $kataru->year }}/{{ $kataru->month }}/{{ $kataru->date }}</p>
-									<p>{{ $kataru->place }}</p>
-									<p>{{ $kataru->description }}</p>
+									<div class="desc">
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $kataru->groupname, ['id' => $kataru->id])!!}</h2>
+											<span>{{ $kataru->year }}/{{ $kataru->month }}/{{ $kataru->date }}</span>
+											<span>場所:{{ $kataru->place }}</span>
+											<span>{{ $kataru->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $kataru]) 
+									</div>
 								</div>
 							</div>
 							@endforeach
@@ -202,13 +214,17 @@
 						  
 							@foreach($nomikais as $nomikai)
 							<div class="item">
-								<div class="gtco-item">
+								<div class="blog-entry">
 									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $nomikai->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>
-				
-									<p class="role">{{ $nomikai->year }}/{{ $nomikai->month }}/{{ $nomikai->date }}</p>
-									<p>{{ $nomikai->place }}</p>
-									<p>{{ $nomikai->description }}</p>
+									<div class="desc">
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>
+											<span>{{ $nomikai->year }}/{{ $nomikai->month }}/{{ $nomikai->date }}</span>
+											<span>場所:{{ $nomikai->place }}</span>
+											<span>{{ $nomikai->description }}</span>
+										</div>
+									@include('groups.group_favorite_button', ['groups' => $nomikai]) 
+									</div>
 								</div>
 							</div>
 							@endforeach
@@ -229,12 +245,17 @@
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($sports as $sport)
 							<div class="item">
-								<div class="gtco-item">
+								<div class="blog-entry">
 									<a href="/groups/{{$sport->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $sport->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
-									<p class="role">{{ $sport->year }}/{{ $sport->month }}/{{ $sport->date }}</p>
-									<p>{{ $sport->place }}</p>
-									<p>{{ $sport->description }}</p>
+									<div class="desc">
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
+											<span>{{ $sport->year }}/{{ $sport->month }}/{{ $sport->date }}</span>
+											<span>場所:{{ $sport->place }}</span>
+											<span>{{ $sport->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $sport]) 
+									</div>
 								</div>
 							</div>
 							@endforeach
@@ -257,12 +278,17 @@
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($foods as $food)
 							<div class="item">
-								<div class="gtco-item">
+								<div class="blog-entry">
 									<a href="/groups/{{$food->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $food->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h2>
-									<p class="role">{{ $food->year }}/{{ $food->month}}/{{ $food->date }}</p>
-									<p>{{ $food->place }}</p>
-									<p>{{ $food->description }}</p>
+									<div class="desc">
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h2>
+											<span>{{ $food->year }}/{{ $food->month}}/{{ $food->date }}</span>
+											<span>場所:{{ $food->place }}</span>
+											<span>{{ $food->description }}</span>
+										</div>
+									@include('groups.group_favorite_button', ['groups' => $food]) 
+									</div>
 								</div>
 							</div>
 							@endforeach
@@ -284,12 +310,17 @@
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($outdoors as $outdoor)
 							<div class="item">
-								<div class="gtco-item">
+								<div class="blog-entry">
 									<a href="/groups/{{$outdoor->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $outdoor->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h2>
-									<p class="role">{{ $outdoor->year }}/{{ $outdoor->month }}/{{ $outdoor->date }}</p>
-									<p>{{ $outdoor->place }}</p>
-									<p>{{ $outdoor->description }}</p>
+									<div class="desc">
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h2>
+											<span>{{ $outdoor->year }}/{{ $outdoor->month }}/{{ $outdoor->date }}</span>
+											<span>場所:{{ $outdoor->place }}</span>
+											<span>{{ $outdoor->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $outdoor]) 
+									</div>
 								</div>
 							</div>
 							@endforeach
@@ -309,12 +340,17 @@
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($movies as $movie)
 							<div class="item">
-								<div class="gtco-item">
+								<div class="blog-entry">
 									<a href="/groups/{{$movie->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $movie->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
-									<p class="role">{{ $movie->year }}/{{ $movie->month }}/{{ $movie->date }}</p>
-									<p>{{ $movie->place }}</p>
-									<p>{{ $movie->description }}</p>
+									<div class="desc">
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
+											<span>{{ $movie->year }}/{{ $movie->month }}/{{ $movie->date }}</span>
+											<span>場所:{{ $movie->place }}</span>
+											<span>{{ $movie->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $movie]) 
+									</div>
 								</div>
 							</div>
 							@endforeach
@@ -335,12 +371,17 @@
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($others as $other)
 							<div class="item">
-								<div class="gtco-item">
+								<div class="blog-entry">
 									<a href="/groups/{{$other->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $other->group_picture) }}" alt="写真を挿入"></a>
-									<h2>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h2>
-									<p class="role">{{ $other->year }}/{{ $other->month }}/{{ $other->date }}</p>
-									<p>{{ $other->place }}</p>
-									<p>{{ $other->description }}</p>
+									<div class="desc">
+										<div class="description">
+											<h2>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h2>
+											<span>{{ $other->year }}/{{ $other->month }}/{{ $other->date }}</span>
+											<span>場所:{{ $other->place }}</span>
+											<span>{{ $other->description }}</span>
+										</div>
+										@include('groups.group_favorite_button', ['groups' => $other]) 
+									</div>
 								</div>
 							</div>
 							@endforeach
@@ -437,7 +478,7 @@
             {!! Form::close() !!}
             
 
-	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<h6><a id="modal-close" class="button-link">閉じる</a></h6>
 </div>
 =======
         </div>

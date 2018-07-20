@@ -278,7 +278,7 @@ figure figcaption {
 
 #fh5co-main .prev {
   padding-top:2%;
-  padding-left: 2%;
+  padding-left: 0.5%;
 }
 
 
@@ -396,7 +396,7 @@ figure figcaption {
   font-weight: 500;
  }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner pp {
-  font-size: 25px;
+  font-size: 35px;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #fff;
@@ -494,7 +494,7 @@ figure figcaption {
     box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.29);
     text-align:center;
     font-size: 20px;
-    margin-left:210px !important;
+    margin-left:50px !important;
     
  
 }
@@ -558,6 +558,8 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   width: 100%;
   float: left;
   background: #fff;
+  height: 400px;
+  margin-bottom:0px;
 }
 @media screen and (max-width: 768px) {
   .blog-entry {
@@ -585,12 +587,14 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   transition: 0.9s;
 }
 .blog-entry .desc {
-  padding: 25px;
+  padding: 10px;
+  height: 50px;
 }
-.blog-entry .desc h3 {
-  font-size: 15px;
+.blog-entry .desc h2 {
+  font-size: 25px !important;
+  color:#228896;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 5px !important;
   letter-spacing: 1px;
   line-height: auto;
 }
@@ -600,11 +604,11 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .blog-entry .desc span {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-size: 11px;
-  text-transform: uppercase;
   letter-spacing: 1px;
-  color: rgba(0, 0, 0, 0.4) !important;
+  color: black !important;
+  max-width: 200px;
 }
 .blog-entry .desc span small i {
   color: #e6e6e6;
@@ -937,7 +941,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 
 .btn {
   margin-right: 4px;
-  margin-bottom: 4px;
+  margin-top: 0px;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -971,6 +975,22 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   padding: 8px 20px !important;
   width:100%;
   float: left;
+}
+.btnn2 {
+  margin-left: 0px;
+  margin-bottom: 4px;
+  margin-top:180px;
+  font-family: "Roboto", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  padding: 8px 20px !important;
 }
 .btna {
   margin-right: 20px;
@@ -1610,11 +1630,9 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   outline: none;
   box-shadow: none;
   border-color: #228896;
-<<<<<<< HEAD
+
   }
-=======
-}
->>>>>>> acfc5427ca909bb729055cebd5b2446ef335b007
+
 
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h1, #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 {
   margin: 0;
@@ -1724,6 +1742,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 .blog-entry {
   width: 100%;
   float: left;
+  height: 450px;
   background: #fff;
 }
 @media screen and (max-width: 768px) {
@@ -1753,11 +1772,23 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .blog-entry .desc {
   padding: 25px;
+  text-align:center;
 }
-.blog-entry .desc h3 {
+.blog-entry .desc .description{
+  height:60% !important;
+  text-align: left;
+}
+.blog-entry .desc h2 {
+  font-size: 20px !important;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  line-height: auto;
+}
+.blog-entry .desc h6 {
   font-size: 15px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   letter-spacing: 1px;
   line-height: auto;
 }
@@ -1767,11 +1798,14 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .blog-entry .desc span {
   display: block;
-  margin-bottom: 20px;
-  font-size: 11px;
-  text-transform: uppercase;
+  width: 100%;
+  white-space: nowrap;   /*文字数が指定幅を超えた時に…と表示させる*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+  font-size: 15px;
   letter-spacing: 1px;
-  color: rgba(0, 0, 0, 0.4) !important;
+  color: #000000;
 }
 .blog-entry .desc span small i {
   color: #e6e6e6;
@@ -2522,7 +2556,6 @@ width:500px; height:800px;
 .sample1:after {right: 10px;}
 
 .a{
-  font-family:"Kokoro", cursive;
   font-size:30px;
   font-weight:bold;
   color:black;
@@ -2532,14 +2565,12 @@ width:500px; height:800px;
 
 .b{
   
-   font-family: Italic;
   font-size:40px;
   background: silver;
   color: black;
   text-shadow: -3px 0 0 white;
 }
 .c{
-  font-family:Italic;
   font-size:20px;
   text-align:center;
   color:black;
@@ -2555,7 +2586,6 @@ width:500px; height:800px;
 }
 
 .d{
-  font-family:"Kokoro", cursive;
   font-size:22px;
   background:linear-gradient(transparent 30%, #ffff66 90%);
   text-align:left;
@@ -2570,13 +2600,8 @@ width:500px; height:800px;
   font-size:18px;
   color:black;
   font-weight:bold;
-  font-family:"Roboto", Arial, sans-serif;
   letter-spacing:0px;
 　line-height:0px;
-
-  
-  
-  
 }
 
 .box23 {
@@ -2761,7 +2786,8 @@ width:500px; height:800px;
 }
 
 .owl-carousel-carousel.owl-theme .owl-controls .owl-nav [class*="owl-"] {
-  background: none !important;
+  background: block !important;
+  background-color: #008b8b !important;
 }
 .owl-carousel-carousel.owl-theme .owl-controls .owl-nav [class*="owl-"] i {
   color: #b3b3b3;

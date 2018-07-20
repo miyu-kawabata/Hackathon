@@ -1,6 +1,6 @@
 .owl-theme .owl-controls{margin-top:10px;text-align:center;-webkit-tap-highlight-color:transparent}
 
-.owl-theme .owl-controls .owl-nav [class*=owl-]{color:#008b8b;font-size:30px;margin:5px;padding:4px 7px;background:#000000;display:inline-block;cursor:pointer;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
+.owl-theme .owl-controls .owl-nav [class*=owl-]{color:#ffffff;font-size:30px;margin:5px;padding:4px 7px;background:#008b8b;display:inline-block;cursor:pointer;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
 
 .owl-theme .owl-controls .owl-nav [class*=owl-]:hover{background:#869791;color:#a9a9a9;text-decoration:none}
 

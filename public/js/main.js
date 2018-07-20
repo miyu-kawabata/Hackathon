@@ -153,9 +153,9 @@
 			loop:true,
     		margin:10,
     		nav:true,
-    			navigationText: [
-		      "prev",
-		      "next"
+    		navigationText: [
+		      '<i class="ti-arrow-left owl-direction"></i>','<i class="ti-arrow-right owl-direction"></i>'
+		      
 	     	],
     		responsive:{
         	0:{
@@ -183,8 +183,7 @@
 			autoplayTimeout: 5000,
 			autoplayHoverPause: false,
 			navigationText: [
-		      "prev",
-		      "next"
+                '<i class="ti-arrow-left owl-direction"></i>','<i class="ti-arrow-right owl-direction"></i>'
 	     	]
 		});
 
