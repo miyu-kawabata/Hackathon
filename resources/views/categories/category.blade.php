@@ -14,7 +14,6 @@
 
   	<!-- 
 	//////////////////////////////////////////////////////
-
 	FREE HTML5 TEMPLATE 
 	DESIGNED & DEVELOPED by FreeHTML5.co
 		
@@ -22,7 +21,6 @@
 	Email: 			info@freehtml5.co
 	Twitter: 		http://twitter.com/fh5co
 	Facebook: 		https://www.facebook.com/fh5co
-
 	//////////////////////////////////////////////////////
 	-->
 
@@ -98,10 +96,32 @@
    		<div class="fh5co-narrow-content">
 			    <div class="prev">
 		<h1>CATEGORY LIST</h1>
-		</div>
+	
+		   
+			<SELECT NAME="select1" onChange="if(document.form1.select1.value){location.href=document.form1.select1.value;}">
+                 <option id='title'> Category</option>
+                 <option value='#cafeteria'>カフェテリアでごはん</option>
+		         <option value='#breaktime'>休憩時間</option>
+		         <option value='#kataru'>好きなモノについて語る会</option>
+		         <option value='#nomikai'>飲み会</option>
+		         <option value='#sports'>スポーツ</option>
+		         <option value='#food'>グルメ</option>
+		         <option value='#outdoor'>アウトドア</option>
+		         <option value='#movie'>映画鑑賞</option>
+		         <option value='#other'>その他</option>
+		
+            </SELECT>
+          
+		 	
+		    </div>
+		    
+		  
+		    
+		    
+		    
 			    
 			    
-		    	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">カフェテリアでごはん</h2>
+		    	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="cafeteria">カフェテリアでごはん</a></h2>
 		
 			<div class="gtco-section">
 				<div class="gtco-container">
@@ -131,7 +151,7 @@
 			
 			
 			
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">休憩時間</h2>
+				<h2 class="abc" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
@@ -161,7 +181,7 @@
 			    
 			    
     
-			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">好きなモノについて語る会</h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="kataru">好きなモノについて語る会</a></h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
@@ -189,7 +209,7 @@
 			</div>
 			
 			
-			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">飲み会</h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='nomikai'>飲み会</a></h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
@@ -217,7 +237,7 @@
 			</div>
 			
 			
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">スポーツ</h2>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='sport'>スポーツ</a></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -245,7 +265,7 @@
 			
 		
 		
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">グルメ</h2>
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='food'>グルメ</a></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -272,7 +292,7 @@
 
 							
 
-	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">アウトドア</h2>
+	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='outdoor'>アウトドア</a></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -297,7 +317,7 @@
 			</div>
 		</div>
 		
-			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">映画鑑賞</h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='movie'>映画鑑賞</a></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -323,7 +343,7 @@
 		</div>
 		
 		
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">その他</h2>
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='other'>その他</h2></a>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">

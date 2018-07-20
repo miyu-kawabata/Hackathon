@@ -163,8 +163,9 @@ figure figcaption {
   text-decoration: none;
   letter-spacing: .1em;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 25px;
   font-weight: 600;
+  line-height:150px;
   position: relative;
   padding: 10px 10px;
   letter-spacing: .2em;
@@ -2836,4 +2837,62 @@ width:500px; height:800px;
 }
 
 
+
+.form-info{
+  margin-top:50px;
+  
+}
 /*# sourceMappingURL=style.css.map */
+
+.form-front{
+  margin-top:50px;
+  margin-left:200px;
+}
+
+.nfDropDown.theme-lakira .label {
+    height: 2rem;
+    padding-left: 10px;
+    line-height: 2rem;
+    letter-spacing: 1px;
+    font-size: .9rem;
+    font-weight: 700;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,.9);
+    display: inline-block;
+    color: #fff;
+    background-color: #000;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    position: relative;
+    padding-right: 50px;
+}
+
+
+.nfDropDown.theme-lakira .sub-menu .sub-menu-item a {
+    padding: 1px 20px 1px 10px;
+}
+.nfDropDown.theme-lakira .sub-menu .sub-menu-link {
+    display: inline-block;
+    width: 100%;
+    padding: 1px 0;
+}
+.aro-gallery-header .subgenres .sub-menu .sub-menu-link {
+    white-space: nowrap;
+}
+.sub-menu.theme-lakira .sub-menu-link {
+    text-transform: none;
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+}
+.sub-menu.theme-lakira a, .sub-menu.theme-lakira div, .sub-menu.theme-lakira li, .sub-menu.theme-lakira span, .sub-menu.theme-lakira ul {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

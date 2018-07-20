@@ -80,11 +80,13 @@
    
    
 	<div id="fh5co-main">
+		<div class='form-info'>
          <aside class="col-xs-4">
          
-   
+           
                <div class="panel-heading">
               	 		<div class="panel-title">
+              	 			
               	 			<div class='a'>{{ $user->nickname }}</div>
         					@if(Auth::user()->id == $user->id)
          					<p style="float:right"><a href="/users/{{$user->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
@@ -157,6 +159,7 @@
        
  		 </div>
     </div>   
+    </div>
     <!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

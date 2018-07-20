@@ -8,11 +8,10 @@
             </div>
         
         <div class="media-body">
+            
             <div>
-                <div class='e'> {{ $group->groupname }}</div>
-            </div>
-            <div>
-                <p>{!! link_to_route('groups.show', 'View this group', ['id' => $group->id]) !!}</p>
+                <div class='e'>{!! link_to_route('groups.show',$group->groupname, ['id' => $group->id]) !!}</div>
+                {{ $group->year }}/{{ $group->month }}/{{ $group->date }}
             </div>
         </div>
     </li>
