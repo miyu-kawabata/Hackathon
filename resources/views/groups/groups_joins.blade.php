@@ -19,4 +19,7 @@
 @endforeach
 </ul>
 {!! $groups->render() !!}
+@else
+    <p style="margin:50px">CATEGORY LISTから興味のあるグループを探して、参加しよう！
+    <br><a href="/groups">CATEGORY LIST</a>へ</p>
 @endif

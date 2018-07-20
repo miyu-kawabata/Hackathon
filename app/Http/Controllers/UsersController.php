@@ -16,22 +16,25 @@ class UsersController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
-            $followings = $user->followings()->paginate(10);
-            $profile = $user->profile()->getResults();
-            $groups = $user->groups()->paginate(10);
+            $groups = $user->groups()->paginate(10); 
+            $profile=$user->profile()->getResults();
             $group = new Group;
-            $data = [
-                'user' => $user,
-                'profile' =>$profile,
-                'users' => $followings,
-                'groups' => $groups, 
-                'group' => $group,
-            ];
-            $data += $this->counts($user);
-            return view('users.followings', $data);
-        }else {
-            return view('welcome');
-        }
+            $data = [ 
+             'user' => $user, 
+             'groups' => $groups,
+             'profile' =>$profile, 
+             'group' => $group,
+              
+            ]; 
+  
+             $data += $this->counts($user); 
+             return view('users.join', $data); 
+            
+            
+            }else {
+                return view('welcome');
+            }
+            
     }
     /**
      * Show the form for creating a new resource.

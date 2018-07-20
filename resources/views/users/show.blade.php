@@ -130,8 +130,8 @@
             <ul class="nav nav-tabs nav-justified">
                 <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}"><div class='c'>Followings <span class="badge">{{ $count_followings }}</span></div></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}"><div class='c'>Followers <span class="badge">{{ $count_followers }}</span></div></a></li>
-                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}"><div class='c'>Favorites <span class="badge">{{ $count_favorites }}</span></div></a></li>
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}"><div class='c'>Joins <span class="badge">{{ $count_groups }}</span></div></a></li>
+                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}"><div class='c'>お気に入り <span class="badge">{{ $count_favorites }}</span></div></a></li>
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}"><div class='c'>参加中 <span class="badge">{{ $count_groups }}</span></div></a></li>
 
             </ul>
             

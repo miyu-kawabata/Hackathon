@@ -128,8 +128,7 @@
           	
           	<div id="modal-content">
            {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
-           {!! Form::model($group, ['route' => 'groups.store']) !!}
-        
+           
              
              
             <div class="form-group">
@@ -220,9 +219,9 @@
 		
 		
 		
-             <ul class="nav nav-tabs nav-justified"> 
+             <ul class="nav nav-tabs nav-justified" style="font-size:20px"> 
                 <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者<span class="badge">{{ $participants_count }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>
+                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}" class="chat">CHAT</a></li>
              </ul>
            
            	<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">

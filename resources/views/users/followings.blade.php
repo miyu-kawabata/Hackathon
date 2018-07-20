@@ -43,21 +43,21 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="../../../css/animate.css">
+	<link rel="stylesheet" href="{{asset('/css/animate.css')}}">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="../../../css/icomoon.css">
+	<link rel="stylesheet" href="{{asset('/css/icomoon.css')}}">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../../../css/bootstrap.css">
+	<link rel="stylesheet" href="{{asset('/css/bootstrap.css')}}">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="../../../css/flexslider.css">
+	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="../../../css/style.css">
-	<link rel="stylesheet" href="../../../css/flexslider.css">
+	<link rel="stylesheet" href="{{asset('/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
 	<!-- Modal  -->
-	<link href="../../../css/modal.css" rel="stylesheet">
+	<link href="{{asset('/css/modal.css')}}" rel="stylesheet">
 
 	<!-- Modernizr JS -->
-	<script src="../../../js/modernizr-2.6.2.min.js"></script>
+	<script src="{{asset('/js/modernizr-2.6.2.min.js')}}"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -131,12 +131,12 @@
             </div>
         </aside>
         <div class="col-xs-8">
-            <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
+            <ul class="nav nav-tabs nav-justified"style="font-size:20px">
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}">参加中 <span class="badge">{{ $count_groups }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">お気に入り <span class="badge">{{ $count_favorites }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}"class="followings">Followings <span class="badge1">{{ $count_followings }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favorites }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}">Joins <span class="badge">{{ $count_groups }}</span></a></li>
-
+                
             </ul>
             
              @if (count($users) > 0)
@@ -252,21 +252,21 @@
 </div>
 
     <!-- jQuery -->
-	<script src="../../../js/jquery.min.js"></script>
+	<script src="{{asset('/js/jquery.min.js')}}"></script>
 	<!-- jQuery Easing -->
-	<script src="../../../js/jquery.easing.1.3.js"></script>
+	<script src="{{asset('/js/jquery.easing.1.3.js')}}"></script>
 	<!-- Bootstrap -->
-	<script src="../../../js/bootstrap.min.js"></script>
+	<script src="{{asset('/js/bootstrap.min.js')}}"></script>
 	<!-- Waypoints -->
-	<script src="../../../js/jquery.waypoints.min.js"></script>
+	<script src="{{asset('/js/jquery.waypoints.min.js')}}"></script>
 	<!-- Flexslider -->
-	<script src="../../../js/jquery.flexslider-min.js"></script>
+	<script src="{{asset('/js/jquery.flexslider-min.js')}}"></script>
 	<!-- Modal -->
-	<script src="../../../js/modal.js"></script>
+	<script src="{{asset('/js/modal.js')}}"></script>
 	
 	
 	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+	<script src="{{asset('js/main.js')}}"></script>
 
 	</body>
 </html>
