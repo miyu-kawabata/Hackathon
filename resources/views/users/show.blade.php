@@ -100,7 +100,7 @@
                  		@include('user_follow.follow_button', ['user' => $user])
                       
                       <div class="panel-body">
-               			 <ul class='d'>About me...</ul>
+               			 <ul>About me...</ul>
                  
               			 @if (isset($profile->sex))
                		    <li class='e'>性別：{{ $profile->sex }}</li>

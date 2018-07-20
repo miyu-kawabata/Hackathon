@@ -96,7 +96,7 @@
                  	<img class="media-object img-rounded img-responsive" style="height:300px"src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
                  </div>
                  <div class="group_profile">
-	        	 	<ul style="list-style:none">
+	        	 	<ul class ="group-description">
                 	<li>＜カテゴリー名＞</li>
                 	<li>{{ $group->category }}</li>
                 	<li>＜開催日＞</li>
