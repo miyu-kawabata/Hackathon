@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    
+    
+ <div class='form-front'>    
     <div class="text-center">
         <h1>Log in</h1>
     </div>
@@ -26,4 +29,6 @@
             <p>New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>
         </div>
     </div>
+</div>    
+    
 @endsection

@@ -99,7 +99,9 @@
                 	<li>＜カテゴリー名＞</li>
                 	<li>{{ $group->category }}</li>
                 	<li>＜開催日＞</li>
-                	<li>{{ $group->date }}</li> 
+                	<li>{{ $group->year }}/{{ $group->month }}/{{ $group->date }}</li>
+                	<li>＜開催場所＞</li>
+                	<li>{{ $group->place }}</li>
                 	<li>＜説明＞</li>
                 	<li>{{ $group->description }}</li>
                 	<li>＜オーガナイザー＞</li> 

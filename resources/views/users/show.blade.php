@@ -70,21 +70,23 @@
 			<div id="fh5co-logo"><a href="/"><div class='b'>Hackathon</div></a></div>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/"><div class='a'>MY PAGE</div></a></li>
-					<li><a href="/groups"><div class='a'>CATEGORY LIST</div></a></li>
-					<li><a href="/groups/create"><div class='a'>CREATE GROUP</div></a></li>
-					<li><a href="/logout"><div class='a'>LOG OUT</div></a></li>
+					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
+					<li><a href="/groups">CATEGORY LIST</a></li>
+					<li><a href="/groups/create">CREATE GROUP</a></li>
+					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
 		</aside>
    
    
 	<div id="fh5co-main">
+		<div class='form-info'>
          <aside class="col-xs-4">
          
-   
+           
                <div class="panel-heading">
               	 		<div class="panel-title">
+              	 			
               	 			<div class='a'>{{ $user->nickname }}</div>
         					@if(Auth::user()->id == $user->id)
          					<p style="float:right"><a href="/users/{{$user->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
@@ -157,6 +159,7 @@
        
  		 </div>
     </div>   
+    </div>
     <!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

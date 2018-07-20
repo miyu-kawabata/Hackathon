@@ -88,6 +88,9 @@
         <div class="alert alert-warning">{{ $error }}</div>
     @endforeach
 @endif
+
+
+   <div class='form-info'>
          <aside class="col-xs-4">
             <div class="panel panel-default"> 
                 <div class="panel-heading">
@@ -142,6 +145,7 @@
             
             
         </div>
+    </div>    
 		<div class="col-xs-8">
           	<div id="modal-content">
             

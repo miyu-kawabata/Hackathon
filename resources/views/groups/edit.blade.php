@@ -7,6 +7,7 @@
             
         </aside>
         <div class="col-xs-8">
+            <div class='form-info'>
             {!! Form::model($group, ['route' => ['groups.update', $group->id], 'method' => 'put', 'files' => true]) !!}
              <div class="form-group">
                  {!! Form::label ('groupname','グループ名') !!}
@@ -90,6 +91,7 @@
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
             {!! Form::close() !!}
 
+            </div>
         </div>
     </div>
 @endsection

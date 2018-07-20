@@ -109,6 +109,7 @@
           
         </aside>
         <div class="col-xs-8">
+            <div class='form-info'>
      @if(is_null($profile))
      {!! Form::model($profile, ['route' => 'users.store', 'method' => 'post', 'files' => true]) !!}
           
@@ -306,6 +307,9 @@
                 {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
         
             {!! Form::close() !!}
+            
+    </div>        
+            
             @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
         <div class="alert alert-warning">{{ $error }}</div>
