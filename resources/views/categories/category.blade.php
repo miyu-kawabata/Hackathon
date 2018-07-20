@@ -143,8 +143,8 @@
 											<span>{{ $cafeteria->year }}/{{ $cafeteria->month }}/{{ $cafeteria->date }}</span>
 											<span>場所:{{ $cafeteria->place }}</span>
 											<span>{{ $cafeteria->description }}</span>
-										</div>	
-										@include('groups.group_favorite_button', ['groups' => $cafeteria]) 
+										</div>
+										<a href="/groups/{{$cafeteria->id}}" class="btnn btn-primary btn-md" >View</a>
 									</div>
 								</div>
 							</div>
@@ -159,7 +159,7 @@
 		
 			
 			
-				<h2 class="abc" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
@@ -177,7 +177,7 @@
 											<span>場所:{{ $breaktime->place }}</span>
 											<span>{{ $breaktime->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $breaktime]) 
+										<a href="/groups/{{$breaktime->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
@@ -211,7 +211,7 @@
 											<span>場所:{{ $kataru->place }}</span>
 											<span>{{ $kataru->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $kataru]) 
+										<a href="/groups/{{$kataru->id}}" class="btnn btn-primary btn-md" >View</a>
 									</div>
 								</div>
 							</div>
@@ -243,7 +243,7 @@
 											<span>場所:{{ $nomikai->place }}</span>
 											<span>{{ $nomikai->description }}</span>
 										</div>
-									@include('groups.group_favorite_button', ['groups' => $nomikai]) 
+									<a href="/groups/{{$nomikai->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
@@ -274,7 +274,7 @@
 											<span>場所:{{ $sport->place }}</span>
 											<span>{{ $sport->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $sport]) 
+										<a href="/groups/{{$sport->id}}" class="btnn btn-primary btn-md" >View</a>
 									</div>
 								</div>
 							</div>
@@ -307,7 +307,7 @@
 											<span>場所:{{ $food->place }}</span>
 											<span>{{ $food->description }}</span>
 										</div>
-									@include('groups.group_favorite_button', ['groups' => $food]) 
+									<a href="/groups/{{$food->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
@@ -339,7 +339,7 @@
 											<span>場所:{{ $outdoor->place }}</span>
 											<span>{{ $outdoor->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $outdoor]) 
+										<a href="/groups/{{$outdoor->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
@@ -369,7 +369,7 @@
 											<span>場所:{{ $movie->place }}</span>
 											<span>{{ $movie->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $movie]) 
+										<a href="/groups/{{$movie->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
@@ -400,7 +400,7 @@
 											<span>場所:{{ $other->place }}</span>
 											<span>{{ $other->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $other]) 
+										<a href="/groups/{{$other->id}}" class="btnn btn-primary btn-md" >View</a>
 									</div>
 								</div>
 							</div>
