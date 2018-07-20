@@ -43,20 +43,21 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="../../../css/animate.css">
+	<link rel="stylesheet" href="{{asset('/css/animate.css')}}">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="../../../css/icomoon.css">
+	<link rel="stylesheet" href="{{asset('/css/icomoon.css')}}">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../../../css/bootstrap.css">
+	<link rel="stylesheet" href="{{asset('/css/bootstrap.css')}}">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="../../../css/flexslider.css">
+	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="../../../css/style.css">
+	<link rel="stylesheet" href="{{asset('/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
 	<!-- Modal  -->
-	<link href="../../../css/modal.css" rel="stylesheet">
+	<link href="{{asset('/css/modal.css')}}" rel="stylesheet">
 
 	<!-- Modernizr JS -->
-	<script src="../../../js/modernizr-2.6.2.min.js"></script>
+	<script src="{{asset('/js/modernizr-2.6.2.min.js')}}"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -74,12 +75,12 @@
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
-					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
+					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
 		</aside>
-   
+   </div>
    
 		<div id="fh5co-main">
 		    @if (count($errors) > 0)
@@ -118,7 +119,15 @@
                  <p class="e">何か一言：{{ $profile->comment }}</p>
                 @endif
                 
-                @include('user_follow.follow_button', ['user' => $user])  
+                
+                @include('user_follow.follow_button', ['user' => $user])
+                
+                
+                @if(is_null($profile))
+                <p>①同期に向けて自己紹介を入力しよう！EDITをクリック！</p>
+                @endif
+                
+                
                 <div class="edit">
                     @if(Auth::user()->id == $user->id)
                     <p style="float:right"><a href="/users/{{$user->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
@@ -131,11 +140,11 @@
         </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified" style="font-size:20px">
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}" class="join">参加中 <span class="badge1">{{ $count_groups }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">お気に入り <span class="badge">{{ $count_favorites }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favorites }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}" class="joins">Joins <span class="badge1">{{ $count_groups }}</span></a></li>
-
+                
             </ul>
             
              @include('groups.groups_joins', ['groups' => $groups])
@@ -147,7 +156,6 @@
             
             
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
-           {!! Form::model($group, ['route' => 'groups.store']) !!}
         
              
              <div class="form-group">
@@ -156,57 +164,59 @@
             </div>
             
             <div class="form-group">
-                
-                   {!! Form::label('category', 'カテゴリー：') !!} 
+                   {!! Form::label('category', 'カテゴリー') !!} 
             </div>       
                    
                    <div class="form-group">
-                  
-                  　{!! Form::label('category', 'カフェテリア') !!} 
-                  　{!! Form::radio('category', 'cafeteria') !!}
-                    
-                    {!! Form::label('category', '休憩時間') !!}
+                   	
+                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::label('category', 'カフェテリア / ') !!}
+                   	
                     {!! Form::radio('category', 'breaktime') !!}
-                  	
-                  	{!! Form::label('category', 'おしゃべり') !!}
-                  　{!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', '休憩時間 / ') !!}
                     
-                    {!! Form::label('category', '飲み会') !!}                    
+                    
+                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', 'おしゃべり / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'nomikai') !!}
- 
-                    {!! Form::label('category', 'スポーツ') !!}                  　　
-                　　{!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', '飲み会 / ') !!}
                     
-                    {!! Form::label('category', 'グルメ') !!}
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'スポーツ / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'food') !!}
+                    {!! Form::label('category', 'グルメ / ') !!}
                     
-                    {!! Form::label('category', 'アウトドア') !!}                    
+                    
                     {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::label('category', 'アウトドア / ') !!}
                     
-                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    
                     {!! Form::radio('category', 'movie') !!}
+                    {!! Form::label('category', '映画鑑賞 / ') !!}
                     
-                    {!! Form::label('category', 'その他') !!}                    
+                    
                     {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'その他 / ') !!}
                     
-            </div>
-            
-            
+                    </div>
             
             <div class="form-group">
-                 {!! Form::label ('year','年') !!}
+                   {!! Form::label('category', '開催日時') !!} 
+            </div>
+            
+            <div class="form-group">
+                {!! Form::label ('year','年') !!}
                 {!! Form::selectRange('year', 2018, 2030) !!}
-            </div>
             
-            <div class="form-group">
-                 {!! Form::label ('month','月') !!}
-                 {!! Form::selectRange('month', 1, 12) !!}
-            </div>
+                {!! Form::label ('month','月') !!}
+                {!! Form::selectRange('month', 1, 12) !!}
             
-            
-            <div class="form-group">
-                 {!! Form::label ('date','日') !!}
-                 {!! Form::selectRange('date', 1, 31) !!} 
+                {!! Form::label ('date','日') !!}
+                {!! Form::selectRange('date', 1, 31) !!} 
             </div>
             
             <div class="form-group">
@@ -230,23 +240,25 @@
 
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 </div>
+</div>
+</div>
+<>
 		
-       <!-- jQuery -->
-	<script src="../../../js/jquery.min.js"></script>
+    <!-- jQuery -->
+	<script src="{{asset('/js/jquery.min.js')}}"></script>
 	<!-- jQuery Easing -->
-	<script src="../../../js/jquery.easing.1.3.js"></script>
+	<script src="{{asset('/js/jquery.easing.1.3.js')}}"></script>
 	<!-- Bootstrap -->
-	<script src="../../../js/bootstrap.min.js"></script>
+	<script src="{{asset('/js/bootstrap.min.js')}}"></script>
 	<!-- Waypoints -->
-	<script src="../../../js/jquery.waypoints.min.js"></script>
+	<script src="{{asset('/js/jquery.waypoints.min.js')}}"></script>
 	<!-- Flexslider -->
-	<script src="../../../js/jquery.flexslider-min.js"></script>
+	<script src="{{asset('/js/jquery.flexslider-min.js')}}"></script>
 	<!-- Modal -->
-	<script src="../../../js/modal.js"></script>
+	<script src="{{asset('/js/modal.js')}}"></script>
 	
 	
 	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
-
+	<script src="{{asset('js/main.js')}}"></script>
 	</body>
 </html>

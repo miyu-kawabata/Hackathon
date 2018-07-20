@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -127,7 +126,7 @@
           	
           	<div id="modal-content">
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
-           {!! Form::model($group, ['route' => 'groups.store']) !!}
+           
         
              
            
@@ -137,56 +136,59 @@
             </div>
             
             <div class="form-group">
-                
-                  {!! Form::label('category', 'カテゴリー：') !!} 
-                
+                   {!! Form::label('category', 'カテゴリー') !!} 
+            </div>       
                    
-                   
-                  	{!! Form::label('category', 'カフェテリア') !!} 
-                  　{!! Form::radio('category', 'cafeteria') !!}
-                    
-                    {!! Form::label('category', '休憩時間') !!}
+                   <div class="form-group">
+                   	
+                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::label('category', 'カフェテリア / ') !!}
+                   	
                     {!! Form::radio('category', 'breaktime') !!}
-                  	
-                  	{!! Form::label('category', 'おしゃべり') !!}
-                  　{!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', '休憩時間 / ') !!}
                     
-                    {!! Form::label('category', '飲み会') !!}                    
+                    
+                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', 'おしゃべり / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'nomikai') !!}
- 
-                    {!! Form::label('category', 'スポーツ') !!}                  　　
-                　　{!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', '飲み会 / ') !!}
                     
-                    {!! Form::label('category', 'グルメ') !!}
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'スポーツ / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'food') !!}
+                    {!! Form::label('category', 'グルメ / ') !!}
                     
-                    {!! Form::label('category', 'アウトドア') !!}                    
+                    
                     {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::label('category', 'アウトドア / ') !!}
                     
-                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    
                     {!! Form::radio('category', 'movie') !!}
+                    {!! Form::label('category', '映画鑑賞 / ') !!}
                     
-                    {!! Form::label('category', 'その他') !!}                    
+                    
                     {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'その他 / ') !!}
                     
-            </div>
-            
-            
+                    </div>
             
             <div class="form-group">
-                 {!! Form::label ('year','年') !!}
+                   {!! Form::label('category', '開催日時') !!} 
+            </div>
+            
+            <div class="form-group">
+                {!! Form::label ('year','年') !!}
                 {!! Form::selectRange('year', 2018, 2030) !!}
-            </div>
             
-            <div class="form-group">
-                 {!! Form::label ('month','月') !!}
-                 {!! Form::selectRange('month', 1, 12) !!}
-            </div>
+                {!! Form::label ('month','月') !!}
+                {!! Form::selectRange('month', 1, 12) !!}
             
-            
-            <div class="form-group">
-                 {!! Form::label ('date','日') !!}
-                 {!! Form::selectRange('date', 1, 31) !!} 
+                {!! Form::label ('date','日') !!}
+                {!! Form::selectRange('date', 1, 31) !!} 
             </div>
             
             <div class="form-group">
@@ -214,8 +216,8 @@
 @endif
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 </div>
-              <ul class="nav nav-tabs nav-justified"> 
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}">参加者<span class="badge">{{ $participants_count }}</span></a></li>
+              <ul class="nav nav-tabs nav-justified"style="font-size:20px"> 
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}"class="participants">参加者<span class="badge1">{{ $participants_count }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>
              </ul>
                  <ul> 
@@ -223,11 +225,17 @@
                      <div style="clear:both">
                      <div class="media-body">
                      <div class ="joymiyu col-xs-3">
-                	<img class="joymiyu" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
+                        @if(isset($participant->profile->avatar_filename))
+                            <img class="joymiyu" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
+                        @else
+                            No Image.
+                        @endif
                 	</div>
                	 	<div class ="col-xs-offset-1 col-xs-8">
-                      <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p> 
+                      <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p>
+                      @if(isset($participant->profile->comment))
                       <p>{{ $participant->profile->comment }}</p>
+                      @endif
                       @include('user_follow.follow_button', ['user' => $user])
                      </div>
                      </div>

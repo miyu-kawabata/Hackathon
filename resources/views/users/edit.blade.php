@@ -78,39 +78,14 @@
 				</ul>
 			</nav>
 		</aside>
+		</div>
 
-
-			</aside>
-			
-	
-	</div>
-	</div>
-		
-	<!-- jQuery -->
-	<script src="../../../js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="../../../js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="../../../js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="../../../js/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="../../../js/jquery.flexslider-min.js"></script>
-	
-	
-	<!-- MAIN JS -->
-	<script src="../../../js/main.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-
-</head>
-<body>
-
-        <aside class="col-xs-4">
+        <aside class="col-xs-4" style="margin-top:50px">
           
         </aside>
-        <div class="col-xs-8">
-     @if(is_null($profile))
-     {!! Form::model($profile, ['route' => 'users.store', 'method' => 'post', 'files' => true]) !!}
+        <div class="col-xs-8" style="margin-top:50px">
+    @if(is_null($profile))
+            {!! Form::model($profile, ['route' => 'users.store', 'method' => 'post', 'files' => true]) !!}
           
 
                 <div class="form-group">
@@ -188,28 +163,20 @@
                     {!! Form::label('comment', '何か一言:') !!}
                     {!! Form::text('comment', null, ['class' => 'form-control']) !!}
                 </div>
-                
-                
-       
-       <div class="form-group">
-    @if ($user->avatar_filename)
-        <p>
-            <img src="{{ asset('storage/images/' . $user->avatar_filename) }}" alt="avatar" />
-        </p>
-    @endif
-    {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
-    {!! Form::file('file') !!}
-</div>
+                <div class="form-group">
+                {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+                {!! Form::file('file') !!}
+                </div>
 
 
        
-         {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
+                 {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
         
-            {!! Form::close() !!}
+                 {!! Form::close() !!}
             
             
             
-            @else
+    @else
             {!! Form::model($profile, ['route' => ['users.update', $profile->id], 'method' => 'put', 'files' => true]) !!}
             
                 <div class="form-group">
@@ -291,11 +258,7 @@
                 
                 
                 <div class="form-group">
-    @if ($user->avatar_filename)
-        <p>
-            <img src="{{ asset('storage/images/' . $user->avatar_filename) }}" alt="avatar" />
-        </p>
-    @endif
+    
     {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
     {!! Form::file('file') !!}
 </div>
@@ -306,17 +269,10 @@
                 {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
         
             {!! Form::close() !!}
-            @if (count($errors) > 0)
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-warning">{{ $error }}</div>
-    @endforeach
-@endif
   @endif          
-        </div>
         </div>
         		<div class="col-xs-8">
           	<div id="modal-content">
-        <div class="col-xs-6">
             
             
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
@@ -327,58 +283,61 @@
                  {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
-            
-            <div class="form-group">
-                
-                   {!! Form::label('category', 'カテゴリー：') !!} 
+                   
+                   <div class="form-group">
+                   {!! Form::label('category', 'カテゴリー') !!} 
             </div>       
                    
                    <div class="form-group">
-                  
-                  　{!! Form::label('category', 'カフェテリア') !!} 
-                  　{!! Form::radio('category', 'cafeteria') !!}
-                    
-                    {!! Form::label('category', '休憩時間') !!}
+                   	
+                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::label('category', 'カフェテリア / ') !!}
+                   	
                     {!! Form::radio('category', 'breaktime') !!}
-                  	
-                  	{!! Form::label('category', 'おしゃべり') !!}
-                  　{!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', '休憩時間 / ') !!}
                     
-                    {!! Form::label('category', '飲み会') !!}                    
+                    
+                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', 'おしゃべり / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'nomikai') !!}
- 
-                    {!! Form::label('category', 'スポーツ') !!}                  　　
-                　　{!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', '飲み会 / ') !!}
                     
-                    {!! Form::label('category', 'グルメ') !!}
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'スポーツ / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'food') !!}
+                    {!! Form::label('category', 'グルメ / ') !!}
                     
-                    {!! Form::label('category', 'アウトドア') !!}                    
+                    
                     {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::label('category', 'アウトドア / ') !!}
                     
-                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    
                     {!! Form::radio('category', 'movie') !!}
+                    {!! Form::label('category', '映画鑑賞 / ') !!}
                     
-                    {!! Form::label('category', 'その他') !!}                    
+                    
                     {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'その他 / ') !!}
                     
+                    </div>
+            
+            <div class="form-group">
+                   {!! Form::label('category', '開催日時') !!} 
             </div>
             
-            
-             <div class="form-group">
-                 {!! Form::label ('year','年') !!}
+            <div class="form-group">
+                {!! Form::label ('year','年') !!}
                 {!! Form::selectRange('year', 2018, 2030) !!}
-            </div>
             
-            <div class="form-group">
-                 {!! Form::label ('month','月') !!}
-                 {!! Form::selectRange('month', 1, 12) !!}
-            </div>
+                {!! Form::label ('month','月') !!}
+                {!! Form::selectRange('month', 1, 12) !!}
             
-            
-            <div class="form-group">
-                 {!! Form::label ('date','日') !!}
-                 {!! Form::selectRange('date', 1, 31) !!} 
+                {!! Form::label ('date','日') !!}
+                {!! Form::selectRange('date', 1, 31) !!} 
             </div>
             
             <div class="form-group">
@@ -398,14 +357,10 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
-            @if (count($errors) > 0)
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-warning">{{ $error }}</div>
-    @endforeach
-@endif
 
-        </div>
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	</div>
+	</div>
         <!-- jQuery -->
 	<script src="../../../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

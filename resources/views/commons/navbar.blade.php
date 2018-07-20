@@ -71,7 +71,7 @@
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY</a></li>
-					<li><a href="/groups/create">CREATE GROUP</a></li>
+					<li><a href="/groups/create">CREATE A GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>

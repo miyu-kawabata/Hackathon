@@ -74,7 +74,7 @@
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
-					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
+					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -93,9 +93,6 @@
                 <div class="panel-heading">
                   <div class="panel-title">{{ $user->nickname }}</div>
                 </div>
-        
-         
-          
                 <div class="panel-body">
                 @if(isset($profile->avatar_filename))
                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
@@ -130,22 +127,24 @@
             </div>
         </aside>
         <div class="col-xs-8">
-            <ul class="nav nav-tabs nav-justified" style="font-size:20px">
+            <ul class="nav nav-tabs nav-justified"style="font-size:20px">
+                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}">参加中 <span class="badge">{{ $count_groups }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}" class="favorites">お気に入り <span class="badge1">{{ $count_favorites }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}" class="favorites">Favorites <span class="badge1">{{ $count_favorites }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}">Joins <span class="badge">{{ $count_groups }}</span></a></li>
+                
+                
 
             </ul>
             
             @include('groups.groups_favorites', ['groups' => $groups])
         
         </div>
-<div class="col-xs-8">
+        <div class="col-xs-8">
           	<div id="modal-content">
             
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
-           {!! Form::model($group, ['route' => 'groups.store']) !!}
+           
         
              
              <div class="form-group">
@@ -154,58 +153,59 @@
             </div>
             
             <div class="form-group">
-                
-                   {!! Form::label('category', 'カテゴリー：') !!} 
+                   {!! Form::label('category', 'カテゴリー') !!} 
             </div>       
                    
-                  
-                   
-            <div class="form-group">
-                  	{!! Form::label('category', 'カフェテリア') !!} 
-                  　{!! Form::radio('category', 'cafeteria') !!}
-                    
-                    {!! Form::label('category', '休憩時間') !!}
+                   <div class="form-group">
+                   	
+                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::label('category', 'カフェテリア / ') !!}
+                   	
                     {!! Form::radio('category', 'breaktime') !!}
-                  	
-                  	{!! Form::label('category', 'おしゃべり') !!}
-                  　{!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', '休憩時間 / ') !!}
                     
-                    {!! Form::label('category', '飲み会') !!}                    
+                    
+                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', 'おしゃべり / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'nomikai') !!}
- 
-                    {!! Form::label('category', 'スポーツ') !!}                  　　
-                　　{!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', '飲み会 / ') !!}
                     
-                    {!! Form::label('category', 'グルメ') !!}
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'スポーツ / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'food') !!}
+                    {!! Form::label('category', 'グルメ / ') !!}
                     
-                    {!! Form::label('category', 'アウトドア') !!}                    
+                    
                     {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::label('category', 'アウトドア / ') !!}
                     
-                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    
                     {!! Form::radio('category', 'movie') !!}
+                    {!! Form::label('category', '映画鑑賞 / ') !!}
                     
-                    {!! Form::label('category', 'その他') !!}                    
+                    
                     {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'その他 / ') !!}
                     
-            </div>
-            
-            
+                    </div>s
             
             <div class="form-group">
-                 {!! Form::label ('year','年') !!}
+                   {!! Form::label('category', '開催日時') !!} 
+            </div>
+            
+            <div class="form-group">
+                {!! Form::label ('year','年') !!}
                 {!! Form::selectRange('year', 2018, 2030) !!}
-            </div>
             
-            <div class="form-group">
-                 {!! Form::label ('month','月') !!}
-                 {!! Form::selectRange('month', 1, 12) !!}
-            </div>
+                {!! Form::label ('month','月') !!}
+                {!! Form::selectRange('month', 1, 12) !!}
             
-            
-            <div class="form-group">
-                 {!! Form::label ('date','日') !!}
-                 {!! Form::selectRange('date', 1, 31) !!} 
+                {!! Form::label ('date','日') !!}
+                {!! Form::selectRange('date', 1, 31) !!} 
             </div>
             
             <div class="form-group">
@@ -230,7 +230,8 @@
 
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 </div>
-		
+</div>
+		</div>
        <!-- jQuery -->
 	<script src="../../../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
