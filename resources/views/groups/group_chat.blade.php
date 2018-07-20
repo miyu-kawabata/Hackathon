@@ -74,7 +74,7 @@
 				<ul>
 					<li><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
-					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
+					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -138,56 +138,59 @@
             </div>
             
             <div class="form-group">
-                
-                   {!! Form::label('category', 'カテゴリー：') !!} 
-                
+                   {!! Form::label('category', 'カテゴリー') !!} 
+            </div>       
                    
-                   
-                  	{!! Form::label('category', 'カフェテリア') !!} 
-                  　{!! Form::radio('category', 'cafeteria') !!}
-                    
-                    {!! Form::label('category', '休憩時間') !!}
+                   <div class="form-group">
+                   	
+                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::label('category', 'カフェテリア / ') !!}
+                   	
                     {!! Form::radio('category', 'breaktime') !!}
-                  	
-                  	{!! Form::label('category', 'おしゃべり') !!}
-                  　{!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', '休憩時間 / ') !!}
                     
-                    {!! Form::label('category', '飲み会') !!}                    
+                    
+                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', 'おしゃべり / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'nomikai') !!}
- 
-                    {!! Form::label('category', 'スポーツ') !!}                  　　
-                　　{!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', '飲み会 / ') !!}
                     
-                    {!! Form::label('category', 'グルメ') !!}
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'スポーツ / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'food') !!}
+                    {!! Form::label('category', 'グルメ / ') !!}
                     
-                    {!! Form::label('category', 'アウトドア') !!}                    
+                    
                     {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::label('category', 'アウトドア / ') !!}
                     
-                    {!! Form::label('category', '映画鑑賞') !!}                    
+                    
                     {!! Form::radio('category', 'movie') !!}
+                    {!! Form::label('category', '映画鑑賞 / ') !!}
                     
-                    {!! Form::label('category', 'その他') !!}                    
+                    
                     {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'その他 / ') !!}
                     
-            </div>
-            
-            
+                    </div>
             
             <div class="form-group">
-                 {!! Form::label ('year','年') !!}
+                   {!! Form::label('category', '開催日時') !!} 
+            </div>
+            
+            <div class="form-group">
+                {!! Form::label ('year','年') !!}
                 {!! Form::selectRange('year', 2018, 2030) !!}
-            </div>
             
-            <div class="form-group">
-                 {!! Form::label ('month','月') !!}
-                 {!! Form::selectRange('month', 1, 12) !!}
-            </div>
+                {!! Form::label ('month','月') !!}
+                {!! Form::selectRange('month', 1, 12) !!}
             
-            
-            <div class="form-group">
-                 {!! Form::label ('date','日') !!}
-                 {!! Form::selectRange('date', 1, 31) !!} 
+                {!! Form::label ('date','日') !!}
+                {!! Form::selectRange('date', 1, 31) !!} 
             </div>
             
             <div class="form-group">

@@ -20,53 +20,60 @@
             
             <div class="form-group">
                  
-                  {!! Form::label('category', 'カテゴリー:') !!}
-                    
-                     {!! Form::radio('category', 'カフェテリア') !!}
-                    {!! Form::label('category', 'カフェテリア') !!} 
-                    
-                    {!! Form::radio('category', '休憩時間') !!}
-                    {!! Form::label('category', '休憩時間') !!}
-                  
-                  　{!! Form::radio('category', 'おしゃべり') !!}
-                    {!! Form::label('category', 'おしゃべり') !!}
-                    
-                    {!! Form::radio('category', '飲み会') !!}
-                    {!! Form::label('category', '飲み会') !!}
-                  　　
-                　　{!! Form::radio('category', 'スポーツ') !!}
-                    {!! Form::label('category', 'スポーツ') !!}
-                    
-                    {!! Form::radio('category', 'グルメ') !!}
-                    {!! Form::label('category', 'グルメ') !!}
-                    
-                    {!! Form::radio('category', 'アウトドア') !!}
-                    {!! Form::label('category', 'アウトドア') !!}
-                    
-                    {!! Form::radio('category', '映画鑑賞') !!}
-                    {!! Form::label('category', '映画鑑賞') !!}
+                  <div class="form-group">
+                   {!! Form::label('category', 'カテゴリー') !!} 
+            </div>       
+                   
+                   <div class="form-group">
+                   	
+                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::label('category', 'カフェテリア / ') !!}
+                   	
+                    {!! Form::radio('category', 'breaktime') !!}
+                    {!! Form::label('category', '休憩時間 / ') !!}
                     
                     
-                    {!! Form::radio('category', 'その他') !!}
-                    {!! Form::label('category', 'その他') !!}
+                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', 'おしゃべり / ') !!}
                     
                     
+                    {!! Form::radio('category', 'nomikai') !!}
+                    {!! Form::label('category', '飲み会 / ') !!}
+                    
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'スポーツ / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'food') !!}
+                    {!! Form::label('category', 'グルメ / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::label('category', 'アウトドア / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'movie') !!}
+                    {!! Form::label('category', '映画鑑賞 / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'その他 / ') !!}
+                    
+                    </div>
+            
+            <div class="form-group">
+                   {!! Form::label('category', '開催日時') !!} 
             </div>
             
-                         <div class="form-group">
-                 {!! Form::label ('year','年') !!}
+            <div class="form-group">
+                {!! Form::label ('year','年') !!}
                 {!! Form::selectRange('year', 2018, 2030) !!}
-            </div>
             
-            <div class="form-group">
-                 {!! Form::label ('month','月') !!}
-                 {!! Form::selectRange('month', 1, 12) !!}
-            </div>
+                {!! Form::label ('month','月') !!}
+                {!! Form::selectRange('month', 1, 12) !!}
             
-            
-            <div class="form-group">
-                 {!! Form::label ('date','日') !!}
-                 {!! Form::selectRange('date', 1, 31) !!} 
+                {!! Form::label ('date','日') !!}
+                {!! Form::selectRange('date', 1, 31) !!} 
             </div>
             
             <div class="form-group">

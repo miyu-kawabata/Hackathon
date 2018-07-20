@@ -75,12 +75,12 @@
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
-					<li><a id="modal-open" class="button-link">CREATE GROUP</a></li>
+					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
 		</aside>
-   
+   		</div>
    
 		<div id="fh5co-main">
 		    @if (count($errors) > 0)
@@ -164,7 +164,6 @@
             
             
         {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
-           {!! Form::model($group, ['route' => 'groups.store']) !!}
         
              
              <div class="form-group">
@@ -173,49 +172,59 @@
             </div>
             
             <div class="form-group">
-                
-                   {!! Form::label('category', 'カテゴリー：') !!} 
+                   {!! Form::label('category', 'カテゴリー') !!} 
             </div>       
                    
                    <div class="form-group">
-                  
-                  　{!! Form::label('category', 'カフェテリア:') !!}
-                  　{!! Form::radio('category', 'cafeteria') !!}
-                  　{!! Form::label('category', '休憩時間:') !!}
-                  　{!! Form::radio('category', 'breaktime') !!}
-                  　{!! Form::label('category', 'おしゃべり:') !!}
-                  　{!! Form::radio('category', 'kataru') !!}
-                  　{!! Form::label('category', '飲み会:') !!}
-                  　{!! Form::radio('category', 'nomikai') !!}
-                  　{!! Form::label('category', 'スポーツ:') !!}
-                  　{!! Form::radio('category', 'sports') !!}
-                  　{!! Form::label('category', 'グルメ:') !!}
+                   	
+                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::label('category', 'カフェテリア / ') !!}
+                   	
+                    {!! Form::radio('category', 'breaktime') !!}
+                    {!! Form::label('category', '休憩時間 / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', 'おしゃべり / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'nomikai') !!}
+                    {!! Form::label('category', '飲み会 / ') !!}
+                    
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'スポーツ / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'food') !!}
-                    {!! Form::label('category', 'アウトドア:') !!}
+                    {!! Form::label('category', 'グルメ / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'outdoor') !!}
-                    {!! Form::label('category', '映画鑑賞:') !!}
+                    {!! Form::label('category', 'アウトドア / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'movie') !!}
-                    {!! Form::label('category', 'その他:') !!}
+                    {!! Form::label('category', '映画鑑賞 / ') !!}
+                    
+                    
                     {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'その他 / ') !!}
                     
                     </div>
             
-            
+            <div class="form-group">
+                   {!! Form::label('category', '開催日時') !!} 
+            </div>
             
             <div class="form-group">
-                 {!! Form::label ('year','年') !!}
+                {!! Form::label ('year','年') !!}
                 {!! Form::selectRange('year', 2018, 2030) !!}
-            </div>
             
-            <div class="form-group">
-                 {!! Form::label ('month','月') !!}
-                 {!! Form::selectRange('month', 1, 12) !!}
-            </div>
+                {!! Form::label ('month','月') !!}
+                {!! Form::selectRange('month', 1, 12) !!}
             
-            
-            <div class="form-group">
-                 {!! Form::label ('date','日') !!}
-                 {!! Form::selectRange('date', 1, 31) !!} 
+                {!! Form::label ('date','日') !!}
+                {!! Form::selectRange('date', 1, 31) !!} 
             </div>
             
             <div class="form-group">
@@ -236,16 +245,12 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
-            @if (count($errors) > 0)
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-warning">{{ $error }}</div>
-    @endforeach
-@endif
+           
 
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 </div>
 </div>
-		
+
     <!-- jQuery -->
 	<script src="../../../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -265,11 +270,3 @@
 
 	</body>
 </html>
-
-    </body>
-
-</html>
-
-
-
-

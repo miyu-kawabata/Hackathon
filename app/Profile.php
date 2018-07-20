@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
      protected $fillable = [
-       'sex','hometown','hobbies' ,'comment'
+       'sex','hometown','hobbies' ,'comment','avatar_filename',
     ];
     
     public function user()

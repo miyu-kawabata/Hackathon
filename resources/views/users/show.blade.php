@@ -72,7 +72,7 @@
 				<ul>
 					<li class="fh5co-active"><a href="/"><div class='a'>MY PAGE</div></a></li>
 					<li><a href="/groups"><div class='a'>CATEGORY LIST</div></a></li>
-					<li><a href="/groups/create"><div class='a'>CREATE GROUP</div></a></li>
+					<li><a href="/groups/create"><div class='a'>CREATE A GROUP</div></a></li>
 					<li><a href="/logout"><div class='a'>LOG OUT</div></a></li>
 				</ul>
 			</nav>
