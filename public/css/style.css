@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 .fh5co-heading animate-box{
-  font-size: 40px;
+  font-size: 30px;
   margin-left: 0px;
   margin-right:0px;
   padding-right: 0px;
@@ -288,7 +288,23 @@ figure figcaption {
 
 #fh5co-main .fh5co-narrow-content {
   position: relative;
-  width: 100%;
+  width: 78%;
+  margin: 5%;
+  padding: 0px;
+  padding: 0;
+  padding: 0;
+  clear: both;
+}
+@media screen and (max-width: 1000px) {
+  #fh5co-main .fh5co-narrow-content {
+    width: 100%;
+    padding: 0px;
+  }
+}
+
+#fh5co-main .fh5co-narrow-content2 {
+  position: relative;
+  width: 90%;
   margin: 5%;
   padding: 0px;
   padding: 0;
@@ -747,7 +763,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 
 .fh5co-heading-colored {
   color: #228896;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .fh5co-cards {
@@ -968,7 +984,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   font-weight: 800 !important;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background:linear-gradient(transparent 30%, #ffff66 90%);
+  
   
 }
 .fh5co-heading.fh5co-light {
@@ -2144,10 +2160,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   padding: 0;
 }
 .fh5co-feature .fh5co-text h3 {
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 20px;
   color: rgba(0, 0, 0, 0.8);
-  font-size: 30px !important;
+  font-size: 20px !important;
   letter-spacing: .2em;
   text-transform: uppercase;
 }
@@ -2170,6 +2186,15 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.fh5co-heading2 {
+  font-size: 26px;
+  margin-bottom: 2em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background:linear-gradient(transparent 60%, #ffff66 60%);
 }
 .fh5co-heading.fh5co-light {
   color: #fff;

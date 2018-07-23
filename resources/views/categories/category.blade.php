@@ -122,7 +122,7 @@
 		    
 			    
 			    
-		    	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="cafeteria">カフェテリアでごはん</a></h2>
+		    <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="cafeteria">カフェテリアでごはん</a></h2>
 		
 			<div class="gtco-section">
 				<div class="gtco-container">

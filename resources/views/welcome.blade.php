@@ -108,15 +108,15 @@
 			</aside>
 			
 		
-			<div class="fh5co-narrow-content">
+			<div class="fh5co-narrow-content2">
 				<div class="row row-bottom-padded-md">
 					<div id="learnmore">
-					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-						<img class="img-responsive" src="images/back.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					</div>
-					<div class="col-xs-6 animate-box" data-animate-effect="fadeInLeft">
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+							<img class="img-responsive" src="images/back.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+						</div>
+						<div class="col-xs-6 animate-box" data-animate-effect="fadeInLeft">
 						
-						<h2 class="fh5co-heading">こんなこと、感じたことありませんか？</h2>
+						<h2 class="fh5co-heading2">こんなこと、感じたことありませんか？</h2>
 						<ul>	
 						<li>月曜の夜が暇だな…</li>
 						<li>朝と夜にぼっち飯したくない時もある！</li>
@@ -127,8 +127,8 @@
 						<p><strong>これらの悩み、楽友を作って解決しよう！！！</strong></p>
 						</div>
 					</div>
-					</div>
 				</div>
+				
 
 						
 					 <div id="about">
@@ -164,9 +164,9 @@
 									</div>
 								</div>
 							</div>
-							<p><a class="btn btn-primary btn-demo popup-vimeo" href="/signup"> <i class="icon-user"></i>Sign up!</a>
+							<p><a class="btn btn-danger btn-lg btn-block btn-demo popup-vimeo" href="/signup"> <i class="icon-user"></i>Sign up!</a></p>
 					</div>
-				</div>
+			</div>
 		</div>
 		
 		
