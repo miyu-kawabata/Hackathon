@@ -75,6 +75,7 @@
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
+					<li><a href="/about">About</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -101,6 +102,8 @@
                 <div class="panel-body">
                 @if(isset($profile->avatar_filename))
                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                @else
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/icon_default.jpg') }}" alt="写真を挿入">
                 @endif
                     <p class='d'>About me...</p>
                  
@@ -136,7 +139,7 @@
                 <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}">参加中 <span class="badge">{{ $count_groups }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">お気に入り <span class="badge">{{ $count_favorites }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}"class="followers">Followers <span class="badge1">{{ $count_followers }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge1">{{ $count_followers }}</span></a></li>
                 
             </ul>
             
@@ -146,13 +149,19 @@
                 <li class="media">
                     <div class="media-left">
                         <div class="media-body">
-            <div class ="joymiyu col-xs-4">
-            <img class=d"joymiyu" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
-            </div>
-            <div class='e'>{!! link_to_route('tanins.show',$user->nickname, ['id' => $user->id]) !!}</div>
-            {{ $user->profile->comment }}
-
-                    </div>
+                            <div class ="joymiyu col-xs-4">
+                                @if(isset($user->profile->avatar_filename))
+                                    <img class="joymiyu" src="{{ asset('storage/images/' . $user->profile->avatar_filename) }}" alt="写真を挿入">
+                                @else()
+                                    <img class="joymiyu" src={{ asset('images/icon_default.jpg') }} alt="写真を挿入">
+                                @endif
+                            </div>
+                            <div class='e'>{!! link_to_route('tanins.show',$user->nickname, ['id' => $user->id]) !!}</div>
+                            @if(isset($user->profile->comment))
+                            {{ $user->profile->comment }}
+                            @endif
+                        
+                        </div>
                     </div>
                 </li>
             @endforeach

@@ -73,6 +73,7 @@
 					<li class="fh5co-active"><a href="/"><div class='a'>MY PAGE</div></a></li>
 					<li><a href="/groups"><div class='a'>CATEGORY LIST</div></a></li>
 					<li><a href="/groups/create"><div class='a'>CREATE A GROUP</div></a></li>
+					<li><a href="/about">About</a></li>
 					<li><a href="/logout"><div class='a'>LOG OUT</div></a></li>
 				</ul>
 			</nav>
@@ -95,6 +96,7 @@
  　　　	　　             
                 		<div class="panel-body">
                    		<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                   		
                 		</div>
                  
                  		@include('user_follow.follow_button', ['user' => $user])

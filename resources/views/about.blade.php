@@ -38,39 +38,37 @@
 	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="shortcut icon" href="favicon.ico">
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="{{asset('/css/animate.css')}}">
+	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="{{asset('/css/icomoon.css')}}">
+	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{{asset('/css/bootstrap.css')}}">
+	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
+	<link rel="stylesheet" href="css/flexslider.css">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="{{asset('/css/style.css')}}">
-	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
+	<link rel="stylesheet" href="css/style.css">
 	<!-- Modal  -->
 	<link href="{{asset('/css/modal.css')}}" rel="stylesheet">
 
 	<!-- Modernizr JS -->
-	<script src="{{asset('/js/modernizr-2.6.2.min.js')}}"></script>
+	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
 	</head>
-	
 	<body>
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<div id="fh5co-logo"><a href="/">Hackathon</a></div>
+			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
@@ -80,92 +78,81 @@
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
+
+			
+
 		</aside>
-   </div>
-   
-		<div id="fh5co-main">
-		    @if (count($errors) > 0)
-		<h2>グループの作成に失敗しました( *´艸｀)</h2>
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-warning">{{ $error }}</div>
-    @endforeach
-@endif
+		
+        <div id="fh5co-main">
+			<div class="fh5co-narrow-content">
+				<div class="row row-bottom-padded-md">
+					<div id="learnmore">
+					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+						<img class="img-responsive" src="images/back.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+					</div>
+					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+						<h2 class="fh5co-heading">こんなこと、感じたことありませんか？</h2>
+						<ul>	
+						<li>月曜の夜が暇…</li>
+						<li>社内で一緒にご飯を食べたい！</li>
+						<li>好きなドラマについて話したい！</li>
+						<li>もっといろんな同期と飲みたい！</li>
+						</ul>
+						
+						<p><strong>これらの悩み、ハッカソンで解決できます！！！</strong></p>
+					</div>
+					</div>
+				</div>
 
+						
+					 <div id="about">
+					 	<h1 class="fh5co-heading-colored"><strong>ABOUT THIS SERVICE</strong></h1>
+								<div class="row">
+									<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+						               <h2><strong>よっ友から、楽友へ。</strong></h2>
 
-   <div class='form-info'>
-         <aside class="col-xs-4">
-            <div class="panel panel-default"> 
-                <div class="panel-heading">
-                  <div class="panel-title">{{ $user->nickname }}</div>
-                </div>
-        
-         
-          
-                <div class="panel-body">
-                @if(isset($profile->avatar_filename))
-                    <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
-                @else
-                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/icon_default.jpg') }}" alt="写真を挿入">
-                @endif
-                    <p class='d'>About me...</p>
-                 
-               @if (isset($profile->sex))
-               <p class="e">性別：{{ $profile->sex }}</p>
-                @endif
-                
-                @if (isset($profile->hometown))
-                 <p class="e">出身：{{ $profile->hometown }}</p>
-                @endif
-                
-                @if (isset($profile->hobbies))
-                 <p class="e">趣味：{{ $profile->hobbies }}</p>
-                @endif
-                
-                @if (isset($profile->comment))
-                 <p class="e">何か一言：{{ $profile->comment }}</p>
-                @endif
-                
-                
-                @include('user_follow.follow_button', ['user' => $user])
-                
-                
-                @if(is_null($profile))
-                <p>①同期に向けて自己紹介を入力しよう！EDITをクリック！</p>
-                @endif
-                
-                
-                <div class="edit">
-                    @if(Auth::user()->id == $user->id)
-                    <p style="float:right"><a href="/users/{{$user->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
-                    @endif
-              
-                </div>
-            
-             </div>
-            </div>
-        </aside>
-        <div class="col-xs-8">
-            <ul class="nav nav-tabs nav-justified" style="font-size:20px">
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}" class="join">参加中 <span class="badge1">{{ $count_groups }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">お気に入り <span class="badge">{{ $count_favorites }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
-                
-            </ul>
-            
-             @include('groups.groups_joins', ['groups' => $groups])
-            
-            
-        </div>
-    </div>    
-		<div class="col-xs-8">
-          	<div id="modal-content">
-            
-            
-        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
-        
+										<p><strong>このサービスで、イベント開催・グループチャットができます！</strong></p>
+									</div>
+								</div>
+
+					
+					
+							<div class="row">
+								<div class="col-md-6">
+									<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+										<div class="fh5co-icon">
+											<i class="icon-search4"></i>
+										</div>
+										<div class="fh5co-text">
+											<h3>同期を見つけよう！</h3>
+											<p><strong>グループやイベントを見つけて好きなことを一緒にやろう！</strong> </p>
+										</div>
+										<a class="btn btn-primary btn-demo popup-vimeo" href="/groups"> <i class="icon-search4"></i>グループ・イベントを<strong>見つける</strong></a>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+										<div class="fh5co-icon">
+											<i class="icon-plus"></i>
+										</div>
+										<div class="fh5co-text">
+											<h3>グループを作ろう！</h3>
+											<p><strong>カテゴリを選んでグループを作り、いろんな同期と交流しよう！</strong></p>
+										</div>
+										<a class="btn btn-primary btn-demo popup-vimeo" id="modal-open" href="groups/create"> <i class="icon-plus"></i>グループ・イベントを<strong>つくる</strong></a>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+		</div>
+		
+	<div id="modal-content">
+           {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+           
              
-             <div class="form-group">
+             
+            <div class="form-group">
                  {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
@@ -238,34 +225,37 @@
             
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
-            {!! Form::file('file',null,['class' => 'form-control']) !!}
+            {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
             </div>
             
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+            
 
+      
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
-</div>
-</div>
-</div>
-<>
+	</div>
+	
 		
-    <!-- jQuery -->
-	<script src="{{asset('/js/jquery.min.js')}}"></script>
+	</div>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="{{asset('/js/jquery.easing.1.3.js')}}"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="{{asset('/js/bootstrap.min.js')}}"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="{{asset('/js/jquery.waypoints.min.js')}}"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
-	<script src="{{asset('/js/jquery.flexslider-min.js')}}"></script>
+	<script src="js/jquery.flexslider-min.js"></script>
 	<!-- Modal -->
 	<script src="{{asset('/js/modal.js')}}"></script>
 	
 	
 	<!-- MAIN JS -->
-	<script src="{{asset('js/main.js')}}"></script>
+	<script src="js/main.js"></script>
+
 	</body>
 </html>

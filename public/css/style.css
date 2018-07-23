@@ -300,6 +300,22 @@ figure figcaption {
   }
 }
 
+#fh5co-main .fh5co-narrow-content #about{
+  position: relative;
+  width: 100%;
+  margin: 2%;
+  padding: 0px;
+  padding: 0;
+  padding: 0;
+  clear: both;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-main .fh5co-narrow-content {
+    width: 78%;
+    padding: 0px;
+  }
+}
+
 #fh5co-hero {
   min-height: 500px;
   background: #fff url(../images/loader.gif) no-repeat center center;
@@ -309,6 +325,7 @@ figure figcaption {
 }
 #fh5co-main .fh5co-narrow-content #about .btn{
   display:block;
+  
 }
 #fh5co-hero .btn {
   font-size: 24px;

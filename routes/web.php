@@ -45,5 +45,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 
    Route::resource('tanins', 'TaninsController');
+   Route::get('about', 'UsersController@about')->name('about');
    
 });

@@ -78,9 +78,10 @@
 			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li><a href="/">MY PAGE</a></li>
-					<li class="fh5co-active"><a href="/groups">CATEGORY LIST</a></li>
+					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
+					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
+					<li><a href="/about">About</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -129,10 +130,6 @@
 
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
-						
-							
-							
-						  
 							@foreach($cafeterias as $cafeteria)
 							<div class="item">
 								<div class="blog-entry">
@@ -159,13 +156,12 @@
 		
 			
 			
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
-						  
 							@foreach($breaktimes as $breaktime)
 							<div class="item">
 								<div class="blog-entry">
@@ -196,10 +192,8 @@
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
-						  
 							@foreach($katarus as $kataru)
 							<div class="item">
 								<div class="blog-entry">
@@ -216,7 +210,6 @@
 								</div>
 							</div>
 							@endforeach
-                            
 						</div>
 					</div>
 					</div>
@@ -228,10 +221,8 @@
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
-						  
 							@foreach($nomikais as $nomikai)
 							<div class="item">
 								<div class="blog-entry">
@@ -248,7 +239,6 @@
 								</div>
 							</div>
 							@endforeach
-                            
 						</div>
 					</div>
 					</div>
@@ -256,11 +246,10 @@
 			</div>
 			
 			
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='sport'>スポーツ</a></h2>
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='sport'>スポーツ</a></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($sports as $sport)
@@ -279,7 +268,6 @@
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>
@@ -293,7 +281,6 @@
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($foods as $food)
@@ -312,7 +299,6 @@
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>
@@ -325,7 +311,6 @@
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($outdoors as $outdoor)
@@ -344,7 +329,6 @@
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>
@@ -355,7 +339,6 @@
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($movies as $movie)
@@ -374,7 +357,6 @@
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>
@@ -386,7 +368,6 @@
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($others as $other)
@@ -405,7 +386,6 @@
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>
