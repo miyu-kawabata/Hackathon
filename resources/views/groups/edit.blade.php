@@ -91,7 +91,7 @@
 @endif
 
     
-        
+  <div class='form-info'>        
     <div class="col-xs-8">
             {!! Form::model($group, ['route' => ['groups.update', $group->id], 'method' => 'put', 'files' => true]) !!}
              <div class="form-group">
@@ -170,15 +170,18 @@
             {!! Form::file('file',null,['class' => 'form-control']) !!}
             </div>
             
-            
-            {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
+            <div style="float:left">
+            {!! Form::submit ('この内容でグループを編集する',['class' =>'btn btn-primary btn-xs']) !!}
             {!! Form::close() !!}
-            
+            </div>
+            <div style="float:left">
             {!! Form::open(['route' => ['groups.destroy', $group->id], 'method' => 'delete']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+            {!! Form::submit('このグループを削除する', ['class' => 'btn btn-danger btn-xs']) !!}
+            </div>
             {!! Form::close() !!}
 
         </div>
+  </div>
     <div class="col-xs-8">
           	<div id="modal-content">
             
@@ -262,10 +265,9 @@
             {!! Form::file('file',null,['class' => 'form-control']) !!}
             </div>
             
-                {!! Form::submit ('この内容でグループを編集する',['class' =>'btn btn-primary']) !!}
-                {!! Form::open(['route' => ['groups.destroy', $group->id], 'method' => 'delete']) !!}
-                    {!! Form::submit('このグループを削除する', ['class' => 'btn btn-danger btn-xs']) !!}
+                {!! Form::submit ('グループを作成する',['class' =>'btn btn-primary']) !!}
                 {!! Form::close() !!}
+                {!! Form::open(['route' => ['groups.destroy', $group->id], 'method' => 'delete']) !!}
 
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 </div>

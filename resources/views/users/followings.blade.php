@@ -150,7 +150,7 @@
                         <div class="media-left">
                             <div class="media-body">
                                 <div class ="joymiyu col-xs-4">    
-                                    <img class="joymiyu" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                                    <img class="joymiyu" src="{{ asset('storage/images/' . $user->profile->avatar_filename) }}" alt="写真を挿入">
                                 </div>
                              <div class='e'>{!! link_to_route('tanins.show',$user->nickname, ['id' => $user->id]) !!}</div>
                             {{ $user->profile->comment }}

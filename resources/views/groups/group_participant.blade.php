@@ -222,18 +222,20 @@
                 <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}"class="participants">参加者<span class="badge1">{{ $participants_count }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>
              </ul>
-                 <ul> 
+                 
+                <div class="col-xs-5">
+                 
                      @foreach ($participants as $participant) 
                      <div style="clear:both">
                      <div class="media-body">
-                     <div class ="joymiyu col-xs-3">
+                     <div class ="joymiyu2 col-xs-1">
                         @if(isset($participant->profile->avatar_filename))
-                            <img class="joymiyu" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
+                            <img class="joymiyu2" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
                         @else
                             No Image.
                         @endif
                 	</div>
-               	 	<div class ="col-xs-offset-1 col-xs-8">
+               	 	<div class ="col-xs-offset-1 col-xs-4">
                       <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p>
                       @if(isset($participant->profile->comment))
                       <p>{{ $participant->profile->comment }}</p>
@@ -243,9 +245,48 @@
                      </div>
                      </div>
                      @endforeach 
-                 </ul>
-             </ul>                  
                  
+             </ul> 
+             </div>
+             
+             <div class="col-xs-7">
+            	<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
+					
+					{!! Form::open(['route' => ['chats.store', $group->id],'method' => 'post'])!!}
+					<div class="row">
+								<div class="col-offset-sm-2col-sm-8">
+									<div class="form-group1">
+										{!! Form::textarea('chat', old('chat'), ['class' => 'form-control', 'rows' => '2', 'placeholder'=>"Say something"]) !!} 
+									</div>
+									<div class="form-group2">
+										{!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!} 
+									</div>
+								</div>
+					</div>
+				 {!! Form::close() !!}
+			</div>
+           
+             
+             @foreach ($chats as $chat) 
+             <div style="clear:both">
+             <div class="media-body"> 
+             	<div class ="joymiyu col-xs-2">
+                	<img class="joymiyu" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
+                </div>
+                <div class ="col-xs-8">
+                	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 
+               		 	<p class="chat2">{!! nl2br(e($chat->chat)) !!}</p>
+                  	@if (Auth::user()->id == $chat->user_id)
+                    	{!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
+                        	{!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}
+                    	{!! Form::close() !!}
+                	@endif
+               	</div> 
+              
+             @endforeach 
+         	</div>
+         	</div>
+            </div>     
               
             
  
