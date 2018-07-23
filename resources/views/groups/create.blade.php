@@ -78,7 +78,7 @@
             
             <div class="form-group">
                  {!! Form::label ('place','開催場所') !!}
-                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
+                 {!! Form::text ('place',['placeholder'=>'ここに本文を入力して下さい'],['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">

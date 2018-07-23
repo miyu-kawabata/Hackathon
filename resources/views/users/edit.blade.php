@@ -161,7 +161,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('comment', '何か一言:') !!}
-                    {!! Form::text('comment', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('comment',null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
                 {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
@@ -251,7 +251,7 @@
 
             <div class="form-group">
                     {!! Form::label('comment', '何か一言:') !!}
-                    {!! Form::text('comment', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('comment',null, ['class' => 'form-control']) !!}
                 </div>
                 
                 

@@ -81,11 +81,11 @@ class GroupsController extends Controller
        $this->validate($request,[
           
           'groupname' => 'required|max:20',
-          'description'=> 'required|max:191',
+          'description'=> 'max:191',
           'year'=> 'required|max:50',
           'month'=> 'required|max:50',
           'date'=> 'required|max:50',
-          'place'=> 'required|max:50',
+          'place'=> 'max:50',
           'file' => 'required',
            ]);
            
