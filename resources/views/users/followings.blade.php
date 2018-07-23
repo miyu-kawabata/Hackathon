@@ -91,7 +91,7 @@
 @endif
 
 
-  
+  <div class="mypage-title">My page</div>
   <div class='form-info'>
         <aside class="col-xs-4">
             <div class="panel panel-default"> 
@@ -149,11 +149,17 @@
                     <li class="media">
                         <div class="media-left">
                             <div class="media-body">
-                                <div class ="joymiyu col-xs-4">    
+                                <div class ="joymiyu col-xs-4">  
+                                @if(isset($user->profile->avatar_filename))
                                     <img class="joymiyu" src="{{ asset('storage/images/' . $user->profile->avatar_filename) }}" alt="写真を挿入">
+                                @else
+                                 No image.
+                                @endif
                                 </div>
                              <div class='e'>{!! link_to_route('tanins.show',$user->nickname, ['id' => $user->id]) !!}</div>
+                             @if(isset($user->profile->comment))
                             {{ $user->profile->comment }}
+                            @endif
                             </div>
                         </div>
                     </li>

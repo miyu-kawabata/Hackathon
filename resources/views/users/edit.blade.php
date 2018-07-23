@@ -173,6 +173,9 @@
                  {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
         
                  {!! Form::close() !!}
+                 {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                        {!! Form::submit('アカウント削除', ['class' => 'btn btn-danger btn-xs']) !!}
+                　{!! Form::close() !!}
             
             
             
@@ -269,9 +272,13 @@
                 {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
         
             {!! Form::close() !!}
+            
+            {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                        {!! Form::submit('アカウント削除', ['class' => 'btn btn-danger btn-xs']) !!}
+            {!! Form::close() !!}
   @endif          
         </div>
-        		<div class="col-xs-8">
+        <div class="col-xs-8">
           	<div id="modal-content">
             
             
@@ -360,7 +367,7 @@
 
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 	</div>
-	</div>
+	    </div>
         <!-- jQuery -->
 	<script src="../../../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

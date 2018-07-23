@@ -262,11 +262,11 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-         $profile = \App\Profile::find($id);
-        if (\Auth::user()->id === $profile->user_id) {
-            $profile->delete();
+         $user = \App\User::find($id);
+        if (\Auth::user()->id === $user->id) {
+            $user->delete();
         }
-        return redirect()->back();
+         return redirect('/');
     }
     
       

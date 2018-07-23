@@ -90,8 +90,8 @@
     @endforeach
 @endif
 
-
-   <div class='form-info'>
+    <div class="mypage-title">My page</div>
+    <div class='form-info'>
          <aside class="col-xs-4">
             <div class="panel panel-default"> 
                 <div class="panel-heading">

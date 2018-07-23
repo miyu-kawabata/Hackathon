@@ -154,7 +154,7 @@ figure figcaption {
   }
 }
 #fh5co-aside #fh5co-main-menu ul li {
-  margin: 0 0 20px 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -163,9 +163,9 @@ figure figcaption {
   text-decoration: none;
   letter-spacing: .1em;
   text-transform: uppercase;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 600;
-  line-height:150px;
+  line-height:100px;
   position: relative;
   padding: 10px 10px;
   letter-spacing: .2em;
@@ -959,8 +959,8 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .btnn {
   margin-right: 0px;
-  margin-bottom: 4px;
-  margin-top:30px;
+  margin-bottom: 30px;
+  margin-top:10px;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -2482,8 +2482,8 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   border-radius: 10px;
 }
 .joymiyu2 img{
-  height:50px;
-  width:75px;
+  height:75px;
+  width:100px;
   margin-bottom: 10px;
   border-radius: 10px;
 }
@@ -2878,6 +2878,7 @@ width:500px; height:800px;
 .chat2{
   word-wrap: break-word;
   width: inherit;
+  margin:0;
 }
 .panel-heading .panel-title {
   text-align: left;
@@ -2916,7 +2917,7 @@ width:500px; height:800px;
 
 
 .form-info{
-  margin-top:50px;
+  margin-top:0px;
   
 }
 /*# sourceMappingURL=style.css.map */
@@ -2977,4 +2978,11 @@ tomo li ul li a:hover{
 }
 .sample01 tomo li:hover ul{
 	display: block;
+}
+.mypage-title{
+  font-size:40px;
+  color:black;
+  margin-left:20px;
+  margin-top:20px;
+  font-family: 'Century Gothic';
 }

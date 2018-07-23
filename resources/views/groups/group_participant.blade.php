@@ -85,6 +85,8 @@
         <div class="alert alert-warning">{{ $error }}</div>
     @endforeach
 @endif
+			<div class="mypage-title">Group Page</div>
+			
 			<aside class="col-xs-5"> 
              <div class="panel panel-default"> 
                 <div class="panel-heading"> 
@@ -218,27 +220,29 @@
 @endif
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
 </div>
-              <ul class="nav nav-tabs nav-justified"style="font-size:20px"> 
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.show', ['id' => $group->id]) }}"class="participants">参加者<span class="badge1">{{ $participants_count }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}"><a href="{{ route('groups.chat', ['id' => $group->id]) }}">CHAT</a></li>
-             </ul>
+            <div class="participants">
+                <ul class="nav nav-tabs nav-justified"style="font-size:26px"> 
+                    <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}">参加者<span class="badge1">{{ $participants_count }}</span></a></li>
+                    <li role="presentation" class="{{ Request::is('groups/*/chat') ? 'active' : '' }}">CHAT</a></li>
+                </ul>
+            </div>
                  
-                <div class="col-xs-5">
+                <div class="col-xs-5" style="padding:0">
                  
                      @foreach ($participants as $participant) 
                      <div style="clear:both">
-                     <div class="media-body">
-                     <div class ="joymiyu2 col-xs-1">
+                     <div class="media-body" style="padding:0">
+                     <div class ="joymiyu2 col-xs-1" style="padding:0">
                         @if(isset($participant->profile->avatar_filename))
-                            <img class="joymiyu2" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
+                            <img class="joymiyu2" style="padding:0" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
                         @else
                             No Image.
                         @endif
                 	</div>
-               	 	<div class ="col-xs-offset-1 col-xs-4">
-                      <p>{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p>
+               	 	<div class ="col-xs-offset-3 col-xs-4" style="margin:0 padding:0">
+                      <p style="margin:0">{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p>
                       @if(isset($participant->profile->comment))
-                      <p>{{ $participant->profile->comment }}</p>
+                      {{ $participant->profile->comment }}
                       @endif
                       @include('user_follow.follow_button', ['user' => $user])
                      </div>
@@ -254,7 +258,7 @@
 					
 					{!! Form::open(['route' => ['chats.store', $group->id],'method' => 'post'])!!}
 					<div class="row">
-								<div class="col-offset-sm-2col-sm-8">
+								<div class="col-xs-12">
 									<div class="form-group1">
 										{!! Form::textarea('chat', old('chat'), ['class' => 'form-control', 'rows' => '2', 'placeholder'=>"Say something"]) !!} 
 									</div>
@@ -269,16 +273,16 @@
              
              @foreach ($chats as $chat) 
              <div style="clear:both">
-             <div class="media-body"> 
-             	<div class ="joymiyu col-xs-2">
-                	<img class="joymiyu" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
+             <div class="media-body" style="padding:0"> 
+             	<div class ="joymiyu2 col-xs-2" style="padding:0">
+                	<img class="joymiyu2" style="padding:0" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
                 </div>
-                <div class ="col-xs-8">
+                <div class ="col-xs-offset-2 col-xs-8">
                 	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 
                		 	<p class="chat2">{!! nl2br(e($chat->chat)) !!}</p>
                   	@if (Auth::user()->id == $chat->user_id)
                     	{!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
-                        	{!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}
+                        {!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}
                     	{!! Form::close() !!}
                 	@endif
                	</div> 

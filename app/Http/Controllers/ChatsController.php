@@ -22,7 +22,7 @@ class ChatsController extends Controller
          $chat->group_id = $group->id;
          $chat->save();
             
-        return redirect()->route('groups.chat',[$id]);
+        return redirect()->route('groups.show',[$id]);
     
     }
       public function destroy($id)
