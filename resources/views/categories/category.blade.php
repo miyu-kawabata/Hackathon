@@ -96,7 +96,7 @@
 @endif
    		<div class="fh5co-narrow-content">
 			    <div class="prev">
-		<h1>CATEGORY LIST</h1>
+		<h1 class="fh5co-heading-colored"><strong>CATEGORY LIST</strong></h1>
 	
 		   
 			<SELECT NAME="select1" onChange="if(document.form1.select1.value){location.href=document.form1.select1.value;}">
