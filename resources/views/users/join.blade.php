@@ -43,21 +43,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="{{asset('/css/animate.css')}}">
+	<link rel="stylesheet" href="../../../css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="{{asset('/css/icomoon.css')}}">
+	<link rel="stylesheet" href="../../../css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{{asset('/css/bootstrap.css')}}">
+	<link rel="stylesheet" href="../../../css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
+	<link rel="stylesheet" href="../../../css/flexslider.css">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="{{asset('/css/style.css')}}">
-	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
-	<!-- Modal  -->
-	<link href="{{asset('/css/modal.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="../../../css/style.css">
+<!-- Modal  -->
+	<link href="../../../css/modal.css" rel="stylesheet">
 
 	<!-- Modernizr JS -->
-	<script src="{{asset('/js/modernizr-2.6.2.min.js')}}"></script>
+	<script src="../../../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
