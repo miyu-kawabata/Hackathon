@@ -78,9 +78,10 @@
 			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li><a href="/">MY PAGE</a></li>
-					<li class="fh5co-active"><a href="/groups">CATEGORY LIST</a></li>
+					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
+					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
+					<li><a href="/about">About</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -93,31 +94,35 @@
         <div class="alert alert-warning">{{ $error }}</div>
     @endforeach
 @endif
-  <div class="fh5co-narrow-content">
-　　 <div class="prev">
-		
-		<header class="sample01">
-              <tomo>
-                    <li><a href="#">CATEGORY LIST <span>▼</span></a>
-                          <ul>
-                                <li><a href="#cafeteria">カフェテリアでご飯</a></li>
-                                <li><a href="#breaktime">休憩時間</a></li>
-                                <li><a href="#kataru">好きなモノについて語る会</a></li>
-                                <li><a href="#nomikai">飲み会</a></li>
-                                <li><a href="#sports">スポーツ</a></li>
-                                <li><a href="#food">グルメ</a></li>
-                                <li><a href="#outdoor">アウトドア</a></li>
-                                <li><a href="#movie">映画鑑賞</a></li>
-                                <li><a href="#other">その他</a></li>
-                          </ul>
-                    </li>
-             </tomo>
-      </header>
-	　	
-　　 
-　　 </div>
+   		<div class="fh5co-narrow-content">
+			    <div class="prev">
+		<h1 class="fh5co-heading-colored"><strong>CATEGORY LIST</strong></h1>
+	
 		   
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="cafeteria">カフェテリアでごはん</a></h2>
+			<SELECT NAME="select1" onChange="if(document.form1.select1.value){location.href=document.form1.select1.value;}">
+                 <option id='title'> Category</option>
+                 <option value='#cafeteria'>カフェテリアでごはん</option>
+		         <option value='#breaktime'>休憩時間</option>
+		         <option value='#kataru'>好きなモノについて語る会</option>
+		         <option value='#nomikai'>飲み会</option>
+		         <option value='#sports'>スポーツ</option>
+		         <option value='#food'>グルメ</option>
+		         <option value='#outdoor'>アウトドア</option>
+		         <option value='#movie'>映画鑑賞</option>
+		         <option value='#other'>その他</option>
+		
+            </SELECT>
+          
+		 	
+		    </div>
+		    
+		  
+		    
+		    
+		    
+			    
+			    
+		    <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="cafeteria">カフェテリアでごはん</a></h2>
 		
 			<div class="gtco-section">
 				<div class="gtco-container">
@@ -125,10 +130,6 @@
 
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
-						
-							
-							
-						  
 							@foreach($cafeterias as $cafeteria)
 							<div class="item">
 								<div class="blog-entry">
@@ -139,8 +140,8 @@
 											<span>{{ $cafeteria->year }}/{{ $cafeteria->month }}/{{ $cafeteria->date }}</span>
 											<span>場所:{{ $cafeteria->place }}</span>
 											<span>{{ $cafeteria->description }}</span>
-										</div>	
-										@include('groups.group_favorite_button', ['groups' => $cafeteria]) 
+										</div>
+										<a href="/groups/{{$cafeteria->id}}" class="btnn btn-primary btn-md" >View</a>
 									</div>
 								</div>
 							</div>
@@ -155,13 +156,16 @@
 		
 			
 			
+<<<<<<< HEAD
 				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
+=======
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
+>>>>>>> 89366d695a091c41a27b6ef180bf205076b32905
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
-						  
 							@foreach($breaktimes as $breaktime)
 							<div class="item">
 								<div class="blog-entry">
@@ -173,7 +177,7 @@
 											<span>場所:{{ $breaktime->place }}</span>
 											<span>{{ $breaktime->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $breaktime]) 
+										<a href="/groups/{{$breaktime->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
@@ -192,10 +196,8 @@
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
-						  
 							@foreach($katarus as $kataru)
 							<div class="item">
 								<div class="blog-entry">
@@ -207,12 +209,11 @@
 											<span>場所:{{ $kataru->place }}</span>
 											<span>{{ $kataru->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $kataru]) 
+										<a href="/groups/{{$kataru->id}}" class="btnn btn-primary btn-md" >View</a>
 									</div>
 								</div>
 							</div>
 							@endforeach
-                            
 						</div>
 					</div>
 					</div>
@@ -224,10 +225,8 @@
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
-						  
 							@foreach($nomikais as $nomikai)
 							<div class="item">
 								<div class="blog-entry">
@@ -239,12 +238,11 @@
 											<span>場所:{{ $nomikai->place }}</span>
 											<span>{{ $nomikai->description }}</span>
 										</div>
-									@include('groups.group_favorite_button', ['groups' => $nomikai]) 
+									<a href="/groups/{{$nomikai->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
 							@endforeach
-                            
 						</div>
 					</div>
 					</div>
@@ -252,11 +250,10 @@
 			</div>
 			
 			
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='sport'>スポーツ</a></h2>
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='sport'>スポーツ</a></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($sports as $sport)
@@ -270,12 +267,11 @@
 											<span>場所:{{ $sport->place }}</span>
 											<span>{{ $sport->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $sport]) 
+										<a href="/groups/{{$sport->id}}" class="btnn btn-primary btn-md" >View</a>
 									</div>
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>
@@ -289,7 +285,6 @@
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($foods as $food)
@@ -303,12 +298,11 @@
 											<span>場所:{{ $food->place }}</span>
 											<span>{{ $food->description }}</span>
 										</div>
-									@include('groups.group_favorite_button', ['groups' => $food]) 
+									<a href="/groups/{{$food->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>
@@ -321,7 +315,6 @@
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($outdoors as $outdoor)
@@ -335,12 +328,11 @@
 											<span>場所:{{ $outdoor->place }}</span>
 											<span>{{ $outdoor->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $outdoor]) 
+										<a href="/groups/{{$outdoor->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>
@@ -351,7 +343,6 @@
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($movies as $movie)
@@ -365,12 +356,11 @@
 											<span>場所:{{ $movie->place }}</span>
 											<span>{{ $movie->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $movie]) 
+										<a href="/groups/{{$movie->id}}" class="btnn btn-primary btn-md" >View</a> 
 									</div>
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>
@@ -382,7 +372,6 @@
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							@foreach($others as $other)
@@ -396,12 +385,11 @@
 											<span>場所:{{ $other->place }}</span>
 											<span>{{ $other->description }}</span>
 										</div>
-										@include('groups.group_favorite_button', ['groups' => $other]) 
+										<a href="/groups/{{$other->id}}" class="btnn btn-primary btn-md" >View</a>
 									</div>
 								</div>
 							</div>
 							@endforeach
-
 						</div>
 					</div>
 				</div>

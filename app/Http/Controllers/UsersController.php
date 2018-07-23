@@ -338,6 +338,18 @@ class UsersController extends Controller
          return view('users.join', $data); 
      } 
      
-     
+     public function about() 
+     {
+            $user = \Auth::user();
+            $group = new Group;
+            $data = [ 
+             'user' => $user, 
+             'group' => $group,
+              
+            ]; 
+  
+             $data += $this->counts($user); 
+         return view('about',$data);
+     }
 
 }

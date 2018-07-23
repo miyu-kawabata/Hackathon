@@ -70,9 +70,10 @@
 			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li><a href="/">MY PAGE</a></li>
+					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
+					<li><a href="/about">About</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -234,9 +235,9 @@
                      <div class="media-body" style="padding:0">
                      <div class ="joymiyu2 col-xs-1" style="padding:0">
                         @if(isset($participant->profile->avatar_filename))
-                            <img class="joymiyu2" style="padding:0" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
-                        @else
-                            No Image.
+                            <img class="joymiyu" src="{{ asset('storage/images/' . $participant->profile->avatar_filename) }}" alt="写真を挿入">
+                        @else()
+                            <img class="joymiyu" src={{ asset('images/icon_default.jpg') }} alt="写真を挿入">
                         @endif
                 	</div>
                	 	<div class ="col-xs-offset-3 col-xs-4" style="margin:0 padding:0">

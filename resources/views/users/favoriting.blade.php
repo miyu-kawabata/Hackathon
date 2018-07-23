@@ -75,6 +75,7 @@
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
+					<li><a href="/about">About</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -99,6 +100,8 @@
                 <div class="panel-body">
                 @if(isset($profile->avatar_filename))
                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                @else
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/icon_default.jpg') }}" alt="写真を挿入">
                 @endif
                     <p class='d'>About me...</p>
                  

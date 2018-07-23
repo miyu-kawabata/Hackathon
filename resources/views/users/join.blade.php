@@ -43,21 +43,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="{{asset('/css/animate.css')}}">
+	<link rel="stylesheet" href="../../../css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="{{asset('/css/icomoon.css')}}">
+	<link rel="stylesheet" href="../../../css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{{asset('/css/bootstrap.css')}}">
+	<link rel="stylesheet" href="../../../css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
+	<link rel="stylesheet" href="../../../css/flexslider.css">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="{{asset('/css/style.css')}}">
-	<link rel="stylesheet" href="{{asset('/css/flexslider.css')}}">
-	<!-- Modal  -->
-	<link href="{{asset('/css/modal.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="../../../css/style.css">
+<!-- Modal  -->
+	<link href="../../../css/modal.css" rel="stylesheet">
 
 	<!-- Modernizr JS -->
-	<script src="{{asset('/js/modernizr-2.6.2.min.js')}}"></script>
+	<script src="../../../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -76,6 +75,7 @@
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
+					<li><a href="/about">About</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -103,6 +103,8 @@
                 <div class="panel-body">
                 @if(isset($profile->avatar_filename))
                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                @else
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/icon_default.jpg') }}" alt="写真を挿入">
                 @endif
                     <p class='d'>About me...</p>
                  

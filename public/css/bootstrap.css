@@ -3474,6 +3474,7 @@ tbody.collapse.in {
 .nav-tabs > li {
   float: left;
   margin-bottom: -1px;
+  white-space: nowrap;
 }
 .nav-tabs > li > a {
   margin-right: 2px;

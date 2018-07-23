@@ -72,9 +72,10 @@
 			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li><a href="/">MY PAGE</a></li>
+					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
+					<li><a href="/about">About</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
@@ -83,10 +84,10 @@
 		<div id="fh5co-main">
 			@if (count($errors) > 0)
 		<h2>必要事項を記入してください。</h2>
-    @foreach ($errors->all() as $error)
+   			 @foreach ($errors->all() as $error)
         <div class="alert alert-warning">{{ $error }}</div>
-    @endforeach
-@endif
+   			 @endforeach
+			 @endif
 			<aside class="col-xs-5"> 
              <div class="panel panel-default"> 
                  <div class="panel-heading"> 
@@ -247,7 +248,11 @@
              <div style="clear:both">
              <div class="media-body"> 
              	<div class ="joymiyu col-xs-3">
-                	<img class="joymiyu" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
+                	@if(isset($participant->profile->avatar_filename))
+                            <img class="joymiyu" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
+                        @else
+                            <img class="joymiyu" src={{ asset('images/icon_default.jpg') }} alt="写真を挿入">
+                        @endif
                 </div>
                 <div class ="col-xs-8">
                 	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 

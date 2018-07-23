@@ -38,38 +38,37 @@
 	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="shortcut icon" href="favicon.ico">
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="../../../css/animate.css">
+	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="../../../css/icomoon.css">
+	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../../../css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="../../../css/flexslider.css">
+	<link rel="stylesheet" href="css/flexslider.css">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="../../../css/style.css">
-<!-- Modal  -->
-	<link href="../../../css/modal.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Modal  -->
+	<link href="{{asset('/css/modal.css')}}" rel="stylesheet">
 
 	<!-- Modernizr JS -->
-	<script src="../../../js/modernizr-2.6.2.min.js"></script>
+	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
 	</head>
-	
 	<body>
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<div id="fh5co-logo"><a href="/">Hackathon</a></div>
+			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
@@ -79,106 +78,83 @@
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>
-		</aside>
-   
-   
-		<div id="fh5co-main">
-		    @if (count($errors) > 0)
-		<h2>グループの作成に失敗しました( *´艸｀)</h2>
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-warning">{{ $error }}</div>
-    @endforeach
-@endif
 
-        <div class="mypage-title">My page</div>
-        <div class='form-info'>
-         <aside class="col-xs-4">
-            <div class="panel panel-default"> 
-                <div class="panel-heading">
-                  <div class="panel-title">{{ $user->nickname }}</div>
-                </div>
-        
-         
-          
-                <div class="panel-body">
-                @if(isset($profile->avatar_filename))
-                    <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
-                @else
-                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/icon_default.jpg') }}" alt="写真を挿入">
-                @endif
-                    <p class='d'>About me...</p>
-                 
-               @if (isset($profile->sex))
-               <p class="e">性別：{{ $profile->sex }}</p>
-                @endif
-                
-                @if (isset($profile->hometown))
-                 <p class="e">出身：{{ $profile->hometown }}</p>
-                @endif
-                
-                @if (isset($profile->hobbies))
-                 <p class="e">趣味：{{ $profile->hobbies }}</p>
-                @endif
-                
-                @if (isset($profile->comment))
-                 <p class="e">何か一言：{{ $profile->comment }}</p>
-                @endif
-                
-                @include('user_follow.follow_button', ['user' => $user])  
-                <div class="edit">
-                    @if(Auth::user()->id == $user->id)
-                    <p style="float:right"><a href="/users/{{$user->id}}/edit"><img src="{{ asset('images/EDIT.png')}}" alt="おらんでい"></img></a></p>
-                    @endif
-              
-                </div>
-            
-             </div>
-            </div>
-        </aside>
-        <div class="col-xs-8">
-            <ul class="nav nav-tabs nav-justified"style="font-size:20px">
-                <li role="presentation" class="{{ Request::is('participation/*/participants') ? 'active' : '' }}"><a href="{{ route('groups.participants', ['id' => $user->id]) }}">参加中 <span class="badge">{{ $count_groups }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('favorites/*/favoritings') ? 'active' : '' }}"><a href="{{ route('groups.favoritings', ['id' => $user->id]) }}">お気に入り <span class="badge">{{ $count_favorites }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge1">{{ $count_followers }}</span></a></li>
-                
-            </ul>
-            
-            @if (count($users) > 0)
-            <ul class="media-list">
-            @foreach ($users as $user)
-                <li class="media">
-                    <div class="media-left">
-                        <div class="media-body">
-                            <div class ="joymiyu col-xs-4">
-                                @if(isset($user->profile->avatar_filename))
-                                    <img class="joymiyu" src="{{ asset('storage/images/' . $user->profile->avatar_filename) }}" alt="写真を挿入">
-                                @else()
-                                    <img class="joymiyu" src={{ asset('images/icon_default.jpg') }} alt="写真を挿入">
-                                @endif
-                            </div>
-                            <div class='e'>{!! link_to_route('tanins.show',$user->nickname, ['id' => $user->id]) !!}</div>
-                            @if(isset($user->profile->comment))
-                            {{ $user->profile->comment }}
-                            @endif
-                        
-                        </div>
-                    </div>
-                </li>
-            @endforeach
-            </ul>
-            {!! $users->render() !!}
-            @endif
-        </div>
-              
-    <div class="col-xs-8">
-          	<div id="modal-content">
-            
-            
-        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
-        
+			
+
+		</aside>
+		
+        <div id="fh5co-main">
+			<div class="fh5co-narrow-content2">
+				<div class="row row-bottom-padded-md">
+					<div id="learnmore">
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+							<img class="img-responsive" src="images/back.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+						</div>
+						<div class="col-xs-6 animate-box" data-animate-effect="fadeInLeft">
+						
+						<h2 class="fh5co-heading2">こんなこと、感じたことありませんか？</h2>
+						<ul>	
+						<li>月曜の夜が暇だな…</li>
+						<li>朝と夜にぼっち飯したくない時もある！</li>
+						<li>自分の趣味について語れる同期がいない！</li>
+						<li>もっといろんな同期と飲みたい！</li>
+						</ul>
+						
+						<p><strong>これらの悩み、楽友を作って解決しよう！！！</strong></p>
+						</div>
+					</div>
+				</div>
+				
+
+						
+					 <div id="about">
+					 	<h1 class="fh5co-heading-colored"><strong>ABOUT THIS SERVICE</strong></h1>
+								<div class="row">
+						               <p class="ayu">よっ友から楽友になるには？？</p>
+						               <p class="toy">楽友とは、気軽に暇つぶしや飲み会に誘える！更に、その絆が新たなビジネスへと繋がる仲間です！</p>
+								</div>
+
+					
+					
+							<div class="row">
+								<div class="col-md-6">
+									<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+										<div class="fh5co-icon">
+											<i class="icon-search4"></i>
+										</div>
+										<div class="fh5co-text">
+											<h3>「楽友」を見つけよう！</h3>
+											<p><strong>グループに参加して同期の意外な一面を発見できる！</strong> </p>
+											<a class="btn btn-primary btn-demo popup-vimeo" href="/groups"> <i class="icon-search4"></i>グループ・イベントを<strong>見つける</strong></a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+										<div class="fh5co-icon">
+											<i class="icon-plus"></i>
+										</div>
+										<div class="fh5co-text">
+											<h3>「楽友」の輪を広げよう！</h3>
+											<p><strong>輪と輪が交差し、263人と繋がれる！</strong></p>
+											<a class="btn btn-primary btn-demo popup-vimeo" id="modal-open" href="groups/create"> <i class="icon-plus"></i>グループ・イベントを<strong>つくる</strong></a>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+			</div>
+		</div>
+		
+		
+		
+		
+	<div id="modal-content">
+           {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+           
              
-             <div class="form-group">
+             
+            <div class="form-group">
                  {!! Form::label ('groupname','グループ名') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
@@ -187,8 +163,7 @@
                    {!! Form::label('category', 'カテゴリー') !!} 
             </div>       
                    
-            <div class="form-group">
-                   	<div class="form-group">
+                   <div class="form-group">
                    	
                    	{!! Form::radio('category', 'cafeteria') !!}
                    	{!! Form::label('category', 'カフェテリア / ') !!}
@@ -258,23 +233,27 @@
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+            
 
+      
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
-</div>
-</div>
+	</div>
+	
 		
-       <!-- jQuery -->
-	<script src="../../../js/jquery.min.js"></script>
+	</div>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="../../../js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="../../../js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="../../../js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
-	<script src="../../../js/jquery.flexslider-min.js"></script>
+	<script src="js/jquery.flexslider-min.js"></script>
 	<!-- Modal -->
-	<script src="../../../js/modal.js"></script>
+	<script src="{{asset('/js/modal.js')}}"></script>
 	
 	
 	<!-- MAIN JS -->
