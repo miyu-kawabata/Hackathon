@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Marble &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
+	<title>楽友</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -70,7 +70,7 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<div id="fh5co-logo"><a href="/">Hackathon</a></div>
+			<div id="fh5co-logo"><a href="/">楽友</a></div>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
@@ -83,7 +83,7 @@
 		</aside>
    </div>
    
-	<div id="fh5co-main">
+<div id="fh5co-main">
 		    @if (count($errors) > 0)
 	        	<h2>グループの作成に失敗しました( *´艸｀)</h2>
                 @foreach ($errors->all() as $error)
@@ -163,7 +163,7 @@
             
             <div class="form-group">
                  {!! Form::label ('place','開催場所') !!}
-                 {!! Form::text ('place',['placeholder'=>'ここに本文を入力して下さい'],['class' => 'form-control']) !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
@@ -185,6 +185,99 @@
 </div>
     
     </div>
+<div class="col-xs-8">
+          	<div id="modal-content">
+            
+        {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
+           
+        
+             
+             <div class="form-group">
+                 {!! Form::label ('groupname','グループ名') !!}
+                 {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                   {!! Form::label('category', 'カテゴリー') !!} 
+            </div>       
+                   
+                   <div class="form-group">
+                   	
+                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::label('category', 'カフェテリア / ') !!}
+                   	
+                    {!! Form::radio('category', 'breaktime') !!}
+                    {!! Form::label('category', '休憩時間 / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::label('category', 'おしゃべり / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'nomikai') !!}
+                    {!! Form::label('category', '飲み会 / ') !!}
+                    
+                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::label('category', 'スポーツ / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'food') !!}
+                    {!! Form::label('category', 'グルメ / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::label('category', 'アウトドア / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'movie') !!}
+                    {!! Form::label('category', '映画鑑賞 / ') !!}
+                    
+                    
+                    {!! Form::radio('category', 'others') !!}
+                    {!! Form::label('category', 'その他 / ') !!}
+                    
+                    </div>s
+            
+            <div class="form-group">
+                   {!! Form::label('category', '開催日時') !!} 
+            </div>
+            
+            <div class="form-group">
+                {!! Form::label ('year','年') !!}
+                {!! Form::selectRange('year', 2018, 2030) !!}
+            
+                {!! Form::label ('month','月') !!}
+                {!! Form::selectRange('month', 1, 12) !!}
+            
+                {!! Form::label ('date','日') !!}
+                {!! Form::selectRange('date', 1, 31) !!} 
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::text ('place',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+                 {!! Form::label ('description','詳細') !!}
+                 {!! Form::text ('description',null,['class' => 'form-control']) !!}
+            </div>
+            
+            <div class="form-group">
+            {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+            {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
+            </div>
+            
+               {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
+
+            {!! Form::close() !!}
+
+
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+</div>
+</div>
+    
+
 		
     <!-- jQuery -->
 	<script src="{{asset('/js/jquery.min.js')}}"></script>

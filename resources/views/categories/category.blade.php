@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Marble &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
+	<title>楽友</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -75,7 +75,7 @@
 		
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="/">Hackathon</a></h1>
+			<h1 id="fh5co-logo"><a href="/">楽友</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
@@ -96,22 +96,23 @@
 @endif
    		<div class="fh5co-narrow-content">
 			    <div class="prev">
-		<h1 class="fh5co-heading-colored"><strong>CATEGORY LIST</strong></h1>
-	
-		   
-			<SELECT NAME="select1" onChange="if(document.form1.select1.value){location.href=document.form1.select1.value;}">
-                 <option id='title'> Category</option>
-                 <option value='#cafeteria'>カフェテリアでごはん</option>
-		         <option value='#breaktime'>休憩時間</option>
-		         <option value='#kataru'>好きなモノについて語る会</option>
-		         <option value='#nomikai'>飲み会</option>
-		         <option value='#sports'>スポーツ</option>
-		         <option value='#food'>グルメ</option>
-		         <option value='#outdoor'>アウトドア</option>
-		         <option value='#movie'>映画鑑賞</option>
-		         <option value='#other'>その他</option>
-		
-            </SELECT>
+	<header class="sample01">
+              <tomo>
+                    <li><a href="#">CATEGORY LIST <span>▼</span></a>
+                          <ul>
+                                <li><a href="#cafeteria">カフェテリアでご飯</a></li>
+                                <li><a href="#breaktime">休憩時間</a></li>
+                                <li><a href="#kataru">好きなモノについて語る会</a></li>
+                                <li><a href="#nomikai">飲み会</a></li>
+                                <li><a href="#sports">スポーツ</a></li>
+                                <li><a href="#food">グルメ</a></li>
+                                <li><a href="#outdoor">アウトドア</a></li>
+                                <li><a href="#movie">映画鑑賞</a></li>
+                                <li><a href="#other">その他</a></li>
+                          </ul>
+                    </li>
+             </tomo>
+      </header>
           
 		 	
 		    </div>
@@ -156,11 +157,7 @@
 		
 			
 			
-<<<<<<< HEAD
 				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
-=======
-			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
->>>>>>> 89366d695a091c41a27b6ef180bf205076b32905
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">

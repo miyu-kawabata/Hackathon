@@ -70,7 +70,6 @@ class GroupsController extends Controller
        $group = new Group;
        
        return view('groups.create',[
-           
            'group' => $group,
            ]);
     

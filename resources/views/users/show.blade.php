@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Marble &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
+	<title>楽友</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -67,7 +67,7 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<div id="fh5co-logo"><a href="/"><div class='b'>Hackathon</div></a></div>
+			<div id="fh5co-logo"><a href="/"><div class='b'>楽友</div></a></div>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="/"><div class='a'>MY PAGE</div></a></li>
@@ -81,7 +81,7 @@
    
    
 	<div id="fh5co-main">
-		<div class='form-info'>
+		<div class='form-info2'>
          <aside class="col-xs-4">
          
            

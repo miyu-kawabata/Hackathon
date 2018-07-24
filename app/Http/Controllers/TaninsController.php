@@ -50,19 +50,21 @@ class TaninsController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = User::find($id);
-            $followings = $user->followings()->paginate(10);
-            $profile = $user->profile()->getResults();
-            $group = new Group;
             
-            $data = [
-                'user' => $user,
-                'profile' =>$profile,
-                'users' =>$followings,
-                'group' => $group,
-            ];
-            $data += $this->counts($user);
-
-            return view('users.followings', $data);
+             
+         $groups = $user->groups()->paginate(10); 
+          $profile=$user->profile()->getResults();
+          $group = new Group;
+         $data = [ 
+             'user' => $user, 
+             'groups' => $groups,
+             'profile' =>$profile, 
+             'group' => $group,
+              
+         ]; 
+  
+         $data += $this->counts($user); 
+         return view('users.join', $data); 
         }else {
             return view('welcome');
         }
