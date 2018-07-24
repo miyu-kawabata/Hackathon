@@ -282,11 +282,9 @@ figure figcaption {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
- background:-webkit-gradient(linear, left top, left bottom, from(#ffeaff), to(#ffffff));
-    background:-webkit-linear-gradient(top, #ffeaff, #ffffff);
-    background:-moz-linear-gradient(top, #ffeaff, #ffffff);
-    background:-o-linear-gradient(top, #ffeaff, #ffffff);
-    background:linear-gradient(to bottom, #ffeaff, #ffffff);
+background: -moz-radial-gradient(#ffeaea 40%, #ffffff 85%); 
+background: -webkit-radial-gradient(#ffe5e5 40%, #ffffff 85%); 
+background: radial-gradient(#ffeaea 45%, #ffffff 80%);
 }
 #fh5co-main2{
   width: 80%;
@@ -310,9 +308,11 @@ figure figcaption {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
- background-color:  #ffffff;
-background-image: -webkit-radial-gradient( #ffffff,#e0efff);
-background-image:  radial-gradient( #e0ffff);
+background:-webkit-gradient(linear, left top, left bottom, from(#d6ffff), to(#ffffff));
+    background:-webkit-linear-gradient(top, #d6ffff, #ffffff);
+    background:-moz-linear-gradient(top, #bcddff, #ffffff);
+    background:-o-linear-gradient(top, #d6ffff, #ffffff);
+    background:linear-gradient(to bottom, #bcddff, #ffffff);
 }
 @media screen and (max-width: 1200px) {
   #fh5co-main {
