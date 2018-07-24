@@ -71,10 +71,10 @@
 			<h1 id="fh5co-logo"><a href="/">楽友</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
+					<li><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
-					<li><a href="/about">About</a></li>
+					<li class="fh5co-active"><a href="/about">About</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
 				</ul>
 			</nav>

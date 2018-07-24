@@ -17,7 +17,8 @@ body {
   font-size: 14px;
   line-height: 1.6;
   color:#000000;
-  background: whitesmoke;
+  background: white;
+  
 }
 @media screen and (max-width: 992px) {
   body {
@@ -267,7 +268,51 @@ figure figcaption {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
-
+ background:-webkit-gradient(linear, left top, left bottom, from(#f0f6da), to(#ffffff));
+    background:-webkit-linear-gradient(top, #f0f6da, #ffffff);
+    background:-moz-linear-gradient(top, #ece093, #ffffff);
+    background:-o-linear-gradient(top, #f0f6da, #ffffff);
+    background:linear-gradient(to bottom, #ece093, #ffffff);
+}
+#fh5co-main1 {
+  width: 80%;
+  padding-top: 0%;
+  padding-left: 0%;
+  float: right;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+ background:-webkit-gradient(linear, left top, left bottom, from(#ffeaff), to(#ffffff));
+    background:-webkit-linear-gradient(top, #ffeaff, #ffffff);
+    background:-moz-linear-gradient(top, #ffeaff, #ffffff);
+    background:-o-linear-gradient(top, #ffeaff, #ffffff);
+    background:linear-gradient(to bottom, #ffeaff, #ffffff);
+}
+#fh5co-main2{
+  width: 80%;
+  padding-top: 0%;
+  padding-left: 0%;
+  float: right;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+ background:-webkit-gradient(linear, left top, left bottom, from(#acd6cc), to(#ffffff));
+    background:-webkit-linear-gradient(top, #acd6cc, #ffffff);
+    background:-moz-linear-gradient(top, #acd6cc, #ffffff);
+    background:-o-linear-gradient(top, #acd6cc, #ffffff);
+    background:linear-gradient(to bottom, #acd6cc, #ffffff);
+}
+#fh5co-main3{
+  width: 80%;
+  padding-top: 0%;
+  padding-left: 0%;
+  float: right;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+ background-color:  #ffffff;
+background-image: -webkit-radial-gradient( #ffffff,#e0efff);
+background-image:  radial-gradient( #e0ffff);
 }
 @media screen and (max-width: 1200px) {
   #fh5co-main {
@@ -2669,6 +2714,21 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   right:30px;
   top:30px;
 
+}
+.square_btn1{
+  font-size:10px;
+  margin: 0px;
+  padding:0px;
+    display: inline-block;
+    padding: 0px 15px;
+	border-radius: 25px;
+    text-decoration: none;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    transition: .4s;
+  position:absolute;
+  
 }
 
 .square_btn:hover {

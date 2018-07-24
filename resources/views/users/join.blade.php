@@ -82,7 +82,7 @@
 		</aside>
    </div>
    
-		<div id="fh5co-main">
+		<div id="fh5co-main1">
 		    @if (count($errors) > 0)
 		<h2>グループの作成に失敗しました( *´艸｀)</h2>
     @foreach ($errors->all() as $error)

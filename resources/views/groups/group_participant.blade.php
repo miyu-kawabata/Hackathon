@@ -63,7 +63,7 @@
 	</head>
 	<body>
 		
-	<div id="fh5co-page">
+	    <div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
@@ -78,8 +78,8 @@
 				</ul>
 			</nav>
 		</aside>
-
-		<div id="fh5co-main">
+    </div>
+		<div id="fh5co-main3">
 			@if (count($errors) > 0)
 		<h2>必要事項を記入してください。</h2>
     @foreach ($errors->all() as $error)
@@ -240,12 +240,22 @@
                             <img class="joymiyu" src={{ asset('images/icon_default.jpg') }} alt="写真を挿入">
                         @endif
                 	</div>
-               	 	<div class ="col-xs-offset-3 col-xs-4" style="margin:0 padding:0">
+               	 	<div class ="col-xs-offset-3 col-xs-4" style="margin:0 padding:0 position:relative">
                       <p style="margin:0">{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p>
                       @if(isset($participant->profile->comment))
                       {{ $participant->profile->comment }}
                       @endif
-                      @include('user_follow.follow_button', ['user' => $user])
+                    @if (Auth::user()->id != $participant->id)
+                        @if (Auth::user()->is_following($user->id))
+                        {!! Form::open(['route' => ['user.unfollow', $user->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('Unfollow', ['class' => "square_btn1"]) !!}
+                        {!! Form::close() !!}
+                        @else
+                        {!! Form::open(['route' => ['user.follow', $user->id]]) !!}
+                            {!! Form::submit('Follow', ['class' => "square_btn1"]) !!}
+                        {!! Form::close() !!}
+                        @endif
+                    @endif
                      </div>
                      </div>
                      </div>
@@ -276,7 +286,11 @@
              <div style="clear:both">
              <div class="media-body" style="padding:0"> 
              	<div class ="joymiyu2 col-xs-2" style="padding:0">
+             	    @if(isset($chat->user->profile->avatar_filename))
                 	<img class="joymiyu2" style="padding:0" src="{{ asset('storage/images/' . $chat->user->profile->avatar_filename) }}" alt="写真を挿入">
+                                            @else()
+                            <img class="joymiyu" src={{ asset('images/icon_default.jpg') }} alt="写真を挿入">
+                        @endif                
                 </div>
                 <div class ="col-xs-offset-2 col-xs-8">
                 	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 
@@ -299,7 +313,7 @@
 
 		</div>
 	</div>
-    </div>
+    
 	<!-- jQuery -->
 	<script src="../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

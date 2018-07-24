@@ -78,8 +78,8 @@
 			<h1 id="fh5co-logo"><a href="/">楽友</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
-					<li><a href="/groups">CATEGORY LIST</a></li>
+					<li><a href="/">MY PAGE</a></li>
+					<li class="fh5co-active"><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
 					<li><a href="/about">About</a></li>
 					<li><a href="/logout">LOG OUT</a></li>
@@ -98,7 +98,7 @@
 			    <div class="prev">
 	<header class="sample01">
               <tomo>
-                    <li><a href="#">CATEGORY LIST <span>▼</span></a>
+                    <li style="font-weight:bold"><a href="#">CATEGORY LIST <span>▼</span></a>
                           <ul>
                                 <li><a href="#cafeteria">カフェテリアでご飯</a></li>
                                 <li><a href="#breaktime">休憩時間</a></li>
