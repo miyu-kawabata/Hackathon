@@ -95,7 +95,7 @@
       			 		</div>
  　　　	　　             
                 		<div class="panel-body">
-                   		<img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                   		<img class="media-object img-rounded img-responsive" src="{{ $profile->avatar_filename }}" alt="写真を挿入">
                    		
                 		</div>
                  

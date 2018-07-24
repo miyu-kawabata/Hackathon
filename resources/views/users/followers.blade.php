@@ -107,7 +107,7 @@
           
                 <div class="panel-body">
                 @if(isset($profile->avatar_filename))
-                    <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ asset('storage/images/' . $profile->avatar_filename) }}" alt="写真を挿入">
+                    <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $profile->avatar_filename }}" alt="写真を挿入">
                 @else
                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/icon_default.jpg') }}" alt="写真を挿入">
                 @endif
@@ -156,7 +156,7 @@
                         <div class="media-body">
                             <div class ="joymiyu col-xs-4">
                                 @if(isset($user->profile->avatar_filename))
-                                    <img class="joymiyu" src="{{ asset('storage/images/' . $user->profile->avatar_filename) }}" alt="写真を挿入">
+                                    <img class="joymiyu" src="{{ $user->profile->avatar_filename }}" alt="写真を挿入">
                                 @else()
                                     <img class="joymiyu" src={{ asset('images/icon_default.jpg') }} alt="写真を挿入">
                                 @endif
@@ -194,37 +194,37 @@
             <div class="form-group">
                    	<div class="form-group">
                    	
-                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::radio('category', 'カフェテリア') !!}
                    	{!! Form::label('category', 'カフェテリア / ') !!}
                    	
-                    {!! Form::radio('category', 'breaktime') !!}
+                    {!! Form::radio('category', '休憩時間') !!}
                     {!! Form::label('category', '休憩時間 / ') !!}
                     
                     
-                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::radio('category', 'おしゃべり') !!}
                     {!! Form::label('category', 'おしゃべり / ') !!}
                     
                     
-                    {!! Form::radio('category', 'nomikai') !!}
+                    {!! Form::radio('category', '飲み会') !!}
                     {!! Form::label('category', '飲み会 / ') !!}
                     
-                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::radio('category', 'スポーツ') !!}
                     {!! Form::label('category', 'スポーツ / ') !!}
                     
                     
-                    {!! Form::radio('category', 'food') !!}
+                    {!! Form::radio('category', 'グルメ') !!}
                     {!! Form::label('category', 'グルメ / ') !!}
                     
                     
-                    {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::radio('category', 'アウトドア') !!}
                     {!! Form::label('category', 'アウトドア / ') !!}
                     
                     
-                    {!! Form::radio('category', 'movie') !!}
+                    {!! Form::radio('category', '映画') !!}
                     {!! Form::label('category', '映画鑑賞 / ') !!}
                     
                     
-                    {!! Form::radio('category', 'others') !!}
+                    {!! Form::radio('category', 'その他') !!}
                     {!! Form::label('category', 'その他 / ') !!}
                     
                     </div>

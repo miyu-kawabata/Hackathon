@@ -72,7 +72,7 @@
 					<li class="fh5co-active"><a href="/">Home</a></li>
 					<li><a href="/signup">signup</a></li>
 					<li><a href="/login">login</a></li>
-					<li><a href="#learnmore">About</a></li>
+					
 				</ul>
 			</nav>
 

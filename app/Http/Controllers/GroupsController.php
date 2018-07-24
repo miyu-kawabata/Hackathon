@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Group;
 use App\User;
+use JD\Cloudder\Facades\Cloudder;
 class GroupsController extends Controller
 {
     public function index()
@@ -88,7 +89,8 @@ class GroupsController extends Controller
           'file' => 'required',
            ]);
            
-           
+        Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
+        $url = Cloudder::getResult()['url'];   
         $filename = $request->file('file')->store('public/images');
         
         $user = \Auth::user();
@@ -101,7 +103,7 @@ class GroupsController extends Controller
         $group->place = $request->place;
         $group->date = $request->date;
         $group->organizer_id = $user->id;
-        $group->group_picture = basename($filename);
+        $group->group_picture = $url;
         $group->save();
         
         \Auth::user()->join($group->id);
@@ -143,7 +145,8 @@ class GroupsController extends Controller
             'description' => 'required|max:191',
             'file' => 'required',
         ]);
-        
+        Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
+        $url = Cloudder::getResult()['url'];
         $filename = $request->file('file')->store('public/images');
         
         $user = \Auth::user();
@@ -155,7 +158,7 @@ class GroupsController extends Controller
         $group->place = $request->place;
         $group->description = $request->description;
         $group->organizer_id = $user->id;
-        $group->group_picture = basename($filename);
+        $group->group_picture = $url;
         $group->save();
         
         $participants = $group->user_participants() -> paginate(10);

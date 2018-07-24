@@ -4,7 +4,7 @@
   
     <li class="media">
             <div class ="joymiyu col-xs-4">
-            <img class="joymiyu" src="{{ asset('storage/images/' . $group->group_picture) }}" alt="写真を挿入">
+            <img class="joymiyu" src="{{ $group->group_picture }}" alt="写真を挿入">
             </div>
         
         <div class="media-body">

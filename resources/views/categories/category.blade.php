@@ -134,7 +134,7 @@
 							@foreach($cafeterias as $cafeteria)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$cafeteria->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $cafeteria->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$cafeteria->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $cafeteria->group_picture }}" alt="写真を挿入"></a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $cafeteria->groupname, ['id' => $cafeteria->id])!!}</h2>
@@ -166,7 +166,7 @@
 							@foreach($breaktimes as $breaktime)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$breaktime->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $breaktime->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$breaktime->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $breaktime->group_picture }}" alt="写真を挿入"></a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $breaktime->groupname, ['id' => $breaktime->id])!!}</h2>
@@ -198,7 +198,7 @@
 							@foreach($katarus as $kataru)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$kataru->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $kataru->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$kataru->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $kataru->group_picture }}" alt="写真を挿入"></a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $kataru->groupname, ['id' => $kataru->id])!!}</h2>
@@ -227,7 +227,7 @@
 							@foreach($nomikais as $nomikai)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $nomikai->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $nomikai->group_picture }}" alt="写真を挿入"></a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>
@@ -256,7 +256,7 @@
 							@foreach($sports as $sport)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$sport->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $sport->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$sport->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $sport->group_picture }}" alt="写真を挿入"></a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
@@ -287,7 +287,7 @@
 							@foreach($foods as $food)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$food->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $food->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$food->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $food->group_picture }}" alt="写真を挿入"></a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h2>
@@ -317,7 +317,7 @@
 							@foreach($outdoors as $outdoor)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$outdoor->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $outdoor->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$outdoor->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $outdoor->group_picture }}" alt="写真を挿入"></a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h2>
@@ -345,7 +345,7 @@
 							@foreach($movies as $movie)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$movie->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $movie->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$movie->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $movie->group_picture }}" alt="写真を挿入"></a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
@@ -374,7 +374,7 @@
 							@foreach($others as $other)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$other->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ asset('storage/images/' . $other->group_picture) }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$other->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $other->group_picture }}" alt="写真を挿入"></a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h2>
@@ -411,23 +411,23 @@
                    
                    <div class="form-group">
                    	{!! Form::label('category', 'カフェテリア') !!}
-                   	{!! Form::radio('category', 'cafeteria') !!}
+                   	{!! Form::radio('category', 'カフェテリア') !!}
                    	{!! Form::label('category', ' / 休憩時間') !!}
-                    {!! Form::radio('category', 'breaktime') !!}
+                    {!! Form::radio('category', '休憩時間') !!}
                     {!! Form::label('category', ' / おしゃべり') !!}
-                    {!! Form::radio('category', 'kataru') !!}
+                    {!! Form::radio('category', 'おしゃべり') !!}
                     {!! Form::label('category', ' / 飲み会') !!}
-                    {!! Form::radio('category', 'nomikai') !!}
+                    {!! Form::radio('category', '飲み会') !!}
                     {!! Form::label('category', ' / スポーツ') !!}
-                    {!! Form::radio('category', 'sports') !!}
+                    {!! Form::radio('category', 'スポーツ') !!}
                     {!! Form::label('category', ' / グルメ') !!}
-                    {!! Form::radio('category', 'food') !!}
+                    {!! Form::radio('category', 'グルメ') !!}
                     {!! Form::label('category', ' / アウトドア') !!}
-                    {!! Form::radio('category', 'outdoor') !!}
+                    {!! Form::radio('category', 'アウトドア') !!}
                     {!! Form::label('category', ' / 映画鑑賞') !!}
-                    {!! Form::radio('category', 'movie') !!}
+                    {!! Form::radio('category', '映画') !!}
                     {!! Form::label('category', ' / その他') !!}
-                    {!! Form::radio('category', 'others') !!}
+                    {!! Form::radio('category', 'その他') !!}
                     
                     </div>
             

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
 use App\Group;
+use JD\Cloudder\Facades\Cloudder;
 class UsersController extends Controller
 {
     /**
@@ -68,7 +69,8 @@ class UsersController extends Controller
         ]);
         
         
-        
+        Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
+        $url = Cloudder::getResult()['url'];
         $filename = $request->file('file')->store('public/images');
         
         $hometown=[
@@ -129,7 +131,7 @@ class UsersController extends Controller
             'hometown'=>$hometown[$request->hometown],
             'hobbies'=>$request->hobbies,
             'comment' => $request->comment,
-            'avatar_filename' => basename($filename),
+            'avatar_filename' => $url,
         ]);
             return redirect('/');
     }
@@ -188,11 +190,12 @@ class UsersController extends Controller
             'hometown'=>'required',
              'sex'=>'required'
         ]);
-        
+        Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
+        $url = Cloudder::getResult()['url'];
         $filename = $request->file('file')->store('public/images');
         $profile=Profile::find($id);
         $profile->comment = $request->comment;
-        $profile->avatar_filename = basename($filename);
+        $profile->avatar_filename = $url;
 
           $hometown=[
   '' =>  '都道府県を選択して下さい',
