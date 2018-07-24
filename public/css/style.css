@@ -2663,6 +2663,13 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   
 }
 
+.z{
+  font-size:25px;
+  color:black;
+  font-weight:bold;
+}
+
+
 .e{
   
   font-size:18px;
@@ -3041,7 +3048,7 @@ tomo > li:hover > a{
  
 tomo li ul{
 position: absolute;
-	top: 30px;
+	top: 0px;
 	left: 30%;
 }
 tomo li ul li{
@@ -3075,19 +3082,15 @@ tomo li ul li{
   padding-top:0px;
 }
 tomo li ul li a{
-	background-color: #efefef;
-	color: #444;
 	font-size:20px;
-	margin-left:105px;
+	margin-left:70px;
+  
 	
 }
 tomo li ul li a:hover{
 	background-color: #ddd;
 }
 
-.sample01 tomo li ul{
-	display: none;
-}
 .sample01 tomo li:hover ul{
 	display: block;
 }

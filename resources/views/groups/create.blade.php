@@ -84,29 +84,31 @@
    </div>
    
 <div id="fh5co-main">
-		    @if (count($errors) > 0)
-	        	<h2>グループの作成に失敗しました( *´艸｀)</h2>
-                @foreach ($errors->all() as $error)
-                <div class="alert alert-warning">{{ $error }}</div>
-                @endforeach
-            @endif
+		   
 
     
         
     <div class="col-xs-8">
         <div class="fh5co-narrow-content">
+             @if (count($errors) > 0)
+	        	<h2>グループの作成に失敗しました( *´艸｀)</h2>
+                @foreach ($errors->all() as $error)
+                <div class="alert alert-warning">{{ $error }}</div>
+                @endforeach
+            @endif
+            
         <h1 class="fh5co-heading-colored"><strong>CREATE A GROUP</strong></h1>
             {!! Form::model($group, ['route' => 'groups.store','method' => 'post', 'files' => true]) !!}
            
              
              
             <div class="form-group">
-                 {!! Form::label ('groupname','グループ名') !!}
+                 {!! Form::label ('groupname','グループ名※'') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
-                   {!! Form::label('category', 'カテゴリー') !!} 
+                   {!! Form::label('category', 'カテゴリー※'') !!} 
             </div>       
                    
                    <div class="form-group">
@@ -147,7 +149,7 @@
                     </div>
             
             <div class="form-group">
-                   {!! Form::label('category', '開催日時') !!} 
+                   {!! Form::label('category', '開催日時※'') !!} 
             </div>
             
             <div class="form-group">
@@ -162,7 +164,7 @@
             </div>
             
             <div class="form-group">
-                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::label ('place','開催場所※'') !!}
                  {!! Form::text ('place',null,['class' => 'form-control']) !!}
             </div>
             

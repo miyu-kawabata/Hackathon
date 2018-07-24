@@ -84,6 +84,13 @@
           
         </aside>
         <div class="col-xs-8" style="margin-top:50px">
+            @if (count($errors) > 0)
+		<h2>マイページの作成に失敗しました。</h2>
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-warning">{{ $error }}</div>
+    @endforeach
+@endif
+            
     @if(is_null($profile))
             {!! Form::model($profile, ['route' => 'users.store', 'method' => 'post', 'files' => true]) !!}
           

@@ -4525,6 +4525,7 @@ a.thumbnail.active {
   border-color: #faebcc;
   color: #8a6d3b;
   margin-left: 200px;
+  width:500px;
 }
 .alert-warning hr {
   border-top-color: #f7e1b5;

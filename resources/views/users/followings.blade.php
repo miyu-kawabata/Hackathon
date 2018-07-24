@@ -258,7 +258,7 @@
             </div>
             
             <div class="form-group">
-            {!! Form::label('file', '画像アップロード※', ['class' => 'control-label']) !!}
+            {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
             {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
             </div>
             

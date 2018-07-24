@@ -98,7 +98,7 @@
 			    <div class="prev">
 	<header class="sample01">
               <tomo>
-                    <li style="font-weight:bold"><a href="#">CATEGORY LIST <span>▼</span></a>
+                    <li style="font-weight:bold"><a href="#">CATEGORY LIST <span>◀</span></a>
                           <ul>
                                 <li><a href="#cafeteria">カフェテリアでご飯</a></li>
                                 <li><a href="#breaktime">休憩時間</a></li>
@@ -247,7 +247,7 @@
 			</div>
 			
 			
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='sport'>スポーツ</a></h2>
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='sports'>スポーツ</a></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -401,12 +401,12 @@
         
              
             <div class="form-group">
-                 {!! Form::label ('groupname','グループ名') !!}
+                 {!! Form::label ('groupname','グループ名※') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
-                   {!! Form::label('category', 'カテゴリー') !!} 
+                   {!! Form::label('category', 'カテゴリー※') !!} 
             </div>       
                    
                    <div class="form-group">
@@ -432,7 +432,7 @@
                     </div>
             
             <div class="form-group">
-                   {!! Form::label('category', '開催日時') !!} 
+                   {!! Form::label('category', '開催日時※') !!} 
             </div>
             
             <div class="form-group">
@@ -447,7 +447,7 @@
             </div>
             
             <div class="form-group">
-                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::label ('place','開催場所※') !!}
                  {!! Form::text ('place',null,['class' => 'form-control']) !!}
             </div>
             

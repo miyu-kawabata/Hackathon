@@ -63,7 +63,6 @@ class UsersController extends Controller
     
        $this->validate($request, [
             'comment' => 'required|max:191',
-            'file' =>'required',
             'hometown'=>'required',
              'sex'=>'required'
         ]);
@@ -186,7 +185,6 @@ class UsersController extends Controller
     {
          $this->validate($request, [
             'comment' => 'required|max:191',
-            'file' =>'required',
             'hometown'=>'required',
              'sex'=>'required'
         ]);

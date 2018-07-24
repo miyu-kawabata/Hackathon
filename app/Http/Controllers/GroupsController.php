@@ -11,15 +11,15 @@ class GroupsController extends Controller
     {
         //category pageにつながる
         $group = Group::all();
-        $cafeteria = $group->where('category','cafeteria')->sortByDesc('created_at');
-        $breaktime = $group->where('category','breaktime')->sortByDesc('created_at');
-        $kataru = $group->where('category','kataru')->sortByDesc('created_at');
-        $nomikai = $group->where('category','nomikai')->sortByDesc('created_at');
-        $sports = $group->where('category','sports')->sortByDesc('created_at');
-        $food = $group->where('category','food')->sortByDesc('created_at');
-        $outdoor = $group->where('category','outdoor')->sortByDesc('created_at'); 
-        $movie = $group->where('category','movie')->sortByDesc('created_at');
-        $others = $group->where('category','others')->sortByDesc('created_at');
+        $cafeteria = $group->where('category','カフェテリア')->sortByDesc('created_at');
+        $breaktime = $group->where('category','休憩時間')->sortByDesc('created_at');
+        $kataru = $group->where('category','おしゃべり')->sortByDesc('created_at');
+        $nomikai = $group->where('category','飲み会')->sortByDesc('created_at');
+        $sports = $group->where('category','スポーツ')->sortByDesc('created_at');
+        $food = $group->where('category','グルメ')->sortByDesc('created_at');
+        $outdoor = $group->where('category','アウトドア')->sortByDesc('created_at'); 
+        $movie = $group->where('category','映画')->sortByDesc('created_at');
+        $others = $group->where('category','その他')->sortByDesc('created_at');
         $career = $group->where('category','career')->sortByDesc('created_at');
         $shopping = $group->where('category','shopping')->sortByDesc('created_at');
        
@@ -86,7 +86,7 @@ class GroupsController extends Controller
           'month'=> 'required|max:50',
           'date'=> 'required|max:50',
           'place'=> 'max:50',
-          'file' => 'required',
+          
            ]);
            
         Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
@@ -143,7 +143,7 @@ class GroupsController extends Controller
             'date' => 'required|max:191',
             'place' => 'required|max:191',
             'description' => 'required|max:191',
-            'file' => 'required',
+           
         ]);
         Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
         $url = Cloudder::getResult()['url'];

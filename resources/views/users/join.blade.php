@@ -132,7 +132,7 @@
                 
                 
                 @if(is_null($profile))
-                <p>①同期に向けて自己紹介を入力しよう！EDITをクリック！</p>
+                <p class='z'>①同期に向けて自己紹介を入力しよう！EDITをクリック！</p>
                 @endif
                 
                 
@@ -239,7 +239,7 @@
             </div>
             
             <div class="form-group">
-            {!! Form::label('file', '画像アップロード※', ['class' => 'control-label']) !!}
+            {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
             {!! Form::file('file',null,['class' => 'form-control']) !!}
             </div>
             
