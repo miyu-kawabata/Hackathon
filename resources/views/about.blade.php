@@ -87,6 +87,7 @@
 			<div class="fh5co-narrow-content2">
 				<div class="row row-bottom-padded-md">
 					<div id="learnmore">
+					 	<h1 class="fh5co-heading-colored"><strong>ABOUT THIS SERVICE</strong></h1>
 						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 							<img class="img-responsive" src="images/back.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 						</div>
@@ -108,7 +109,6 @@
 
 						
 					 <div id="about">
-					 	<h1 class="fh5co-heading-colored"><strong>ABOUT THIS SERVICE</strong></h1>
 								<div class="row">
 						               <p class="ayu">よっ友から楽友になるには？？</p>
 						               <p class="toy">楽友とは、気軽に暇つぶしや飲み会に誘える！更に、その絆が新たなビジネスへと繋がる仲間です！</p>

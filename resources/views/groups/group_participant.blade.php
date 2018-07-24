@@ -70,7 +70,7 @@
 			<h1 id="fh5co-logo"><a href="/">楽友</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="/">MY PAGE</a></li>
+					<li><a href="/">MY PAGE</a></li>
 					<li><a href="/groups">CATEGORY LIST</a></li>
 					<li><a id="modal-open" class="button-link">CREATE A GROUP</a></li>
 					<li><a href="/about">About</a></li>
@@ -136,12 +136,12 @@
              
            
             <div class="form-group">
-                 {!! Form::label ('groupname','グループ名') !!}
+                 {!! Form::label ('groupname','グループ名※') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
-                   {!! Form::label('category', 'カテゴリー') !!} 
+                   {!! Form::label('category', 'カテゴリー※') !!} 
             </div>       
                    
                    <div class="form-group">
@@ -182,7 +182,7 @@
                     </div>
             
             <div class="form-group">
-                   {!! Form::label('category', '開催日時') !!} 
+                   {!! Form::label('category', '開催日時※') !!} 
             </div>
             
             <div class="form-group">
@@ -197,7 +197,7 @@
             </div>
             
             <div class="form-group">
-                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::label ('place','開催場所※') !!}
                  {!! Form::text ('place',null,['class' => 'form-control']) !!}
             </div>
             
@@ -207,7 +207,7 @@
             </div>
             
             <div class="form-group">
-            {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+            {!! Form::label('file', '画像アップロード※', ['class' => 'control-label']) !!}
             {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
             </div>
             
@@ -246,12 +246,12 @@
                       {{ $participant->profile->comment }}
                       @endif
                     @if (Auth::user()->id != $participant->id)
-                        @if (Auth::user()->is_following($user->id))
-                        {!! Form::open(['route' => ['user.unfollow', $user->id], 'method' => 'delete']) !!}
+                        @if (Auth::user()->is_following($participant->id))
+                        {!! Form::open(['route' => ['user.unfollow', $participant->id], 'method' => 'delete']) !!}
                             {!! Form::submit('Unfollow', ['class' => "square_btn1"]) !!}
                         {!! Form::close() !!}
                         @else
-                        {!! Form::open(['route' => ['user.follow', $user->id]]) !!}
+                        {!! Form::open(['route' => ['user.follow', $participant->id]]) !!}
                             {!! Form::submit('Follow', ['class' => "square_btn1"]) !!}
                         {!! Form::close() !!}
                         @endif

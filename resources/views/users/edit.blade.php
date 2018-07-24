@@ -164,7 +164,7 @@
                     {!! Form::text('comment',null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+                {!! Form::label('file', '画像アップロード※', ['class' => 'control-label']) !!}
                 {!! Form::file('file') !!}
                 </div>
 
@@ -262,7 +262,7 @@
                 
                 <div class="form-group">
     
-    {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+    {!! Form::label('file', '画像アップロード※', ['class' => 'control-label']) !!}
     {!! Form::file('file') !!}
 </div>
 
@@ -287,12 +287,12 @@
         
              
              <div class="form-group">
-                 {!! Form::label ('groupname','グループ名') !!}
+                 {!! Form::label ('groupname','グループ名※') !!}
                  {!! Form::text ('groupname',null,['class' => 'form-control']) !!}
             </div>
                    
                    <div class="form-group">
-                   {!! Form::label('category', 'カテゴリー') !!} 
+                   {!! Form::label('category', 'カテゴリー※') !!} 
             </div>       
                    
                    <div class="form-group">
@@ -333,7 +333,7 @@
                     </div>
             
             <div class="form-group">
-                   {!! Form::label('category', '開催日時') !!} 
+                   {!! Form::label('category', '開催日時※') !!} 
             </div>
             
             <div class="form-group">
@@ -348,7 +348,7 @@
             </div>
             
             <div class="form-group">
-                 {!! Form::label ('place','開催場所') !!}
+                 {!! Form::label ('place','開催場所※') !!}
                  {!! Form::text ('place',null,['class' => 'form-control']) !!}
             </div>
             
@@ -357,7 +357,7 @@
                  {!! Form::text ('description',null,['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
-            {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+            {!! Form::label('file', '画像アップロード※', ['class' => 'control-label']) !!}
             {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
             </div>
             
