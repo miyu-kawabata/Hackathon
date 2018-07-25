@@ -93,7 +93,7 @@
        @if($user->id == \Auth::user()->id)
   <div class="mypage-title" style="font-weight:500">My page</div>
 @else
-  <div class="mypage-title">{{ $user->nickname }}'s page</div>
+  <div class="mypage-title" style="font-weight:500">{{ $user->nickname }}'s page</div>
 @endif
         <div class='form-info2'>
          <aside class="col-xs-4">
