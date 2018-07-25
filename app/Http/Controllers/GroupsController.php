@@ -49,7 +49,7 @@ class GroupsController extends Controller
         if (\Auth::check()) {
         $group = Group::find($id);
         $user = \Auth::user();
-        $chats = $group->chat()->getResults();
+        $chats = $group->chat()->orderBy('created_at', 'desc')->getResults();
         $participants = $group->user_participants()->paginate(10);
         $participants_count =  $participants->count();
         
