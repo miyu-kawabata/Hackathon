@@ -317,7 +317,7 @@
                         {!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}
                     	{!! Form::close() !!}
                 	@endif
-               		 	<p class="chat2" style="position:absolute">{!! nl2br(e($chat->chat)) !!}</p>
+               		 	<p class="chat2" style="display:inline-block position:absolute">{!! nl2br(e($chat->chat)) !!}</p>
                   	
                	</div> 
               
