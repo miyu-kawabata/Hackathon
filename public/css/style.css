@@ -3090,9 +3090,9 @@ tomo > li:hover > a{
  
 tomo li ul{
 position: absolute;
-	top: 0px;
-	left: 30%;
-margin-bottom:20px;
+	top: -30px;
+	left: 25%;
+
 }
 tomo li ul li{
 	display: block;
