@@ -32,12 +32,7 @@ a {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-a1 {
-  color: #000;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-}
+
 a:hover, a:active, a:focus {
   color: #228896;
   outline: none;
@@ -54,7 +49,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   margin: 0 0 30px 0;
 }
-
+h21{
+  color: #000;
+}
 h1 .fh5co-heading animate-box{
   font-size: 30px;
   margin-left: 0px;
