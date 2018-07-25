@@ -4524,8 +4524,8 @@ a.thumbnail.active {
   background-color: #fcf8e3;
   border-color: #faebcc;
   color: #8a6d3b;
-  margin-left: 200px;
-  width:500px;
+  margin-left: 400px;
+  width:400px;
 }
 .alert-warning hr {
   border-top-color: #f7e1b5;
@@ -4678,7 +4678,7 @@ a.thumbnail.active {
 .media-body {
   display: table-cell;
   vertical-align: top;
-  white-space:nowrap;
+  word-break: nomal;
 }
 
 .media-middle {

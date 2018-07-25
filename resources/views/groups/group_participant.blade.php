@@ -86,7 +86,7 @@
         <div class="alert alert-warning">{{ $error }}</div>
     @endforeach
 @endif
-			<div class="mypage-title">Group Page</div>
+			<div class="mypage-title" style="font-weight:500">Group Page</div>
 			
 			<aside class="col-xs-5"> 
              <div class="panel panel-default"> 

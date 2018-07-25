@@ -32,6 +32,12 @@ a {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
+a1 {
+  color: #000;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
 a:hover, a:active, a:focus {
   color: #228896;
   outline: none;
@@ -3008,9 +3014,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   word-wrap: break-word;
   width: inherit;
   margin:0;
-  white-space: nowrap;   /*文字数が指定幅を超えた時に…と表示させる*/
-  overflow: hidden;
-  text-overflow: ellipsis;
+  
 }
 .panel-heading .panel-title {
   text-align: left;

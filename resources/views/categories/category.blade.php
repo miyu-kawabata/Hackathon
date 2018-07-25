@@ -123,7 +123,7 @@
 		    
 			    
 			    
-		    <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="cafeteria">カフェテリアでごはん</a></h2>
+		    <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a1 name="cafeteria">カフェテリアでごはん</a1></h2>
 		
 			<div class="gtco-section">
 				<div class="gtco-container">
@@ -164,7 +164,7 @@
 		
 			
 			
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="breaktime">休憩時間</a></h2>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a1 name="breaktime">休憩時間</a1></h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
@@ -202,7 +202,7 @@
 			    
 			    
     
-			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name="kataru">好きなモノについて語る会</a></h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a1 name="kataru">好きなモノについて語る会</a1></h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
@@ -236,7 +236,7 @@
 			</div>
 			
 			
-			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='nomikai'>飲み会</a></h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a1 name='nomikai'>飲み会</a1></h2>
 			<div class="gtco-section">
 				<div class="gtco-container">
 					<div class="row">
@@ -270,7 +270,7 @@
 			</div>
 			
 			
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='sports'>スポーツ</a></h2>
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a1 name='sports'>スポーツ</a1></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -306,7 +306,7 @@
 			
 		
 		
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='food'>グルメ</a></h2>
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a1 name='food'>グルメ</a1></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -341,7 +341,7 @@
 
 							
 
-	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='outdoor'>アウトドア</a></h2>
+	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a1 name='outdoor'>アウトドア</a1></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -374,7 +374,7 @@
 			</div>
 		</div>
 		
-			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='movie'>映画鑑賞</a></h2>
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a1 name='movie'>映画鑑賞</a1></h2>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -408,7 +408,7 @@
 		</div>
 		
 		
-		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a name='other'>その他</h2></a>
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><a1 name='other'>その他</h2></a1>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">

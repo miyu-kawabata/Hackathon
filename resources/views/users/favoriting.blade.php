@@ -91,7 +91,7 @@
 @endif
 
     @if($user->id == \Auth::user()->id)
-  <div class="mypage-title">My page</div>
+  <div class="mypage-title" style="font-weight:500">My page</div>
 @else
   <div class="mypage-title">{{ $user->nickname }}'s page</div>
 @endif
