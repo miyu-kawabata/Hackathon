@@ -311,7 +311,7 @@
                         @endif                
                 </div>
                 <div class ="col-xs-offset-1 col-xs-8">
-                	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 
+                	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">{{ $chat->created_at }}</span> 
                 	 @if (Auth::user()->id == $chat->user_id)
                     	{!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}

@@ -4678,6 +4678,7 @@ a.thumbnail.active {
 .media-body {
   display: table-cell;
   vertical-align: top;
+  white-space:nowrap;
 }
 
 .media-middle {
