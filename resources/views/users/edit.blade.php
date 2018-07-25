@@ -181,7 +181,7 @@
         
                  {!! Form::close() !!}
                  {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('アカウント削除', ['class' => 'btn btn-danger btn-xs']) !!}
+                        {!! Form::submit('アカウント削除', ['class' => 'btn btn-danger2 btn-xs']) !!}
                 　{!! Form::close() !!}
             
             
@@ -281,7 +281,7 @@
             {!! Form::close() !!}
             
             {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('アカウント削除', ['class' => 'btn btn-danger btn-xs']) !!}
+                        {!! Form::submit('アカウント削除', ['class' => 'btn btn-danger2 btn-xs']) !!}
             {!! Form::close() !!}
   @endif          
         </div>
@@ -330,7 +330,7 @@
                     {!! Form::label('category', 'アウトドア / ') !!}
                     
                     
-                    {!! Form::radio('category', '映画') !!}
+                    {!! Form::radio('category', '映画鑑賞') !!}
                     {!! Form::label('category', '映画鑑賞 / ') !!}
                     
                     

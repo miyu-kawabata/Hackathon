@@ -68,11 +68,9 @@ class UsersController extends Controller
         ]);
         
         if($request->file('file')){
-        
         Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
         $url = Cloudder::getResult()['url'];
         $filename = $request->file('file')->store('public/images');
-        
         }
         
         $hometown=[
@@ -204,14 +202,14 @@ class UsersController extends Controller
             'hometown'=>'required',
              'sex'=>'required'
         ]);
-        
+        $profile=Profile::find($id);
         if($request->file('file')){
         Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
         $url = Cloudder::getResult()['url'];
         $filename = $request->file('file')->store('public/images');
         $profile->avatar_filename = $url;
         }
-        $profile=Profile::find($id);
+        
         $profile->comment = $request->comment;
 
           $hometown=[

@@ -132,7 +132,7 @@
                 
                 
                 @if(is_null($profile))
-                <p class='z'>①同期に向けて自己紹介を入力しよう！EDITをクリック！</p>
+                <p class='z'>同期に向けて自己紹介を入力しよう！EDITをクリック！</p>
                 @endif
                 
                 
@@ -204,7 +204,7 @@
                     {!! Form::label('category', 'アウトドア / ') !!}
                     
                     
-                    {!! Form::radio('category', '映画') !!}
+                    {!! Form::radio('category', '映画鑑賞') !!}
                     {!! Form::label('category', '映画鑑賞 / ') !!}
                     
                     

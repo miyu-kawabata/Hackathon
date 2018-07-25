@@ -139,7 +139,7 @@
                     {!! Form::label('category', 'アウトドア / ') !!}
                     
                     
-                    {!! Form::radio('category', '映画') !!}
+                    {!! Form::radio('category', '映画鑑賞') !!}
                     {!! Form::label('category', '映画鑑賞 / ') !!}
                     
                     
@@ -231,7 +231,7 @@
                     {!! Form::label('category', 'アウトドア / ') !!}
                     
                     
-                    {!! Form::radio('category', '映画') !!}
+                    {!! Form::radio('category', '映画鑑賞') !!}
                     {!! Form::label('category', '映画鑑賞 / ') !!}
                     
                     

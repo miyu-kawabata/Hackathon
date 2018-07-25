@@ -88,7 +88,7 @@ class GroupsController extends Controller
           'place'=> 'max:50',
           
            ]);
-           
+           $group = new Group;
        if($request->file('file')){
         
         Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
@@ -98,7 +98,7 @@ class GroupsController extends Controller
         }
         
         $user = \Auth::user();
-        $group = new Group;
+        
         $group->groupname = $request->groupname;  
         $group->category = $request->category;
         $group->description = $request->description;
@@ -141,12 +141,12 @@ class GroupsController extends Controller
                 $group = Group::find($id);
                 
                 $this->validate($request, [
-            'groupname' => 'required|max:10',
+            'groupname' => 'required|max:20',
             'year' => 'required|max:191',
             'month' => 'required|max:191',
             'date' => 'required|max:191',
             'place' => 'required|max:191',
-            'description' => 'required|max:191',
+            'description' => 'max:191',
            
         ]);
         if($request->file('file')){

@@ -136,9 +136,9 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$cafeteria->id}}" class="blog-img">
 									 @if(isset($cafeteria->group_picture))
-                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $cafeteria->group_picture }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"  src="{{ $cafeteria->group_picture }}" alt="写真を挿入">
                                      @else
-                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/cafeteria.jpg') }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"   src="{{ asset('images/cafeteria.jpg') }}" alt="写真を挿入">
                                      @endif
                                      </a>
 									
@@ -175,9 +175,9 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$breaktime->id}}" class="blog-img">
 								     @if(isset($breaktime->group_picture))
-                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $breaktime->group_picture }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"  src="{{ $breaktime->group_picture }}" alt="写真を挿入">
                                      @else
-                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/Kyuukeizikann.jpg') }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"   src="{{ asset('images/Kyuukeizikann.jpg') }}" alt="写真を挿入">
                                      @endif
                                      </a>
 									<div class="desc">
@@ -213,9 +213,9 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$kataru->id}}" class="blog-img"> 
 									 @if(isset($kataru->group_picture))
-                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $kataru->group_picture }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"  src="{{ $kataru->group_picture }}" alt="写真を挿入">
                                      @else
-                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/kataru.jpg') }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"   src="{{ asset('images/kataru.jpg') }}" alt="写真を挿入">
                                      @endif</a>
 									<div class="desc">
 										<div class="description">
@@ -247,9 +247,9 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$nomikai->id}}" class="blog-img"> 
 									 @if(isset($nomikai->group_picture))
-                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $nomikai->group_picture }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"  src="{{ $nomikai->group_picture }}" alt="写真を挿入">
                                      @else
-                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/nomikai.jpg') }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"   src="{{ asset('images/nomikai.jpg') }}" alt="写真を挿入">
                                      @endif</a>
 									<div class="desc">
 										<div class="description">
@@ -281,9 +281,9 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$sport->id}}" class="blog-img"> 
 									 @if(isset($sport->group_picture))
-                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $sport->group_picture }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"  src="{{ $sport->group_picture }}" alt="写真を挿入">
                                      @else
-                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/sport.png') }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"   src="{{ asset('images/sport.png') }}" alt="写真を挿入">
                                      @endif</a>
 									<div class="desc">
 										<div class="description">
@@ -317,9 +317,9 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$food->id}}" class="blog-img">
 								    @if(isset($food->group_picture))
-                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $food->group_picture }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"  src="{{ $food->group_picture }}" alt="写真を挿入">
                                      @else
-                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/gurume.jpg') }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"   src="{{ asset('images/gurume.jpg') }}" alt="写真を挿入">
                                      @endif</a>
 									<div class="desc">
 										<div class="description">
@@ -352,9 +352,9 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$outdoor->id}}" class="blog-img">
 									 @if(isset($outdoor->group_picture))
-                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $outdoor->group_picture }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"  src="{{ $outdoor->group_picture }}" alt="写真を挿入">
                                      @else
-                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/outdoor.jpg') }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"   src="{{ asset('images/outdoor.jpg') }}" alt="写真を挿入">
                                      @endif</a>
 									<div class="desc">
 										<div class="description">
@@ -385,9 +385,9 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$movie->id}}" class="blog-img">
 									@if(isset($movie->group_picture))
-                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $movie->group_picture }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"  src="{{ $movie->group_picture }}" alt="写真を挿入">
                                      @else
-                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/sport.jpg') }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"   src="{{ asset('images/sport.jpg') }}" alt="写真を挿入">
                                      @endif</a>
 									<div class="desc">
 										<div class="description">
@@ -419,9 +419,9 @@
 								<div class="blog-entry">
 									<a href="/groups/{{$other->id}}" class="blog-img">
 									 @if(isset($other->group_picture))
-                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $other->group_picture }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"  src="{{ $other->group_picture }}" alt="写真を挿入">
                                      @else
-                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/other.jpg') }}" alt="写真を挿入">
+                                     <img class="media-object img-rounded img-responsive"   src="{{ asset('images/other.jpg') }}" alt="写真を挿入">
                                      @endif
                                      </a>
 									<div class="desc">
@@ -474,7 +474,7 @@
                     {!! Form::label('category', ' / アウトドア') !!}
                     {!! Form::radio('category', 'アウトドア') !!}
                     {!! Form::label('category', ' / 映画鑑賞') !!}
-                    {!! Form::radio('category', '映画') !!}
+                    {!! Form::radio('category', '映画鑑賞') !!}
                     {!! Form::label('category', ' / その他') !!}
                     {!! Form::radio('category', 'その他') !!}
                     

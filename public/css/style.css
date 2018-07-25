@@ -1200,11 +1200,19 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 
 .btn-danger {
+  
+  background: #d9534f;
+  color: #fff;
+  border: 2px solid #d9534f;
+}
+.btn-danger2 {
   margin-top: 50px;
   background: #d9534f;
   color: #fff;
   border: 2px solid #d9534f;
 }
+
+
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active {
   background: #d43f3a !important;
   border-color: #d43f3a !important;
@@ -3081,9 +3089,11 @@ tomo li ul{
 position: absolute;
 	top: 0px;
 	left: 30%;
+margin-bottom:20px;
 }
 tomo li ul li{
 	display: block;
+	
 }
 .sub-menu.theme-lakira a, .sub-menu.theme-lakira div, .sub-menu.theme-lakira li, .sub-menu.theme-lakira span, .sub-menu.theme-lakira ul {
     -webkit-box-sizing: border-box;

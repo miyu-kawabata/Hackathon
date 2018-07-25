@@ -312,9 +312,9 @@
                             <img class="joymiyu" src={{ asset('images/icon_default.jpg') }} alt="写真を挿入">
                         @endif                
                 </div>
-                <div class ="col-xs-offset-2 col-xs-8">
+                <div class ="col-xs-offset-1 col-xs-8">
                 	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 
-               		 	<p class="chat2">{!! nl2br(e($chat->chat)) !!}</p>
+               		 	<p class="chat2" style="position:absolute">{!! nl2br(e($chat->chat)) !!}</p>
                   	@if (Auth::user()->id == $chat->user_id)
                     	{!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}
