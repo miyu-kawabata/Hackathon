@@ -3008,6 +3008,9 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   word-wrap: break-word;
   width: inherit;
   margin:0;
+  white-space: nowrap;   /*文字数が指定幅を超えた時に…と表示させる*/
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .panel-heading .panel-title {
   text-align: left;

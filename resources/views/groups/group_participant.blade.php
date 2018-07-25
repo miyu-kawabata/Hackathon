@@ -262,9 +262,7 @@
                 	</div>
                	 	<div class ="col-xs-offset-3 col-xs-4" style="margin:0 padding:0 position:relative">
                       <p style="margin:0">{!! link_to_route('tanins.show',$participant->nickname, ['id' => $participant->id]) !!}</p>
-                      @if(isset($participant->profile->comment))
-                      {{ $participant->profile->comment }}
-                      @endif
+                 
                     @if (Auth::user()->id != $participant->id)
                         @if (Auth::user()->is_following($participant->id))
                         {!! Form::open(['route' => ['user.unfollow', $participant->id], 'method' => 'delete']) !!}
@@ -308,18 +306,19 @@
              	<div class ="joymiyu2 col-xs-2" style="padding:0">
              	    @if(isset($chat->user->profile->avatar_filename))
                 	<img class="joymiyu2" style="padding:0" src="{{ $chat->user->profile->avatar_filename }}" alt="写真を挿入">
-                                            @else()
+                                            @else
                             <img class="joymiyu" src={{ asset('images/icon_default.jpg') }} alt="写真を挿入">
                         @endif                
                 </div>
                 <div class ="col-xs-offset-1 col-xs-8">
                 	 {!! link_to_route('tanins.show', $chat->user->nickname, ['id' => $chat->user_id]) !!} <span class="text-muted">posted at {{ $chat->created_at }}</span> 
-               		 	<p class="chat2" style="position:absolute">{!! nl2br(e($chat->chat)) !!}</p>
-                  	@if (Auth::user()->id == $chat->user_id)
+                	 @if (Auth::user()->id == $chat->user_id)
                     	{!! Form::open(['route' => ['chats.destroy', $chat->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btna btn-danger btn-xs-1']) !!}
                     	{!! Form::close() !!}
                 	@endif
+               		 	<p class="chat2" style="position:absolute">{!! nl2br(e($chat->chat)) !!}</p>
+                  	
                	</div> 
               
              @endforeach 
