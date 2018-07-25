@@ -100,7 +100,7 @@
               <tomo>
                     <li style="font-weight:bold"><a href="#">CATEGORY LIST <span>◀</span></a>
                           <ul>
-                                <li><a href="#cafeteria">カフェテリアでご飯</a></li>
+                                <li><a href="#cafeteria">カフェテリアでごはん</a></li>
                                 <li><a href="#breaktime">休憩時間</a></li>
                                 <li><a href="#kataru">好きなモノについて語る会</a></li>
                                 <li><a href="#nomikai">飲み会</a></li>
