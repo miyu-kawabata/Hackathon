@@ -81,6 +81,7 @@ class GroupsController extends Controller
        $this->validate($request,[
           
           'groupname' => 'required|max:30',
+          'category' => 'required',
           'description'=> 'max:191',
           'year'=> 'required|max:50',
           'month'=> 'required|max:50',
@@ -141,6 +142,7 @@ class GroupsController extends Controller
                 $group = Group::find($id);
                 
                 $this->validate($request, [
+            'category' => 'required',
             'groupname' => 'required|max:30',
             'year' => 'required|max:191',
             'month' => 'required|max:191',
