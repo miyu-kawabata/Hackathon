@@ -9,12 +9,7 @@
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-	@if (count($errors) > 0)
-		<h2>そのユーザー名は既に使われています。</h2>
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-warning">{{ $error }}</div>
-    @endforeach
-@endif
+
             {!! Form::open(['route' => 'signup.post']) !!}
                 <div class="form-group">
                     {!! Form::label('nickname', 'Nickname') !!}
