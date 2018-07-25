@@ -67,10 +67,13 @@ class UsersController extends Controller
              'sex'=>'required'
         ]);
         
+        if($request->file('file')){
         
         Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
         $url = Cloudder::getResult()['url'];
         $filename = $request->file('file')->store('public/images');
+        
+        }
         
         $hometown=[
   '' =>  '都道府県を選択して下さい',
@@ -124,7 +127,7 @@ class UsersController extends Controller
   '48' => 'その他'
 ];
 
-        
+        if($request->file('file')){
         $request->user()->profile()->create([
             'sex'=>$request->sex,
             'hometown'=>$hometown[$request->hometown],
@@ -132,6 +135,19 @@ class UsersController extends Controller
             'comment' => $request->comment,
             'avatar_filename' => $url,
         ]);
+        }
+        else{
+        $request->user()->profile()->create([
+            'sex'=>$request->sex,
+            'hometown'=>$hometown[$request->hometown],
+            'hobbies'=>$request->hobbies,
+            'comment' => $request->comment,
+            
+        ]);
+        }
+        
+        
+        
             return redirect('/');
     }
     
@@ -188,12 +204,15 @@ class UsersController extends Controller
             'hometown'=>'required',
              'sex'=>'required'
         ]);
+        
+        if($request->file('file')){
         Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
         $url = Cloudder::getResult()['url'];
         $filename = $request->file('file')->store('public/images');
+        $profile->avatar_filename = $url;
+        }
         $profile=Profile::find($id);
         $profile->comment = $request->comment;
-        $profile->avatar_filename = $url;
 
           $hometown=[
   '' =>  '都道府県を選択して下さい',

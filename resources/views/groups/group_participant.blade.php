@@ -94,7 +94,27 @@
                     <h3 class="panel-title">{{ $group->groupname }}</h3> 
                 </div> 
                 <div class="panel-body"> 
-                 	<img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $group->group_picture }}" alt="写真を挿入">
+                 	@if(isset($group->group_picture))
+                    <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $group->group_picture }}" alt="写真を挿入">
+                    @elseif($group->category == "カフェテリア")
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/cafeteria.jpg') }}" alt="写真を挿入">
+                    @elseif($group->category=="休憩時間")
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/Kyuukeizikann.jpg') }}" alt="写真を挿入">
+                    @elseif($group->category=="おしゃべり")
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/kataru.jpg') }}" alt="写真を挿入">
+                    @elseif($group->category=="飲み会")
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/nomikai.jpg') }}" alt="写真を挿入">
+                    @elseif($group->category=="スポーツ")
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/sport.png') }}" alt="写真を挿入">
+                    @elseif($group->category=="グルメ")
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/gurume.jpg') }}" alt="写真を挿入">
+                    @elseif($group->category=="アウトドア")
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/outdoor.jpg') }}" alt="写真を挿入">
+                    @elseif($group->category=="映画鑑賞")
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/movie.jpg') }}" alt="写真を挿入">
+                    @elseif($group->category=="その他")
+                    <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/other.jpg') }}" alt="写真を挿入">
+                    @endif
                  </div>
                  <div class="group_profile">
 	        	 	<ul class ="group-description">
@@ -248,7 +268,7 @@
                     @if (Auth::user()->id != $participant->id)
                         @if (Auth::user()->is_following($participant->id))
                         {!! Form::open(['route' => ['user.unfollow', $participant->id], 'method' => 'delete']) !!}
-                            {!! Form::submit('Unfollow', ['class' => "square_btn1"]) !!}
+                            {!! Form::submit('Unfollow', ['class' => "square_btn2"]) !!}
                         {!! Form::close() !!}
                         @else
                         {!! Form::open(['route' => ['user.follow', $participant->id]]) !!}

@@ -238,7 +238,7 @@
                     {!! Form::radio('category', 'その他') !!}
                     {!! Form::label('category', 'その他 / ') !!}
                     
-                    </div>s
+                    </div>
             
             <div class="form-group">
                    {!! Form::label('category', '開催日時') !!} 
@@ -267,12 +267,13 @@
             
             <div class="form-group">
             {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
-            {!! Form::file('file',old('file'),['class' => 'form-control']) !!}
+            {!! Form::file('file',null,['class' => 'form-control']) !!}
             </div>
             
                {!! Form::submit ('SUBMIT',['class' =>'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+        
 
 
 	<p><a id="modal-close" class="button-link">閉じる</a></p>

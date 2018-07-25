@@ -177,7 +177,7 @@
 
 
        
-                 {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
+                 {!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}
         
                  {!! Form::close() !!}
                  {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
@@ -276,7 +276,7 @@
         
                
         
-                {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
+                {!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}
         
             {!! Form::close() !!}
             

@@ -1200,6 +1200,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 
 .btn-danger {
+  margin-top: 50px;
   background: #d9534f;
   color: #fff;
   border: 2px solid #d9534f;
@@ -1248,6 +1249,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
   border-radius: 7px;
+  background-color: white !important;
 }
 .form-control:active, .form-control:focus {
   outline: none;
@@ -2724,7 +2726,23 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   position:absolute;
   right:30px;
   top:30px;
-
+}
+.square_btn3{
+  font-size:15px;
+  margin-top: 0px;
+  margin-left:300px;
+  padding:0px;
+    display: inline-block;
+    padding: 5px 15px;
+	border-radius: 25px;
+    text-decoration: none;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    background-image: linear-gradient(45deg, #63f66fe0 0%, #1ea8d1 100%);
+    transition: .4s;
+  position:absolute;
+  right:30px;
+  top:30px;
 }
 .square_btn1{
   font-size:10px;
@@ -2742,9 +2760,22 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   
 }
 
-.square_btn:hover {
-    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
-    background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+
+
+.square_btn2{
+  font-size:10px;
+  margin: 0px;
+  padding:0px;
+    display: inline-block;
+    padding: 0px 15px;
+	border-radius: 25px;
+    text-decoration: none;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+   background-image: linear-gradient(45deg, #63f66fe0 0%, #1ea8d1 100%);
+    transition: .4s;
+  position:absolute;
+  
 }
 
 

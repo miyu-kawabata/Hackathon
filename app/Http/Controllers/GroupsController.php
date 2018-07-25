@@ -89,9 +89,13 @@ class GroupsController extends Controller
           
            ]);
            
+       if($request->file('file')){
+        
         Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
-        $url = Cloudder::getResult()['url'];   
+        $url = Cloudder::getResult()['url'];
         $filename = $request->file('file')->store('public/images');
+        $group->group_picture = $url;
+        }
         
         $user = \Auth::user();
         $group = new Group;
@@ -103,7 +107,7 @@ class GroupsController extends Controller
         $group->place = $request->place;
         $group->date = $request->date;
         $group->organizer_id = $user->id;
-        $group->group_picture = $url;
+        
         $group->save();
         
         \Auth::user()->join($group->id);
@@ -145,10 +149,13 @@ class GroupsController extends Controller
             'description' => 'required|max:191',
            
         ]);
+        if($request->file('file')){
+        
         Cloudder::upload($request->file('file'), null, ['folder' => "app/pictures"]);
         $url = Cloudder::getResult()['url'];
         $filename = $request->file('file')->store('public/images');
-        
+        $group->group_picture = $url;
+        }
         $user = \Auth::user();
         $group->groupname = $request->groupname;
         $group->category = $request->category;
@@ -158,7 +165,6 @@ class GroupsController extends Controller
         $group->place = $request->place;
         $group->description = $request->description;
         $group->organizer_id = $user->id;
-        $group->group_picture = $url;
         $group->save();
         
         $participants = $group->user_participants() -> paginate(10);

@@ -134,7 +134,14 @@
 							@foreach($cafeterias as $cafeteria)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$cafeteria->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $cafeteria->group_picture }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$cafeteria->id}}" class="blog-img">
+									 @if(isset($cafeteria->group_picture))
+                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $cafeteria->group_picture }}" alt="写真を挿入">
+                                     @else
+                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/cafeteria.jpg') }}" alt="写真を挿入">
+                                     @endif
+                                     </a>
+									
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $cafeteria->groupname, ['id' => $cafeteria->id])!!}</h2>
@@ -166,7 +173,13 @@
 							@foreach($breaktimes as $breaktime)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$breaktime->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $breaktime->group_picture }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$breaktime->id}}" class="blog-img">
+								     @if(isset($breaktime->group_picture))
+                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $breaktime->group_picture }}" alt="写真を挿入">
+                                     @else
+                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/Kyuukeizikann.jpg') }}" alt="写真を挿入">
+                                     @endif
+                                     </a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $breaktime->groupname, ['id' => $breaktime->id])!!}</h2>
@@ -198,7 +211,12 @@
 							@foreach($katarus as $kataru)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$kataru->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $kataru->group_picture }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$kataru->id}}" class="blog-img"> 
+									 @if(isset($kataru->group_picture))
+                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $kataru->group_picture }}" alt="写真を挿入">
+                                     @else
+                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/kataru.jpg') }}" alt="写真を挿入">
+                                     @endif</a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $kataru->groupname, ['id' => $kataru->id])!!}</h2>
@@ -227,7 +245,12 @@
 							@foreach($nomikais as $nomikai)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$nomikai->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $nomikai->group_picture }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$nomikai->id}}" class="blog-img"> 
+									 @if(isset($nomikai->group_picture))
+                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $nomikai->group_picture }}" alt="写真を挿入">
+                                     @else
+                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/nomikai.jpg') }}" alt="写真を挿入">
+                                     @endif</a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $nomikai->groupname, ['id' => $nomikai->id])!!}</h2>
@@ -256,7 +279,12 @@
 							@foreach($sports as $sport)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$sport->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $sport->group_picture }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$sport->id}}" class="blog-img"> 
+									 @if(isset($sport->group_picture))
+                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $sport->group_picture }}" alt="写真を挿入">
+                                     @else
+                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/sport.png') }}" alt="写真を挿入">
+                                     @endif</a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $sport->groupname, ['id' => $sport->id])!!}</h2>
@@ -287,7 +315,12 @@
 							@foreach($foods as $food)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$food->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $food->group_picture }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$food->id}}" class="blog-img">
+								    @if(isset($food->group_picture))
+                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $food->group_picture }}" alt="写真を挿入">
+                                     @else
+                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/gurume.jpg') }}" alt="写真を挿入">
+                                     @endif</a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $food->groupname, ['id' => $food->id])!!}</h2>
@@ -317,7 +350,12 @@
 							@foreach($outdoors as $outdoor)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$outdoor->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $outdoor->group_picture }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$outdoor->id}}" class="blog-img">
+									 @if(isset($outdoor->group_picture))
+                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $outdoor->group_picture }}" alt="写真を挿入">
+                                     @else
+                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/outdoor.jpg') }}" alt="写真を挿入">
+                                     @endif</a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $outdoor->groupname, ['id' => $outdoor->id])!!}</h2>
@@ -345,7 +383,12 @@
 							@foreach($movies as $movie)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$movie->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $movie->group_picture }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$movie->id}}" class="blog-img">
+									@if(isset($movie->group_picture))
+                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $movie->group_picture }}" alt="写真を挿入">
+                                     @else
+                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/sport.jpg') }}" alt="写真を挿入">
+                                     @endif</a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $movie->groupname, ['id' => $movie->id])!!}</h2>
@@ -374,7 +417,13 @@
 							@foreach($others as $other)
 							<div class="item">
 								<div class="blog-entry">
-									<a href="/groups/{{$other->id}}" class="blog-img"><img class="media-object img-rounded img-responsive" src="{{ $other->group_picture }}" alt="写真を挿入"></a>
+									<a href="/groups/{{$other->id}}" class="blog-img">
+									 @if(isset($other->group_picture))
+                                     <img class="media-object img-rounded img-responsive" style="height:300px" src="{{ $other->group_picture }}" alt="写真を挿入">
+                                     @else
+                                     <img class="media-object img-rounded img-responsive"  style="height:300px" src="{{ asset('images/other.jpg') }}" alt="写真を挿入">
+                                     @endif
+                                     </a>
 									<div class="desc">
 										<div class="description">
 											<h2>{!! link_to_route('groups.show',  $other->groupname, ['id' => $other->id])!!}</h2>
